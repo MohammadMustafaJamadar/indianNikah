@@ -5,8 +5,8 @@ Name:{
 3.Login //completed
 4.Otp verify //completed
 5.Presonal Detials //progress by anas
-6.Family Information //completed
-7.Contact Information //progress by me
+6.Family Information //completed functionality bache
+7.Contact Information //completed functionality bache
 8.Other Informatio
 9.Photos
 }

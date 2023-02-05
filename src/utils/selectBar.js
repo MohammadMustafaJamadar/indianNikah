@@ -47,4 +47,14 @@ const maslakSlectBar = [
   { value: "Shia", label: "Shia" },
 ];
 
-export { countDown, biradariSlectBar, maslakSlectBar };
+const forSelf = [
+  {value:"Self",label:"Self"},
+  {value:"Parents",label:"Parents"},
+  {value:"Brother",label:"Brother"},
+  {value:"Sister",label:"Sister"},
+  {value:"Uncle(Mamu,Chacha)",label:"Uncle(Mamu,Chacha)"},
+  {value:"Relatives",label:"Self"},
+  {value:"Others",label:"Others"},
+]
+
+export { countDown, biradariSlectBar, maslakSlectBar, forSelf };
