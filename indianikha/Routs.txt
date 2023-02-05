@@ -1,0 +1,18 @@
+routes 
+
+Login: account/login/
+Otp:  account/login/verify/
+Profile Creation: profile/create/
+Profile Update: profile/update/
+Search: profile/
+Guiidlines: guidelines/r/
+Support:{jobSearch: support/post-query/?cat=job_search
+	scholership: support/post-query/?cat=scholership
+	accomodation: support/post-query/?cat=accomodation}
+
+My profile: profile/my-profile/
+Feedbacks: feedbacks/post-feedback/
+About us: about-us/
+New profile: profile/newly-added-profiles
+Categories: profile/profile-categories
+ 

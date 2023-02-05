@@ -1,0 +1,25 @@
+Profile Creation Page:
+Presonal Detials:[
+Bride/Groom FName aur SName ke saath,
+Gender: Male,Female
+Marital Status: Unmarried,Divorced,Awaiting Divorce,Khula,2nd marriage,Widow(Female),Widow(Male)
+Education:Aalim/Aalima,Below 10th,Doctor,Diploma,Engineer,Hafiz/Hafiza,Mufti,Post Graduate,Ph.D,10th Pass,12th Pass
+Height:4.0-7.0+
+Physical Status:Normal,Handicap
+Native Locations:
+{State: All Indian States,
+City : All City,}
+CheckBox agar click hai tu location native ke lelena aur curruent location hat jana
+Curruent Location:
+{Satates:All indina States,
+City:All city
+}]
+
+Family Information:[
+How many Brothers:0-10,
+How many married:0-10
+How many sisters:0-10,
+How many married:0-10,
+
+]
+ 

@@ -1,0 +1,29 @@
+Components:[
+Name:{
+1.HomePage
+2.My profile:Agar user detail hai tu ene details nahi mangna aur nahi hai tu details mangna{
+3.Login //completed
+4.Otp verify //completed
+5.Presonal Detials //progress by anas
+6.Family Information //completed
+7.Contact Information //progress by me
+8.Other Informatio
+9.Photos
+}
+10.Search
+11.Guidelines
+List of Support:{
+12.Job Support
+13.Scholership
+14.Accomodation
+}
+15.Feedbacks
+16.About us
+17.Categories
+18.New profile
+19.Document Services
+20.Edite profile
+21.Terms & Conditions
+22.Privacy Policy
+}
+]

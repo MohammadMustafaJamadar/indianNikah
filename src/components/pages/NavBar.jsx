@@ -23,6 +23,9 @@ export default function NavBAr() {
   const navigateUser_Profile = () =>{
     navigateUser("profile/my-profile/")
   }
+  const navigateUser_FamilyInfo = () => {
+    navigateUser("profile/create/")
+  }
 
   return (
     <>
@@ -45,6 +48,7 @@ export default function NavBAr() {
             <Button color="inherit" onClick={navigateUser_Home}>Home</Button>
             <Button color="inherit" onClick={navigateUser_Login}>Login</Button>
             <Button color="inherit" onClick={navigateUser_Profile}>My profile</Button>
+            <Button color="inherit" onClick={navigateUser_FamilyInfo}>Family Info</Button>
           </Toolbar>
         </AppBar>
       </Box>
