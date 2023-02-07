@@ -1,35 +1,45 @@
 import React from "react";
 import "../../css/style.css";
-import { Button } from "@mui/material";
+import { Button, Paper } from "@mui/material";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 
 import Grid from "@mui/material/Grid";
+import Carousel from "react-material-ui-carousel";
+
+import { carouselData, carouselIframe } from "../../utils/carouselData";
+
 const HomePage = () => {
+  console.log(carouselData);
   return (
-    <div className="conatiner">
+    <div className="home_conatiner">
       <div className="homepage">
-        <div>
+        <div
+          style={{
+            backgroundColor: "rgba(0,0,0,.3)",
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
           <strong>
             <h2 className="details">
               Free Indian Muslim Matrimony (Non-Profit)
             </h2>
           </strong>
-        </div>
-        <div className="buttons">
-          <Grid className="grid" container>
-            <Grid item></Grid>
-            <Grid item>
-              <Button variant="contained" className="search_profile">
-                {" "}
-                <SearchRoundedIcon />
-                search Profile{" "}
-              </Button>
-              <Button className="login" variant="contained">
-                <LoginOutlinedIcon /> Login
-              </Button>
-            </Grid>
-          </Grid>
+          <div className="button">
+            <Button variant="contained" className="search_profile">
+              {" "}
+              <SearchRoundedIcon />
+              search Profile{" "}
+            </Button>
+            <Button className="login" variant="contained">
+              <LoginOutlinedIcon /> Login
+            </Button>
+          </div>
         </div>
       </div>
       <div className="conatinter_2">
@@ -37,9 +47,8 @@ const HomePage = () => {
           <center>About IndiaNikah</center>
         </h1>
         <div className="contain_2">
-          <Grid container spacing={2} columns={12}>
-            <Grid md={2}></Grid>
-            <Grid item xs={12} md={4}>
+          <Grid container direction="row" columnSpacing={2} rowSpacing={2}>
+            <Grid item xs={12} md={6} lg={6} sm={12}>
               {" "}
               <div className="left">
                 <p>
@@ -72,23 +81,51 @@ const HomePage = () => {
                 </p>
               </div>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={6} lg={6} sm={12}>
               <div className="right">
                 <iframe
                   title="nikah.com"
-                  width="560"
+                  width="100%"
                   height="315"
                   src="https://www.youtube.com/embed/zw_FZ_pH-bk"
                   loading="lazy"
                   allowfullscreen
                 ></iframe>
-                <pre>
-                  How it works | Mobile App | Features | Marriage guidelines |
-                </pre>
-                <pre>Website in Hindi Urdu | Jobs (Watch in full screen)</pre>
+                <div className="iframe_text">
+                  <p>
+                    How it works | Mobile App | Features | Marriage guidelines |
+                  </p>
+                  <p>Website in Hindi Urdu | Jobs (Watch in full screen)</p>
+                </div>
               </div>
             </Grid>
-            <Grid></Grid>
+          </Grid>
+        </div>
+
+        <div className="container_3">
+          <h1 className="conatiner_3heading">
+            <center>Success Stories</center>
+          </h1>
+          <Grid container direction="row">
+            <Grid item xs={12} sm={12} md={2} lg={2}></Grid>
+            <Grid item xs={12} sm={12} md={8} lg={8}>
+              <Carousel>
+                {carouselData.map((data, i) => {
+                  return (
+                    <>
+                      <Paper className="carousel_items">
+                        <div className="iframes">{carouselIframe(data.id)}</div>
+                        <div className="data">
+                          <h1>{data.title}</h1>
+                          <pre>{data.discription}</pre>
+                        </div>
+                      </Paper>
+                    </>
+                  );
+                })}
+              </Carousel>
+            </Grid>
+            <Grid item xs={12} sm={12} md={2} lg={2}></Grid>
           </Grid>
         </div>
       </div>
