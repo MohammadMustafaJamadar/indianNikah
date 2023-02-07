@@ -41,8 +41,12 @@
 
 .details {
   font-family: Roboto sans-serif;
-  font-size: 200%;
+  font-size: 160%;
   color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  font-weight: 300;
+  letter-spacing: normal;
   
 }
 
@@ -50,10 +54,10 @@
 font-size: large;
   
 }
-.right {
+/* .right {
 height: 100%;
 width: 100%;
-}
+} */
 
 .contain_2{
     display: flex;
@@ -76,9 +80,3 @@ margin: top 2pz;
 }
 
 
-.carousel_items{
-      display: flex;
-    /* align-items: center;
-    justify-content: space-evenly; */
-   
-}

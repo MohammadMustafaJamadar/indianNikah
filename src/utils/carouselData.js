@@ -1,16 +1,16 @@
+
 const carouselIframe = (item) => {
   switch (item) {
     case 0:
       return (
         <>
+
           <iframe
             width="100%"
-            height="315"
+            height="245"
             src="https://www.youtube.com/embed/do0kj_a7dvA"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
           ></iframe>
         </>
       );
@@ -19,12 +19,10 @@ const carouselIframe = (item) => {
         <>
           <iframe
             width="100%"
-            height="315"
+            height="245"
             src="https://www.youtube.com/embed/iXgr8zsqLMM"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
           ></iframe>
         </>
       );
@@ -34,12 +32,10 @@ const carouselIframe = (item) => {
         <>
           <iframe
             width="100%"
-            height="315"
+            height="245"
             src="https://www.youtube.com/embed/n0NoXbHf-kc"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
           ></iframe>
         </>
       );
@@ -48,12 +44,10 @@ const carouselIframe = (item) => {
         <>
           <iframe
             width="100%"
-            height="315"
+            height="245"
             src="https://www.youtube.com/embed/lfUpLHnmtFw"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
           ></iframe>
         </>
       );
@@ -63,21 +57,17 @@ const carouselIframe = (item) => {
         <>
           <iframe
             width="100%"
-            height="315"
+            height="245"
             src="https://www.youtube.com/embed/0UhyS4W_Ddk"
             title="YouTube video player"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
           ></iframe>
         </>
       );
     default:
-      return <></>
-      
+      return <></>;
   }
 };
-
 
 const carouselData = [
   {
