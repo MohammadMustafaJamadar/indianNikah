@@ -7,7 +7,9 @@ import getStepContent from "../../utils/getstepcontain";
 
 
 
-export default function CreateProfile() {
+export default function CreateProfile(props) {
+  const {darkMode} = props;
+  console.log(darkMode)
   const [activestep, setActivesetp] = useState(2);
 
   const steps = [
