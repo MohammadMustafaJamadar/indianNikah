@@ -1,33 +1,38 @@
 import React from "react";
-import { Col, Row, Button, Typography, Card, Carousel } from "antd";
-import {
-  SearchOutlined,
-  LeftCircleOutlined,
-  RightCircleOutlined,
-} from "@ant-design/icons";
+import { Col, Row, Button, Typography, Card } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 import "../../css/style.css";
-// import graph from "../../photos/graph.png";
-// import img2 from "../../photos/img2.jpg";
-import img10 from "../../photos/img10.jpg";
+import img6 from "../../photos/img6.jpg";
 import { BiBookOpen } from "react-icons/bi";
+import { useNavigate,  } from "react-router-dom";
+import CarouselForHome from "../Home Components/CarouselForHome";
+import GuidelinesForHome from "../Home Components/GuidelinesForHome";
 
 const { Title, Text } = Typography;
 
-const contentStyle = {
-  height: "100%",
-  width: "100%",
-  lineHeight: "100%",
-  textAlign: "center",
-  alignItems: "center",
-};
-
 export default function HomePage(props) {
-  const {darkMode} = props;
+  const { darkMode } = props;
 
+  const navigateUser = useNavigate();
+
+  const navigate_Search = (event) => {
+    event.preventDefault();
+    navigateUser("profile/");
+  };
+
+  const navigate_Guideliness = (event) => {
+    event.preventDefault();
+    navigateUser("guidelines/r/");
+  };
 
   return (
     <>
-      <div className="homepage" style={{backgroundImage:`url(${img10})`}} >
+      <div className="homepage" style={{ backgroundImage: `url(${img6})` }}>
+      <div class="cube"></div>
+       <div class="cube"></div>
+       <div class="cube"></div>
+       <div class="cube"></div>
+      <div class="cube"></div>
         <Row
           style={{
             backgroundColor: "rgba(0,0,0,.3)",
@@ -40,7 +45,7 @@ export default function HomePage(props) {
           <Col xs={24} sm={24} md={4} lg={4}>
             {" "}
           </Col>
-          <Col xs={24} sm={24} md={16} lg={16} style={{}}>
+          <Col xs={24} sm={24} md={16} lg={16}>
             <center>
               <div
                 style={{
@@ -75,14 +80,12 @@ export default function HomePage(props) {
                   }}
                 >
                   <Button
+                    onClick={navigate_Search}
                     type="primary"
+                    htmlType={"submit"}
                     shape="round"
                     size="large"
-                    style={{
-                      backgroundColor: "#EACF54",
-                      color: "black",
-                      fontFamily: "Oswald",
-                    }}
+                    className="btn-1-search"
                   >
                     <SearchOutlined />
                     SEARCH PROFILE
@@ -92,11 +95,8 @@ export default function HomePage(props) {
                     type="primary"
                     shape="round"
                     size="large"
-                    style={{
-                      backgroundColor: "#E79311",
-                      color: "black",
-                      fontFamily: "Oswald",
-                    }}
+                    className="btn-2-guidliness"
+                    onClick={navigate_Guideliness}
                   >
                     <BiBookOpen style={{ marginBottom: "-2px" }} /> &nbsp;
                     MARRIAGE GUIDELINES
@@ -110,7 +110,7 @@ export default function HomePage(props) {
           </Col>
         </Row>
       </div>
-      <Row style={{backgroundColor:darkMode?"#121212" : "white",}}>
+      <Row style={{ backgroundColor: darkMode ? "#121212" : "white" }}>
         <br />
         <br /> <br />
         <Col
@@ -121,19 +121,22 @@ export default function HomePage(props) {
           style={{ textAlign: "center", marginTop: "10px" }}
         >
           <div>
-            <Title style={{ fontFamily: "Kaushan Script", color:darkMode?"white" : "black" }}>
+            <Title
+              className="about-text-section"
+              style={{
+                color: darkMode ? "white" : "black",
+              }}
+            >
               About Indian Nikah{" "}
             </Title>
           </div>
           <Row style={{ textAlign: "left" }}>
-            <Col xs={24} sm={24} md={1} lg={1}></Col>
-            <Col xs={24} sm={24} md={10} lg={10}>
+            <Col xs={24} sm={24} md={3} lg={3}></Col>
+            <Col xs={24} sm={24} md={8} lg={8}>
               <Text
+                className="about-discription-1"
                 style={{
-                  fontFamily: "Oswald",
-                  fontSize: "18px",
-                  lineHeight: "1.2",
-                  color:darkMode?"white":"black"
+                  color: darkMode ? "white" : "#84817a",
                 }}
               >
                 India Nikah is India's 100% free matrimony/shaadi/rishta/rishtey
@@ -154,12 +157,7 @@ export default function HomePage(props) {
               </Text>
               <br />
               <Text
-                style={{
-                  fontFamily: "Oswald",
-                  color: "red",
-                  fontSize: "18px",
-                  lineHeight: "1.2",
-                }}
+              className="about-discription-2"
               >
                 Note - Paid marriage bureaus/agents/brokers are not allowed to
                 use this site. We do not do profile background verification We
@@ -170,8 +168,21 @@ export default function HomePage(props) {
             <Col xs={24} sm={24} md={1} lg={1}>
               {" "}
             </Col>
-            <Col xs={24} sm={24} md={10} lg={10}>
-              <Card hoverable style={{ width: "100%" }}>
+            <Col xs={24} sm={24} md={8} lg={8}>
+              <Card
+              className="cards-in-animation "
+                hoverable
+                style={{
+                  width: "100%",
+                  boxShadow: ` 1.6px 0px 21.2px rgba(0, 0, 0, 0.038),
+                  3.4px 0px 43.9px rgba(0, 0, 0, 0.042),
+                  5.8px 0px 68.5px rgba(0, 0, 0, 0.047),
+                  9.4px 0px 94.9px rgba(0, 0, 0, 0.053),
+                  16.5px 0px 121.4px rgba(0, 0, 0, 0.061),
+                  41px 0px 143px rgba(0,0,0,0.07)
+              `,
+                }}
+              >
                 <iframe
                   width="100%"
                   height="260px"
@@ -180,118 +191,31 @@ export default function HomePage(props) {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 ></iframe>
               </Card>
+              <br />
+              <br />
               <Text
                 style={{
-                  fontFamily: "Oswald",
-                  color: "gray",
+                  fontFamily: "roboto,sans-serif",
                   fontSize: "16px",
                   lineHeight: "1.2",
-                  color:darkMode?"white":"black"
+                  color: darkMode ? "white" : "#84817a",
                 }}
               >
                 How it works | Mobile App | Features | Marriage guidelines |
                 Website in Hindi Urdu | Jobs (Watch in full screen)
               </Text>
+              <br />
+              <br />
             </Col>
-            <Col xs={24} sm={24} md={1} lg={1}></Col>
+            <Col xs={24} sm={24} md={3} lg={3}></Col>
           </Row>
         </Col>
+        <br />
       </Row>
-      <Row
-        style={{
-          background: darkMode? "#121212" :
-            "linear-gradient(332deg, RGB(231, 132, 134)  21%, RGB(223, 64, 103)  83%)",
-        }}
-      >
-        <Col xs={24} sm={24} md={4} lg={4}></Col>
-        <Col xs={24} sm={24} md={16} lg={16}>
-          <Title
-            style={{
-              textAlign: "center",
-              fontFamily: "Kaushan Script",
-              marginTop: "25px",
-              color: darkMode ? "white" : "black"
-            }}
-          >
-            Success Stories
-          </Title>
-          <br />
-          <Row>
-            <Col xs={24} sm={24} md={2} lg={2}></Col>
-            <Col xs={24} sm={24} md={18} lg={18}>
-              <Carousel
-                dots={true}
-                pauseOnHover={true}
-                pauseOnDotsHover={true}
-                effect="fade"
-                draggable
-              >
-                <div style={contentStyle}>
-                <Card hoverable={true}>
-                    <Row>
-                      <Col xs={24} sm={24} md={12} lg={12}>
-                  
-                      <iframe
-                          width="100%"
-                          height="245"
-                          src="https://www.youtube.com/embed/do0kj_a7dvA"
-                          title="YouTube video player"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        ></iframe>
-                      
-                      </Col>
-                      <Col xs={24} sm={24} md={12} lg={12}>
-                        {/* <Text>Hello Mj</Text> */}
-                      </Col>
-                    </Row>
-                    </Card>
-                 
-                </div>
-                <div style={contentStyle}>
-                  <iframe
-                    width="100%"
-                    height="245"
-                    src="https://www.youtube.com/embed/iXgr8zsqLMM"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  ></iframe>
-                </div>
-                <div style={contentStyle}>
-                  <iframe
-                    width="100%"
-                    height="245"
-                    src="https://www.youtube.com/embed/n0NoXbHf-kc"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  ></iframe>
-                </div>
-                <div style={contentStyle}>
-                  <iframe
-                    width="100%"
-                    height="245"
-                    src="https://www.youtube.com/embed/lfUpLHnmtFw"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  ></iframe>
-                </div>
-                <div style={contentStyle}>
-                  <iframe
-                    width="100%"
-                    height="245"
-                    src="https://www.youtube.com/embed/0UhyS4W_Ddk"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  ></iframe>
-                </div>
-              </Carousel>
-            </Col>
-            <Col xs={24} sm={24} md={2} lg={2}></Col>
-          </Row>
-        </Col>
-        <Col xs={24} sm={24} md={4} lg={4}>
-          {" "}
-        </Col>
-      </Row>
+
+      <GuidelinesForHome />
+      <br />
+      <CarouselForHome darkMode={darkMode} />
     </>
   );
 }

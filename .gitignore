@@ -6,6 +6,7 @@
 .pnp.js
 *.rar
 src/photos
+src/images
 # testing
 /coverage
 
