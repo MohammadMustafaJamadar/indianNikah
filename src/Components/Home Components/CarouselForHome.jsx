@@ -1,8 +1,7 @@
 import React from 'react'
-import { Col, Row,  Typography, Card, Carousel } from "antd";
+import { Col, Row,  Typography, Card, Carousel,  } from "antd";
 import "../../css/style.css"
-import { VscRunBelow } from "react-icons/vsc";
-
+import {PlayCircleOutlined} from '@ant-design/icons';
 
 const { Title, Text } = Typography;
 
@@ -19,13 +18,9 @@ export default function CarouselForHome(props) {
   return (
     <>
       <Row
-        style={{
-          background: darkMode
-            // ? "#121212"
-            // : "linear-gradient(332deg,  #EACF54  21%, #E79311  83%)",
-        }}
+      justify="center"
        >
-        <Col xs={24} sm={24} md={4} lg={4}></Col>
+
         <Col xs={24} sm={24} md={16} lg={16}>
           <div
             style={{
@@ -46,12 +41,11 @@ export default function CarouselForHome(props) {
               <hr style={{ width: "50%" }} />
             </Title>
             <Text style={{ textAlign: "center", fontFamily: "Source Code Pro, monospace" }}>
-             <VscRunBelow style={{marginBottom:"-2px"}}/>Below are few of our success stories Alhamdulillah
+             <PlayCircleOutlined style={{marginBottom:"-2px"}}/>Below are few of our success stories Alhamdulillah
             </Text>
           </div>
           <br />
-          <Row>
-            <Col xs={24} sm={24} md={2} lg={2}></Col>
+          <Row justify="center">
             <Col xs={24} sm={24} md={18} lg={18}>
               <Carousel 
               className="cards-in-animation "
@@ -127,11 +121,7 @@ export default function CarouselForHome(props) {
               </Carousel>
               <br /> <br />
             </Col>
-            <Col xs={24} sm={24} md={2} lg={2}></Col>
           </Row>
-        </Col>
-        <Col xs={24} sm={24} md={4} lg={4}>
-          {" "}
         </Col>
       </Row>
     </>

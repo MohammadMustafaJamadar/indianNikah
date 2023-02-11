@@ -1,10 +1,10 @@
 import React from "react";
-// import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Drawer, Button, Layout, Typography, Switch   } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { GiHamburgerMenu } from "react-icons/gi";
-import img8 from "../../photos/img8.png";
+import { MenuOutlined } from '@ant-design/icons';
+
+
 
 const {Text, Title } = Typography;
 
@@ -23,6 +23,7 @@ export default function NavBar(props) {
   };
 
   const handelDarMode = (event) => {
+    event.preventDefault();
     if(darkMode === false) {
       setDarkMode(true)
     }else{
@@ -63,7 +64,7 @@ export default function NavBar(props) {
               type="primary"
               onClick={openNav}
             >
-              <GiHamburgerMenu />
+              <MenuOutlined />
             </Button> 
             <Text strong style={{color:darkMode ? "white" : "black"}} >India Nikah</Text>
 

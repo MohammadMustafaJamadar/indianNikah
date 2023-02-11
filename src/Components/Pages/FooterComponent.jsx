@@ -1,14 +1,19 @@
-import { AiOutlineStar, AiOutlineMail } from "react-icons/ai";
-import { BiShareAlt, BiLockAlt } from "react-icons/bi";
-import { GoLocation } from "react-icons/go";
-import { AiOutlineUser } from "react-icons/ai";
-import { TbBrandTelegram } from "react-icons/tb";
-import { IoLogoFacebook } from "react-icons/io";
-import { BsWhatsapp } from "react-icons/bs";
-import { FiYoutube } from "react-icons/fi";
-import { SiGoogle } from "react-icons/si";
-import { BsSearch, BsBook } from "react-icons/bs";
-import { RiPencilLine } from "react-icons/ri";
+import {
+  WhatsAppOutlined,
+  FacebookOutlined,
+  YoutubeOutlined,
+  GoogleOutlined,
+  SendOutlined,
+  EnvironmentOutlined,
+  MailOutlined,
+  LockOutlined,
+  UserAddOutlined,
+  SearchOutlined,
+  ReadOutlined,
+  StarOutlined,
+  ShareAltOutlined,
+  FileProtectOutlined
+} from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import logo from "../../images/indiaNikhah.png";
 import { Button, Col, Row } from "antd";
@@ -22,12 +27,13 @@ export default function FooterComponent() {
   return (
     <>
       <div
-        style={{
-          // backgroundColor: "#E79311",
-        }}
+        style={
+          {
+            // backgroundColor: "#E79311",
+          }
+        }
       >
-        <Row>
-          <Col xs={24} sm={24} md={8} lg={8}></Col>
+        <Row justify="center">
           <Col
             xs={24}
             sm={24}
@@ -43,47 +49,41 @@ export default function FooterComponent() {
               Total 309 Users found there partner yet
             </Title>
             <br />
-            <div className="bounce-top">
-            <Button
-              type="primary"
-              className="btn-3-rating"
-           
-              size="medium"
-            >
-              <Text style={{fontFamily:"Oswald", width:"auto" , height:"auto"}}>
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <AiOutlineStar />
-              <br />
-              RATE US ON GOOGLE
-              </Text>
-            </Button>
-            &nbsp; &nbsp;
-            <Button
-              size="medium"
-              type="primary"
-              className="btn-4-share "
-            
-            >
-              <Text style={{fontFamily:"Oswald"}}>
-              <BiShareAlt />
-              <br />
-              SHARE THIS WEBSITE
-              </Text>
-            </Button>
+            <div className="rateus-share-div">
+              <Button type="primary" className="btn-3-rating" size="medium">
+                <Text
+                  style={{
+                    fontFamily: "Oswald",
+                    width: "auto",
+                    height: "auto",
+                  }}
+                >
+                  < StarOutlined />
+                  < StarOutlined />
+                  < StarOutlined />
+                  < StarOutlined />
+                  < StarOutlined />
+                  <br />
+                  RATE US ON GOOGLE
+                </Text>
+              </Button>
+              &nbsp; &nbsp;
+              <Button size="medium" type="primary" className="btn-4-share ">
+                <Text style={{ fontFamily: "Oswald" }}>
+                <ShareAltOutlined />
+                  <br />
+                  SHARE THIS WEBSITE
+                </Text>
+              </Button>
             </div>
           </Col>
-          <Col xs={24} sm={24} md={8} lg={8}></Col>
         </Row>
         <br />
         <br />
       </div>
 
       <div style={{ backgroundColor: "#EACF54" }}>
-        <Row>
-          <Col xs={24} sm={24} md={8} lg={8}></Col>
+        <Row justify="center">
           <Col
             xs={24}
             sm={24}
@@ -120,19 +120,16 @@ export default function FooterComponent() {
             </div>
             <br />
           </Col>
-          <Col xs={24} sm={24} md={8} lg={8}></Col>
         </Row>
       </div>
       <div className="footer">
-        <Row>
-          <Col xs={24} sm={24} md={2} lg={2}></Col>
+        <Row justify="center">
           <Col xs={24} sm={24} md={8} lg={8}>
             <center>
               <img
                 src={logo}
-                style={{
-                  width: "50%",
-                }}
+                width="50%"
+                height="auto"
                 alt="logo"
               />
               <hr
@@ -177,7 +174,7 @@ export default function FooterComponent() {
                 <li>
                   <Link aria-current="page" to="/profile">
                     <Text style={{ fontFamily: "Oswald" }}>
-                      <AiOutlineUser /> &nbsp; My Profile{" "}
+                    <UserAddOutlined /> &nbsp; My Profile{" "}
                     </Text>
                   </Link>
                 </li>
@@ -185,14 +182,14 @@ export default function FooterComponent() {
                   <Link aria-current="page" to="/searchprofile">
                     <Text style={{ fontFamily: "Oswald", color: "black" }}>
                       {" "}
-                      &nbsp; <BsSearch /> Search Profiles{" "}
+                      <SearchOutlined />&nbsp;  Search Profiles{" "}
                     </Text>
                   </Link>
                 </li>
                 <li>
                   <Link aria-current="page" to="guidelines/r/">
                     <Text style={{ fontFamily: "Oswald" }}>
-                      <BsBook />
+                    <ReadOutlined />
                       &nbsp; Marriage Guidelines
                     </Text>
                   </Link>
@@ -200,7 +197,7 @@ export default function FooterComponent() {
                 <li>
                   <Link aria-current="page" to="/privacypolicy">
                     <Text style={{ fontFamily: "Oswald" }}>
-                      <BiLockAlt />
+                    <LockOutlined />
                       &nbsp; Privacy Policy
                     </Text>
                   </Link>
@@ -208,7 +205,7 @@ export default function FooterComponent() {
                 <li>
                   <Link aria-current="page" to="/termsandconditions">
                     <Text style={{ fontFamily: "Oswald" }}>
-                      <RiPencilLine />
+                    <FileProtectOutlined />
                       &nbsp; Terms & Conditions{" "}
                     </Text>
                   </Link>
@@ -235,14 +232,14 @@ export default function FooterComponent() {
                 </li>
                 <li>
                   <Text style={{ fontFamily: "Oswald" }}>
-                    <GoLocation />
+                  <EnvironmentOutlined />
                     &nbsp;Pune
                   </Text>
                 </li>
                 <li>
                   <a href="mailto:contact@indianikah.com">
                     <Text style={{ fontFamily: "Oswald" }}>
-                      <AiOutlineMail /> Contact@indianikah.com
+                    <MailOutlined /> Contact@indianikah.com
                     </Text>
                   </a>
                 </li>
@@ -252,32 +249,32 @@ export default function FooterComponent() {
                   }}
                 >
                   <a href="https://t.me/IndiaNikah" style={{ color: "black" }}>
-                    <TbBrandTelegram />
+                    <SendOutlined />
                   </a>
                   <a
                     href="https://wa.me/918482833177?text=Asslamu+alaikum"
                     style={{ color: "black" }}
                   >
-                    <BsWhatsapp />
+                    <WhatsAppOutlined />
                   </a>
                   <a
                     href="https://facebook.com/IndiaNikah"
                     style={{ color: "black" }}
                   >
-                    <IoLogoFacebook />
+                    <FacebookOutlined />
                   </a>
                   <a
                     href="https://www.indianikah.com/"
                     style={{ color: "black" }}
                   >
-                    <SiGoogle />
+                    <GoogleOutlined />
                   </a>
                   &nbsp;
                   <a
                     href="https://www.youtube.com/c/IndiaNikah"
                     style={{ color: "black" }}
                   >
-                    <FiYoutube />
+                    <YoutubeOutlined />
                   </a>
                 </li>
 
@@ -289,16 +286,17 @@ export default function FooterComponent() {
               </ul>
             </div>
           </Col>
-          <Col xs={24} sm={24} md={2} lg={2}></Col>
         </Row>
-        <Row>
-          <Col xs={24} sm={24} md={10} lg={10}></Col>
-
-          <Col xs={24} sm={24} md={4} lg={4} style={{ marginTop: "10px", textAlign:"center", }}>
+        <Row justify="center">
+          <Col
+            xs={24}
+            sm={24}
+            md={4}
+            lg={4}
+            style={{ marginTop: "10px", textAlign: "center" }}
+          >
             <Text>© 2022 Copyright : www.indianikah.com</Text>
           </Col>
-
-          <Col xs={24} sm={24} md={10} lg={10}></Col>
         </Row>
       </div>
     </>

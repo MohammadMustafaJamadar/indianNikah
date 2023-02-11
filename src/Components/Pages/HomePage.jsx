@@ -1,9 +1,8 @@
 import React from "react";
 import { Col, Row, Button, Typography, Card } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined, ReadOutlined } from "@ant-design/icons";
 import "../../css/style.css";
 import img6 from "../../photos/img6.jpg";
-import { BiBookOpen } from "react-icons/bi";
 import { useNavigate,  } from "react-router-dom";
 import CarouselForHome from "../Home Components/CarouselForHome";
 import GuidelinesForHome from "../Home Components/GuidelinesForHome";
@@ -28,11 +27,11 @@ export default function HomePage(props) {
   return (
     <>
       <div className="homepage" style={{ backgroundImage: `url(${img6})` }}>
-      <div class="cube"></div>
-       <div class="cube"></div>
-       <div class="cube"></div>
-       <div class="cube"></div>
-      <div class="cube"></div>
+      <div className="cube"></div>
+       <div className="cube"></div>
+       <div className="cube"></div>
+       <div className="cube"></div>
+      <div className="cube"></div>
         <Row
           style={{
             backgroundColor: "rgba(0,0,0,.3)",
@@ -41,10 +40,8 @@ export default function HomePage(props) {
             justifyContent: "center",
             alignItems: "center",
           }}
-        >
-          <Col xs={24} sm={24} md={4} lg={4}>
-            {" "}
-          </Col>
+          justify="center"
+         >
           <Col xs={24} sm={24} md={16} lg={16}>
             <center>
               <div
@@ -77,8 +74,9 @@ export default function HomePage(props) {
                     textAlign: "center",
                     alignItems: "center",
                     justifyContent: "center",
+                    display:"flex"
                   }}
-                >
+                 >
                   <Button
                     onClick={navigate_Search}
                     type="primary"
@@ -98,19 +96,16 @@ export default function HomePage(props) {
                     className="btn-2-guidliness"
                     onClick={navigate_Guideliness}
                   >
-                    <BiBookOpen style={{ marginBottom: "-2px" }} /> &nbsp;
+                    <ReadOutlined style={{ marginBottom: "-2px" }} /> &nbsp;
                     MARRIAGE GUIDELINES
                   </Button>
                 </div>
               </div>
             </center>
           </Col>
-          <Col xs={24} sm={24} md={4} lg={4}>
-            {" "}
-          </Col>
         </Row>
       </div>
-      <Row style={{ backgroundColor: darkMode ? "#121212" : "white" }}>
+      <Row justify="center" style={{ backgroundColor: darkMode ? "#121212" : "white" }}>
         <br />
         <br /> <br />
         <Col
@@ -130,8 +125,8 @@ export default function HomePage(props) {
               About Indian Nikah{" "}
             </Title>
           </div>
-          <Row style={{ textAlign: "left" }}>
-            <Col xs={24} sm={24} md={3} lg={3}></Col>
+          <Row  justify="center" style={{ textAlign: "left" }}>
+          
             <Col xs={24} sm={24} md={8} lg={8}>
               <Text
                 className="about-discription-1"
@@ -207,7 +202,7 @@ export default function HomePage(props) {
               <br />
               <br />
             </Col>
-            <Col xs={24} sm={24} md={3} lg={3}></Col>
+        
           </Row>
         </Col>
         <br />
