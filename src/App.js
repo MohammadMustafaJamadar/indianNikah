@@ -18,7 +18,7 @@ function App() {
       <Route element={<MarraigeGuideliness/>} path="guidelines/r/"></Route>
       <Route element={<SearchPage/>} path="/profile/"></Route>
     </Routes>
-   <FooterComponent/>
+   <FooterComponent darkMode={darkMode}/>
    </Router>
  
    </>

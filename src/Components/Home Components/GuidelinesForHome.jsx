@@ -1,15 +1,22 @@
 import React from "react";
-import { Col, Row, Button, Typography, Card,  } from "antd";
+import { Col, Row, Button, Typography, Card } from "antd";
 import { Link } from "react-router-dom";
-import { TeamOutlined, InfoCircleOutlined, ReadOutlined, EllipsisOutlined } from '@ant-design/icons';
+import {
+  TeamOutlined,
+  InfoCircleOutlined,
+  ReadOutlined,
+  EllipsisOutlined,
+} from "@ant-design/icons";
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
 
-export default function GuidelinesForHome() {
+export default function GuidelinesForHome(props) {
+  const { darkMode } = props;
+
   return (
     <>
-      <Row style={{ backgroundColor: "white" }}>
+      <Row style={{ backgroundColor: darkMode ? "#16395A" : "white" }}>
         <Col xs={24} sm={24} md={24} lg={24}>
           {" "}
           <div
@@ -19,8 +26,15 @@ export default function GuidelinesForHome() {
               justifyContent: "center",
             }}
           >
-            <Title level={3} style={{ fontFamily: "kaushan script" }}>
-              <InfoCircleOutlined  style={{marginBottom:"-5px"}} /> Marriage Guidelines
+            <Title
+              level={3}
+              style={{
+                fontFamily: "kaushan script",
+                color: darkMode ? "white" : "black",
+              }}
+            >
+              <InfoCircleOutlined style={{ marginBottom: "-5px" }} /> Marriage
+              Guidelines
               <hr style={{ width: "15%" }} />
             </Title>
           </div>
@@ -31,8 +45,13 @@ export default function GuidelinesForHome() {
               justifyContent: "center",
             }}
           >
-            <Text style={{ fontFamily: "Source Code Pro, monospace" }}>
-              <TeamOutlined  style={{marginBottom:"-2px"}}/>
+            <Text
+              style={{
+                fontFamily: "Source Code Pro, monospace",
+                color: darkMode ? "white" : "black",
+              }}
+            >
+              <TeamOutlined style={{ marginBottom: "-2px" }} />
               Total 56289 users visited this page
             </Text>
             <br />
@@ -40,7 +59,10 @@ export default function GuidelinesForHome() {
           </div>
         </Col>
       </Row>
-      <Row justify="center">
+      <Row
+        justify="center"
+        style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
+      >
         <Col xs={24} sm={24} md={20} lg={20}>
           <Row
             justify="space-around"
@@ -49,10 +71,10 @@ export default function GuidelinesForHome() {
           >
             <Col xs={24} securitym={24} md={4} lg={4}>
               <Card
-              className="cards-in-animation "
+                className="cards-in-animation "
                 cover={
                   <iframe
-                  className="iframe-card-guidline"
+                    className="iframe-card-guidline"
                     height="100%"
                     src="https://www.youtube.com/embed/4T3W0J0n0S8"
                     title="YouTube video player"
@@ -61,7 +83,7 @@ export default function GuidelinesForHome() {
                 }
                 actions={[
                   <Link aria-current="page" to="/guidelines/r/">
-                    View more <EllipsisOutlined className="react-dots-icons"/>
+                    View more <EllipsisOutlined className="react-dots-icons" />
                   </Link>,
                 ]}
                 title="Rishtey kyun nahi hore?"
@@ -73,13 +95,14 @@ export default function GuidelinesForHome() {
                   description=" रिश्ते बहोत है पर ?"
                 ></Meta>
               </Card>
+              <br />
             </Col>
             <Col xs={24} securitym={24} md={4} lg={4}>
               <Card
-              className="cards-in-animation "
+                className="cards-in-animation "
                 cover={
                   <iframe
-                   className="iframe-card-guidline"
+                    className="iframe-card-guidline"
                     height="100%"
                     src="https://www.youtube.com/embed/pLvJlJ-f37A"
                     title="YouTube video player"
@@ -100,13 +123,14 @@ export default function GuidelinesForHome() {
                   description="देर से शादी करने के नुक्सान ?"
                 ></Meta>
               </Card>
+              <br />
             </Col>
             <Col xs={24} securitym={24} md={4} lg={4}>
               <Card
-              className="cards-in-animation "
+                className="cards-in-animation "
                 cover={
                   <iframe
-                  className="iframe-card-guidline"
+                    className="iframe-card-guidline"
                     height="100%"
                     src="https://www.youtube.com/embed/LZvaV5UpPfM"
                     title="YouTube video player"
@@ -127,13 +151,14 @@ export default function GuidelinesForHome() {
                   description="तोहफा दुल्हा"
                 ></Meta>
               </Card>
+              <br />
             </Col>
             <Col xs={24} securitym={24} md={4} lg={4}>
               <Card
-              className="cards-in-animation "
+                className="cards-in-animation "
                 cover={
                   <iframe
-                  className="iframe-card-guidline"
+                    className="iframe-card-guidline"
                     height="100%"
                     src="https://www.youtube.com/embed/x3X1SDo3K74"
                     title="YouTube video player"
@@ -154,6 +179,7 @@ export default function GuidelinesForHome() {
                   description="एक मुस्लिम अफसर का सवाल"
                 ></Meta>
               </Card>
+              <br />
             </Col>
           </Row>
           <Row>
@@ -183,6 +209,7 @@ export default function GuidelinesForHome() {
             </Col>
           </Row>
         </Col>
+        <br />
       </Row>
     </>
   );

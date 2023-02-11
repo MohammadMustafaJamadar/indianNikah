@@ -6,11 +6,14 @@ import img6 from "../../photos/img6.jpg";
 import { useNavigate,  } from "react-router-dom";
 import CarouselForHome from "../Home Components/CarouselForHome";
 import GuidelinesForHome from "../Home Components/GuidelinesForHome";
+import design from "../../images/design.png"
 
 const { Title, Text } = Typography;
 
 export default function HomePage(props) {
   const { darkMode } = props;
+
+console.log(darkMode)
 
   const navigateUser = useNavigate();
 
@@ -105,7 +108,7 @@ export default function HomePage(props) {
           </Col>
         </Row>
       </div>
-      <Row justify="center" style={{ backgroundColor: darkMode ? "#121212" : "white" }}>
+      <Row justify="center" style={{ backgroundColor: darkMode ? "#001F3D" : "white" }}>
         <br />
         <br /> <br />
         <Col
@@ -169,13 +172,6 @@ export default function HomePage(props) {
                 hoverable
                 style={{
                   width: "100%",
-                  boxShadow: ` 1.6px 0px 21.2px rgba(0, 0, 0, 0.038),
-                  3.4px 0px 43.9px rgba(0, 0, 0, 0.042),
-                  5.8px 0px 68.5px rgba(0, 0, 0, 0.047),
-                  9.4px 0px 94.9px rgba(0, 0, 0, 0.053),
-                  16.5px 0px 121.4px rgba(0, 0, 0, 0.061),
-                  41px 0px 143px rgba(0,0,0,0.07)
-              `,
                 }}
               >
                 <iframe
@@ -205,11 +201,11 @@ export default function HomePage(props) {
         
           </Row>
         </Col>
-        <br />
+        
       </Row>
 
-      <GuidelinesForHome />
-      <br />
+      <GuidelinesForHome darkMode={darkMode}/>
+
       <CarouselForHome darkMode={darkMode} />
     </>
   );

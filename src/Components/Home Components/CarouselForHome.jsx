@@ -1,7 +1,7 @@
-import React from 'react'
-import { Col, Row,  Typography, Card, Carousel,  } from "antd";
-import "../../css/style.css"
-import {PlayCircleOutlined} from '@ant-design/icons';
+import React from "react";
+import { Col, Row, Typography, Card, Carousel } from "antd";
+import "../../css/style.css";
+import { PlayCircleOutlined, CheckCircleOutlined } from "@ant-design/icons";
 
 const { Title, Text } = Typography;
 
@@ -18,9 +18,9 @@ export default function CarouselForHome(props) {
   return (
     <>
       <Row
-      justify="center"
-       >
-
+        justify="center"
+        style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
+      >
         <Col xs={24} sm={24} md={16} lg={16}>
           <div
             style={{
@@ -37,18 +37,25 @@ export default function CarouselForHome(props) {
                 color: darkMode ? "white" : "black",
               }}
             >
-              Success Stories
+             <CheckCircleOutlined /> Success Stories
               <hr style={{ width: "50%" }} />
             </Title>
-            <Text style={{ textAlign: "center", fontFamily: "Source Code Pro, monospace" }}>
-             <PlayCircleOutlined style={{marginBottom:"-2px"}}/>Below are few of our success stories Alhamdulillah
+            <Text
+              style={{
+                textAlign: "center",
+                fontFamily: "Source Code Pro, monospace",
+                color: darkMode ? "white" : "black",
+              }}
+            >
+              <PlayCircleOutlined style={{ marginBottom: "-2px" }} />
+              Below are few of our success stories Alhamdulillah
             </Text>
           </div>
           <br />
           <Row justify="center">
             <Col xs={24} sm={24} md={18} lg={18}>
-              <Carousel 
-              className="cards-in-animation "
+              <Carousel
+                className="cards-in-animation "
                 style={{
                   boxShadow: ` 1.6px 0px 21.2px rgba(0, 0, 0, 0.038),
               3.4px 0px 43.9px rgba(0, 0, 0, 0.042),
@@ -56,7 +63,7 @@ export default function CarouselForHome(props) {
               9.4px 0px 94.9px rgba(0, 0, 0, 0.053),
               16.5px 0px 121.4px rgba(0, 0, 0, 0.061),
               41px 0px 143px rgba(0,0,0,0.07)`,
-                }} 
+                }}
                 autoplay
                 dots={true}
                 pauseOnHover={true}
@@ -125,5 +132,5 @@ export default function CarouselForHome(props) {
         </Col>
       </Row>
     </>
-  )
+  );
 }
