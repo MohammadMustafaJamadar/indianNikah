@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import HomePage from './Components/Pages/HomePage';
-import NavBar from './Components/Pages/NavBar';
+import NavBar from './Components/Navbar components/NavBar';
 import { useState } from 'react';
 import FooterComponent from './Components/Pages/FooterComponent';
 import MarraigeGuideliness from './Components/Pages/MarraigeGuideliness';

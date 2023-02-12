@@ -6,7 +6,7 @@ import img6 from "../../photos/img6.jpg";
 import { useNavigate,  } from "react-router-dom";
 import CarouselForHome from "../Home Components/CarouselForHome";
 import GuidelinesForHome from "../Home Components/GuidelinesForHome";
-import design from "../../images/design.png"
+
 
 const { Title, Text } = Typography;
 
@@ -56,18 +56,14 @@ console.log(darkMode)
               >
                 <div>
                   <Title
-                    level={2}
+                    level={3}
                     style={{
-                      color: "black",
-                      textAlign: "center",
-                      fontFamily: "Kaushan Script",
-                      fontWeight: "bold",
-                      fontStyle: "italic",
-                      backgroundColor: "transparent",
+                  
                     }}
                     className="animate__animated animate__backInDown"
+                    id="heading-title"
                   >
-                    Welcome to Indian Nikah.com
+                    Free Indian Muslim Matrimony (Non-Profit)
                     <hr style={{ width: "20%" }} />
                   </Title>
                 </div>
@@ -85,7 +81,7 @@ console.log(darkMode)
                     type="primary"
                     htmlType={"submit"}
                     shape="round"
-                    size="large"
+                    size="medium"
                     className="btn-1-search"
                   >
                     <SearchOutlined />
@@ -95,7 +91,7 @@ console.log(darkMode)
                   <Button
                     type="primary"
                     shape="round"
-                    size="large"
+                    size="medium"
                     className="btn-2-guidliness"
                     onClick={navigate_Guideliness}
                   >
@@ -128,7 +124,7 @@ console.log(darkMode)
               About Indian Nikah{" "}
             </Title>
           </div>
-          <Row  justify="center" style={{ textAlign: "left" }}>
+          <Row  justify="center" className="discription-about-row">
           
             <Col xs={24} sm={24} md={8} lg={8}>
               <Text
