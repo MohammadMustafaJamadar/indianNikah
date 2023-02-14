@@ -1,17 +1,13 @@
-import React from "react";
-import { Button,  Switch, } from "antd";
+import React, { lazy, Suspense } from "react";
+import { Button, Switch } from "antd";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  MenuOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { MenuOutlined, UserOutlined } from "@ant-design/icons";
 import logo from "../../images/indiaNikhah.png";
 import "../../css/style.css";
-import DekstopNavbar from "./DekstopNavbar";
-import MobilNav from "./MobilNav";
-import   "../../css/navbar.css"
-
+import "../../css/navbar.css";
+const DekstopNavbar = lazy(() => import("./DekstopNavbar"));
+const MobilNav = lazy(() => import("./MobilNav"));
 
 export default function NavBar(props) {
   const { darkMode, setDarkMode } = props;
@@ -61,12 +57,30 @@ export default function NavBar(props) {
 
         <div style={{ width: "10%" }} className="nav-img-div">
           <Link aria-current="page" to="/">
-            <img src={logo} className="nav-logo-image" alt="No....!" />
+            <img
+              src={logo}
+              className="nav-logo-image"
+              alt="No....!"
+              loading="lazy"
+            />
           </Link>
           <div></div>
         </div>
         <div className="div-for-navdeck-links" style={{ width: "70%" }}>
-          <DekstopNavbar darkMode={darkMode} />
+          <Suspense>
+            <DekstopNavbar darkMode={darkMode} />
+          </Suspense>
+        </div>
+        <div style={{marginRight:"10px"}}>
+          <Button
+            type="primary"
+            size="medium"
+            shape="round"
+            className="login-logout-btn-6"
+          >
+            <UserOutlined />
+            Login
+          </Button>
         </div>
         <div>
           <Button
@@ -80,10 +94,21 @@ export default function NavBar(props) {
           </Button>
         </div>
         <div>
-          <MobilNav handelNavClose={handelNavClose} darkMode={darkMode} open={open}/>
+          <Suspense>
+            <MobilNav
+              handelNavClose={handelNavClose}
+              darkMode={darkMode}
+              open={open}
+            />
+          </Suspense>
         </div>
         <div style={{ marginLeft: "20px" }}>
-          <Switch size="large" onChange={handelDarMode} />
+          <Switch
+            checkedChildren="Disable"
+            unCheckedChildren="Enable"
+            size="large"
+            onChange={handelDarMode}
+          />
         </div>
       </div>
     </>

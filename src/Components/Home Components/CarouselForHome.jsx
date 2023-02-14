@@ -81,6 +81,7 @@ export default function CarouselForHome(props) {
                           src="https://www.youtube.com/embed/do0kj_a7dvA"
                           title="YouTube video player"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          loading="lazy"
                         ></iframe>
                       </Col>
                       <Col xs={24} sm={24} md={12} lg={12}>
@@ -96,6 +97,7 @@ export default function CarouselForHome(props) {
                     src="https://www.youtube.com/embed/iXgr8zsqLMM"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    loading="lazy"
                   ></iframe>
                 </div>
                 <div style={contentStyle}>
@@ -105,6 +107,7 @@ export default function CarouselForHome(props) {
                     src="https://www.youtube.com/embed/n0NoXbHf-kc"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    loading="lazy"
                   ></iframe>
                 </div>
                 <div style={contentStyle}>
@@ -114,6 +117,7 @@ export default function CarouselForHome(props) {
                     src="https://www.youtube.com/embed/lfUpLHnmtFw"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    loading="lazy"
                   ></iframe>
                 </div>
                 <div style={contentStyle}>
@@ -123,6 +127,7 @@ export default function CarouselForHome(props) {
                     src="https://www.youtube.com/embed/0UhyS4W_Ddk"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    loading="lazy"
                   ></iframe>
                 </div>
               </Carousel>

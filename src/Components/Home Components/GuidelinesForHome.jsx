@@ -64,12 +64,8 @@ export default function GuidelinesForHome(props) {
         style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
       >
         <Col xs={24} sm={24} md={20} lg={20}>
-          <Row
-            justify="space-around"
-            align="middle"
-            style={{ marginTop: "20px" }}
-          >
-            <Col xs={24} securitym={24} md={4} lg={4}>
+          <Row justify="space-around" style={{ marginTop: "20px", }}>
+            <Col xs={24} sm={24} md={11} lg={11} style={{marginBottom:"10px",}}>
               <Card
                 className="cards-in-animation "
                 cover={
@@ -79,6 +75,7 @@ export default function GuidelinesForHome(props) {
                     src="https://www.youtube.com/embed/4T3W0J0n0S8"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    loading="lazy"
                   ></iframe>
                 }
                 actions={[
@@ -95,9 +92,9 @@ export default function GuidelinesForHome(props) {
                   description=" रिश्ते बहोत है पर ?"
                 ></Meta>
               </Card>
-              <br />
-            </Col>
-            <Col xs={24} securitym={24} md={4} lg={4}>
+              </Col>
+
+              <Col xs={24} sm={24} md={11} lg={11}>
               <Card
                 className="cards-in-animation "
                 cover={
@@ -107,6 +104,7 @@ export default function GuidelinesForHome(props) {
                     src="https://www.youtube.com/embed/pLvJlJ-f37A"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    loading="lazy"
                   ></iframe>
                 }
                 actions={[
@@ -123,9 +121,8 @@ export default function GuidelinesForHome(props) {
                   description="देर से शादी करने के नुक्सान ?"
                 ></Meta>
               </Card>
-              <br />
-            </Col>
-            <Col xs={24} securitym={24} md={4} lg={4}>
+              </Col>
+              <Col xs={24} sm={24} md={11} lg={11}>
               <Card
                 className="cards-in-animation "
                 cover={
@@ -135,6 +132,7 @@ export default function GuidelinesForHome(props) {
                     src="https://www.youtube.com/embed/LZvaV5UpPfM"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    loading="lazy"
                   ></iframe>
                 }
                 actions={[
@@ -151,9 +149,8 @@ export default function GuidelinesForHome(props) {
                   description="तोहफा दुल्हा"
                 ></Meta>
               </Card>
-              <br />
-            </Col>
-            <Col xs={24} securitym={24} md={4} lg={4}>
+              </Col>
+              <Col xs={24} sm={24} md={11} lg={11}>
               <Card
                 className="cards-in-animation "
                 cover={
@@ -163,6 +160,7 @@ export default function GuidelinesForHome(props) {
                     src="https://www.youtube.com/embed/x3X1SDo3K74"
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    loading="lazy"
                   ></iframe>
                 }
                 actions={[
@@ -179,7 +177,6 @@ export default function GuidelinesForHome(props) {
                   description="एक मुस्लिम अफसर का सवाल"
                 ></Meta>
               </Card>
-              <br />
             </Col>
           </Row>
           <Row>

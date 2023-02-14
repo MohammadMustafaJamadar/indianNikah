@@ -80,8 +80,6 @@
   top: 10vh;
 }
 
-
-
 .btn-1-search {
   background-color: #eacf54;
   color: black;
@@ -128,8 +126,6 @@
   color: #df3768;
 }
 
-
-
 .cards-in-animation {
   -webkit-animation: cards-in-animation 0.5s
     cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -149,6 +145,36 @@
   text-align: center;
 }
 
+.newprofile-home-title {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.newprofiles-home-discription {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.font-for-user-cards {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+}
+
+
+.newprofile-home-visit-btn-2 {
+  margin-top: 10px;
+  background: linear-gradient(90deg,#525a69,#898dda);
+  border: none;
+  color: black;
+  font-family: Oswald;
+  box-shadow: 4.3px 2.3px 2.1px rgba(0, 0, 0, 0.024),
+    9.3px 5px 5px rgba(0, 0, 0, 0.034), 15.8px 8.5px 9.6px rgba(0, 0, 0, 0.041),
+    25.6px 13.7px 18.3px rgba(0, 0, 0, 0.05),
+    44.9px 24.1px 38.5px rgba(0, 0, 0, 0.059),
+    112px 60px 80px rgba(0, 0, 0, 0.07);
+}
 
 
 

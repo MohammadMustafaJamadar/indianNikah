@@ -103,6 +103,9 @@
     width: 100%;
     height: 100%;
   }
+  .login-logout-btn-6 {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -123,5 +126,8 @@
   }
   .mobile-nav-bar {
     display: block;
+  }
+  .login-logout-btn-6 {
+    display: none;
   }
 }

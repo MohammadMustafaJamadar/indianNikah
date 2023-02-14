@@ -1,5 +1,5 @@
 import React from "react";
-import { Drawer, Typography, Dropdown } from "antd";
+import { Drawer, Typography, Dropdown, Button } from "antd";
 import { Link } from "react-router-dom";
 import {
   UserOutlined,
@@ -198,6 +198,17 @@ export default function MobilNav(props) {
                       <FileTextOutlined /> Document Service
                     </Text>
                   </Link>
+                </li>
+                <li>
+                  <Button
+                    type="primary"
+                    size="medium"
+                    shape="round"
+                    className="login-logout-btn-mobnav-6"
+                  >
+                    <UserOutlined />
+                    Login
+                  </Button>
                 </li>
               </ul>
             </div>

@@ -1,19 +1,28 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Col, Row, Button, Typography, Card } from "antd";
 import { SearchOutlined, ReadOutlined } from "@ant-design/icons";
 import "../../css/style.css";
 import img6 from "../../photos/img6.jpg";
-import { useNavigate,  } from "react-router-dom";
-import CarouselForHome from "../Home Components/CarouselForHome";
-import GuidelinesForHome from "../Home Components/GuidelinesForHome";
-
+import { useNavigate } from "react-router-dom";
+// import NewProfilesOnHome from "../Home Components/NewProfilesOnHome";
+// import CarouselForHome from "../Home Components/CarouselForHome";
+// import GuidelinesForHome from "../Home Components/GuidelinesForHome";
+const CarouselForHome = lazy(() =>
+  import("../Home Components/CarouselForHome")
+);
+const GuidelinesForHome = lazy(() =>
+  import("../Home Components/GuidelinesForHome")
+);
+const NewProfilesOnHome = lazy(() =>
+  import("../Home Components/NewProfilesOnHome")
+);
 
 const { Title, Text } = Typography;
 
 export default function HomePage(props) {
   const { darkMode } = props;
 
-console.log(darkMode)
+  console.log(darkMode);
 
   const navigateUser = useNavigate();
 
@@ -30,11 +39,11 @@ console.log(darkMode)
   return (
     <>
       <div className="homepage" style={{ backgroundImage: `url(${img6})` }}>
-      <div className="cube"></div>
-       <div className="cube"></div>
-       <div className="cube"></div>
-       <div className="cube"></div>
-      <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
         <Row
           style={{
             backgroundColor: "rgba(0,0,0,.3)",
@@ -44,7 +53,7 @@ console.log(darkMode)
             alignItems: "center",
           }}
           justify="center"
-         >
+        >
           <Col xs={24} sm={24} md={16} lg={16}>
             <center>
               <div
@@ -57,9 +66,7 @@ console.log(darkMode)
                 <div>
                   <Title
                     level={3}
-                    style={{
-                  
-                    }}
+                    style={{}}
                     className="animate__animated animate__backInDown"
                     id="heading-title"
                   >
@@ -73,9 +80,9 @@ console.log(darkMode)
                     textAlign: "center",
                     alignItems: "center",
                     justifyContent: "center",
-                    display:"flex"
+                    display: "flex",
                   }}
-                 >
+                >
                   <Button
                     onClick={navigate_Search}
                     type="primary"
@@ -104,7 +111,10 @@ console.log(darkMode)
           </Col>
         </Row>
       </div>
-      <Row justify="center" style={{ backgroundColor: darkMode ? "#001F3D" : "white" }}>
+      <Row
+        justify="center"
+        style={{ backgroundColor: darkMode ? "#001F3D" : "white" }}
+      >
         <br />
         <br /> <br />
         <Col
@@ -124,8 +134,7 @@ console.log(darkMode)
               About Indian Nikah{" "}
             </Title>
           </div>
-          <Row  justify="center" className="discription-about-row">
-          
+          <Row justify="center" className="discription-about-row">
             <Col xs={24} sm={24} md={8} lg={8}>
               <Text
                 className="about-discription-1"
@@ -150,9 +159,7 @@ console.log(darkMode)
                 top in search results.
               </Text>
               <br />
-              <Text
-              className="about-discription-2"
-              >
+              <Text className="about-discription-2">
                 Note - Paid marriage bureaus/agents/brokers are not allowed to
                 use this site. We do not do profile background verification We
                 do not have any paid personalised or special service. No office
@@ -164,7 +171,7 @@ console.log(darkMode)
             </Col>
             <Col xs={24} sm={24} md={8} lg={8}>
               <Card
-              className="cards-in-animation "
+                className="cards-in-animation "
                 hoverable
                 style={{
                   width: "100%",
@@ -194,15 +201,14 @@ console.log(darkMode)
               <br />
               <br />
             </Col>
-        
           </Row>
         </Col>
-        
       </Row>
-
-      <GuidelinesForHome darkMode={darkMode}/>
-
-      <CarouselForHome darkMode={darkMode} />
+      <Suspense>
+        <GuidelinesForHome darkMode={darkMode} />
+        <NewProfilesOnHome />
+        <CarouselForHome darkMode={darkMode} />
+      </Suspense>
     </>
   );
 }
