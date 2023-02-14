@@ -6,7 +6,7 @@ import img6 from "../../photos/img6.jpg";
 import { useNavigate,  } from "react-router-dom";
 import CarouselForHome from "../Home Components/CarouselForHome";
 import GuidelinesForHome from "../Home Components/GuidelinesForHome";
-import design from "../../images/design.png"
+// import design from "../../images/design.png"
 
 const { Title, Text } = Typography;
 
