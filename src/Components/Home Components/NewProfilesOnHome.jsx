@@ -11,6 +11,7 @@ const location = "Nanded";
 const education = "Graduate";
 const users = [
   {
+    id: 1,
     name: "Mohammad Mustafa",
     work: `Full Stack Developer (${education})`,
     gender: "Male",
@@ -19,6 +20,7 @@ const users = [
     img: manimg,
   },
   {
+    id: 2,
     name: "Unknown",
     work: `Full Stack Developer (${education})`,
     gender: "Male",
@@ -27,6 +29,7 @@ const users = [
     img: womanimg,
   },
   {
+    id: 3,
     name: "Mohammad Mustafa",
     work: `Full Stack Developer (${education})`,
     gender: "Male",
@@ -35,6 +38,7 @@ const users = [
     img: manimg,
   },
   {
+    id: 4,
     name: "Unknown",
     work: `Full Stack Developer (${education})`,
     gender: "Male",
@@ -43,6 +47,7 @@ const users = [
     img: womanimg,
   },
   {
+    id: 5,
     name: "Mohammad Mustafa",
     work: `Full Stack Developer (${education})`,
     gender: "Male",
@@ -51,6 +56,7 @@ const users = [
     img: manimg,
   },
   {
+    id: 6,
     name: "Unknown",
     work: `	Assisstant Teacher (${education})`,
     gender: "Male",
@@ -89,7 +95,7 @@ const NewProfilesOnHome = () => {
           </div>
           <Row justify="center">
             {users.map((user) => (
-              <Col xs={24} sm={24} md={11} lg={11}>
+              <Col xs={24} sm={24} md={11} lg={11} key={user.id}>
                 <Card
                   hoverable
                   bordered={true}
@@ -99,9 +105,13 @@ const NewProfilesOnHome = () => {
                     <Col xs={6} sm={6} md={6} lg={6}>
                       <img
                         src={user.img}
-                        height="auto"
-                        width="100%"
-                        style={{ marginTop: "8px" }}
+                        style={{
+                          marginTop: "8px",
+                          height: "auto",
+                          width: "100%",
+                        }}
+                        alt="No...!"
+                        loading="lazy"
                       />
                     </Col>
                     <Col xs={16} sm={16} md={16} lg={16}>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row, Button, Typography, Card } from "antd";
 import { Link } from "react-router-dom";
 import {
@@ -7,12 +7,26 @@ import {
   ReadOutlined,
   EllipsisOutlined,
 } from "@ant-design/icons";
+import iframContent from "../../utils/iframContent";
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
 
 export default function GuidelinesForHome(props) {
   const { darkMode } = props;
+  const [iframLinks, setIframLinks] = useState([]);
+
+  useEffect(() => {
+    const getRandomElements = (array, elements) => {
+      const result = [];
+      for (let i = 0; i < elements; i++) {
+        result.push(array[Math.floor(Math.random() * array.length)]);
+      }
+      return result;
+    };
+    const result = getRandomElements(iframContent, 4);
+    setIframLinks(result);
+  }, []);
 
   return (
     <>
@@ -64,120 +78,50 @@ export default function GuidelinesForHome(props) {
         style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
       >
         <Col xs={24} sm={24} md={20} lg={20}>
-          <Row justify="space-around" style={{ marginTop: "20px", }}>
-            <Col xs={24} sm={24} md={11} lg={11} style={{marginBottom:"10px",}}>
-              <Card
-                className="cards-in-animation "
-                cover={
-                  <iframe
-                    className="iframe-card-guidline"
-                    height="100%"
-                    src="https://www.youtube.com/embed/4T3W0J0n0S8"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    loading="lazy"
-                  ></iframe>
-                }
-                actions={[
-                  <Link aria-current="page" to="/guidelines/r/">
-                    View more <EllipsisOutlined className="react-dots-icons" />
-                  </Link>,
-                ]}
-                title="Rishtey kyun nahi hore?"
-                hoverable
+          <Row justify="space-around" style={{ marginTop: "20px" }}>
+            {iframLinks.map((ele) => (
+              <Col
+                xs={24}
+                sm={24}
+                md={9}
+                lg={9}
+                style={{ marginBottom: "10px" }}
               >
-                <Meta
-                  title="Rishtey bahot hai par?"
-                  className="meta-discriptions-titles"
-                  description=" रिश्ते बहोत है पर ?"
-                ></Meta>
-              </Card>
+                 <a href={ele.link} target="_blank" rel="noopener noreferrer">
+                <Card
+                  className="cards-in-animation "
+                  cover={
+                    <center>
+                     
+                        <img
+                          src={ele.image}
+                          alt="No.....!"
+                          style={{ width: "70%" }}
+                          loading="lazy"
+                        />
+                    
+                    </center>
+                  }
+                  actions={[
+                    <Link aria-current="page" to="/guidelines/r/">
+                      View more{" "}
+                      <EllipsisOutlined className="react-dots-icons" />
+                    </Link>,
+                  ]}
+                  title={ele.title}
+                  hoverable
+                  key={ele.id}
+                >
+                  <Meta
+                    title={ele.metaTitle}
+                    className="meta-discriptions-titles"
+                    description={ele.metaDiscription}
+                    key={ele.id}
+                  ></Meta>
+                </Card>
+                  </a>
               </Col>
-
-              <Col xs={24} sm={24} md={11} lg={11}>
-              <Card
-                className="cards-in-animation "
-                cover={
-                  <iframe
-                    className="iframe-card-guidline"
-                    height="100%"
-                    src="https://www.youtube.com/embed/pLvJlJ-f37A"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    loading="lazy"
-                  ></iframe>
-                }
-                actions={[
-                  <Link aria-current="page" to="/guidelines/r/">
-                    View more <EllipsisOutlined className="react-dots-icons" />
-                  </Link>,
-                ]}
-                title="Shaadi ki umar, der se shaadi"
-                hoverable
-              >
-                <Meta
-                  title="Side effects of late marrige "
-                  className="meta-discriptions-titles"
-                  description="देर से शादी करने के नुक्सान ?"
-                ></Meta>
-              </Card>
-              </Col>
-              <Col xs={24} sm={24} md={11} lg={11}>
-              <Card
-                className="cards-in-animation "
-                cover={
-                  <iframe
-                    className="iframe-card-guidline"
-                    height="100%"
-                    src="https://www.youtube.com/embed/LZvaV5UpPfM"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    loading="lazy"
-                  ></iframe>
-                }
-                actions={[
-                  <Link aria-current="page" to="/guidelines/r/">
-                    View more <EllipsisOutlined className="react-dots-icons" />
-                  </Link>,
-                ]}
-                title="Shaadi ki tayyari"
-                hoverable
-              >
-                <Meta
-                  title="Tohfa Dulha"
-                  className="meta-discriptions-titles"
-                  description="तोहफा दुल्हा"
-                ></Meta>
-              </Card>
-              </Col>
-              <Col xs={24} sm={24} md={11} lg={11}>
-              <Card
-                className="cards-in-animation "
-                cover={
-                  <iframe
-                    className="iframe-card-guidline"
-                    height="100%"
-                    src="https://www.youtube.com/embed/x3X1SDo3K74"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    loading="lazy"
-                  ></iframe>
-                }
-                actions={[
-                  <Link aria-current="page" to="/guidelines/r/">
-                    View more <EllipsisOutlined className="react-dots-icons" />
-                  </Link>,
-                ]}
-                title="Biradri mein shaadi"
-                hoverable
-              >
-                <Meta
-                  title="One Muslim Police officer question"
-                  className="meta-discriptions-titles"
-                  description="एक मुस्लिम अफसर का सवाल"
-                ></Meta>
-              </Card>
-            </Col>
+            ))}
           </Row>
           <Row>
             <Col

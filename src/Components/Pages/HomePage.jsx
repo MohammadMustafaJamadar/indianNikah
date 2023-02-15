@@ -207,7 +207,7 @@ export default function HomePage(props) {
       <Suspense>
         <GuidelinesForHome darkMode={darkMode} />
         <NewProfilesOnHome />
-        <CarouselForHome darkMode={darkMode} />
+        {/* <CarouselForHome darkMode={darkMode} /> */}
       </Suspense>
     </>
   );
