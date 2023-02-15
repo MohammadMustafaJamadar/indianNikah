@@ -7,7 +7,7 @@ import {
   ReadOutlined,
   EllipsisOutlined,
 } from "@ant-design/icons";
-import iframContent from "../../utils/iframContent";
+import { iframContent } from "../../utils/iframContent";
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
@@ -17,16 +17,43 @@ export default function GuidelinesForHome(props) {
   const [iframLinks, setIframLinks] = useState([]);
 
   useEffect(() => {
-    const getRandomElements = (array, elements) => {
-      const result = [];
-      for (let i = 0; i < elements; i++) {
-        result.push(array[Math.floor(Math.random() * array.length)]);
-      }
-      return result;
+    let isCancelled = false;
+    if (!isCancelled) {
+      const getRandomElements = (array, elements) => {
+        const result = [];
+       
+        for (let i = 0; i < elements; i++) {
+          const randomIndex = Math.floor(Math.random() * array.length)
+          const randomObject = array[randomIndex]
+          if (!result.some(obj => obj.id === randomObject.id)) {
+            result.push(randomObject)
+          }
+        }
+        return result;
+      };
+      const result = getRandomElements(iframContent, 4);
+      setIframLinks(result);
+      console.log(result)
+    }
+
+    return () => {
+      isCancelled = true;
+      console.log("work terminated");
     };
-    const result = getRandomElements(iframContent, 4);
-    setIframLinks(result);
   }, []);
+
+  // const randomData = [];
+
+  // while (randomData.length < 4) {
+  //   const randomIndex = Math.floor(Math.random() * data.length); // get a random index
+  //   const randomObject = data[randomIndex]; // get the object at the random index
+  //   if (!randomData.some(obj => obj.id === randomObject.id)) {
+  //     randomData.push(randomObject); // add object to list if it is not already included
+  //   }
+  // }
+  
+  // console.log(randomData); // prints an array of four random and non-repeating objects
+
 
   return (
     <>
@@ -36,8 +63,6 @@ export default function GuidelinesForHome(props) {
           <div
             style={{
               textAlign: "center",
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
             <Title
@@ -55,8 +80,6 @@ export default function GuidelinesForHome(props) {
           <div
             style={{
               textAlign: "center",
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
             <Text
@@ -87,19 +110,22 @@ export default function GuidelinesForHome(props) {
                 lg={9}
                 style={{ marginBottom: "10px" }}
               >
-                 <a href={ele.link} target="_blank" rel="noopener noreferrer">
                 <Card
                   className="cards-in-animation "
                   cover={
                     <center>
-                     
+                      <a
+                        href={ele.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <img
                           src={ele.image}
                           alt="No.....!"
-                          style={{ width: "70%" }}
+                          style={{ width: "100%" }}
                           loading="lazy"
                         />
-                    
+                      </a>
                     </center>
                   }
                   actions={[
@@ -119,7 +145,6 @@ export default function GuidelinesForHome(props) {
                     key={ele.id}
                   ></Meta>
                 </Card>
-                  </a>
               </Col>
             ))}
           </Row>
@@ -131,8 +156,6 @@ export default function GuidelinesForHome(props) {
               lg={24}
               style={{
                 textAlign: "center",
-                alignItems: "center",
-                justifyContent: "center",
                 marginTop: "20px",
               }}
             >

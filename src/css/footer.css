@@ -1,51 +1,40 @@
+.btn-3-rating,
+.footerLinks Text {
+  font-family: Oswald;
+}
 .footer {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1410' height='600' preserveAspectRatio='none' viewBox='0 0 1410 600'%3e%3cg mask='url(%26quot%3b%23SvgjsMask3253%26quot%3b)' fill='none'%3e%3crect width='1410' height='600' x='0' y='0' fill='rgba(231%2c 147%2c 17%2c 1)'%3e%3c/rect%3e%3cpath d='M37 600L637 0L1061.5 0L461.5 600z' fill='url(%23SvgjsLinearGradient3254)'%3e%3c/path%3e%3cpath d='M533.3 600L1133.3 0L1772.3 0L1172.3 600z' fill='url(%23SvgjsLinearGradient3254)'%3e%3c/path%3e%3cpath d='M1387 600L787 0L574 0L1174 600z' fill='url(%23SvgjsLinearGradient3255)'%3e%3c/path%3e%3cpath d='M859.7 600L259.70000000000005 0L-382.29999999999995 0L217.70000000000005 600z' fill='url(%23SvgjsLinearGradient3255)'%3e%3c/path%3e%3cpath d='M1022.4748601373699 600L1410 212.4748601373699L1410 600z' fill='url(%23SvgjsLinearGradient3254)'%3e%3c/path%3e%3cpath d='M0 600L387.5251398626301 600L 0 212.4748601373699z' fill='url(%23SvgjsLinearGradient3255)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask3253'%3e%3crect width='1410' height='600' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient3254'%3e%3cstop stop-color='rgba(234%2c 207%2c 84%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(234%2c 207%2c 84%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient3255'%3e%3cstop stop-color='rgba(234%2c 207%2c 84%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(234%2c 207%2c 84%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
   width: 100%;
   height: 100%;
 }
-
-.darkfooter {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1410' height='600' preserveAspectRatio='none' viewBox='0 0 1410 600'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1410' height='600' x='0' y='0' fill='rgba(22%2c 57%2c 90%2c 1)'%3e%3c/rect%3e%3cpath d='M14 600L614 0L938 0L338 600z' fill='url(%23SvgjsLinearGradient1001)'%3e%3c/path%3e%3cpath d='M542.3 600L1142.3 0L1272.8 0L672.8 600z' fill='url(%23SvgjsLinearGradient1001)'%3e%3c/path%3e%3cpath d='M1363 600L763 0L529 0L1129 600z' fill='url(%23SvgjsLinearGradient1002)'%3e%3c/path%3e%3cpath d='M930.7 600L330.70000000000005 0L-50.299999999999955 0L549.7 600z' fill='url(%23SvgjsLinearGradient1002)'%3e%3c/path%3e%3cpath d='M942.6618136710674 600L1410 132.66181367106742L1410 600z' fill='url(%23SvgjsLinearGradient1001)'%3e%3c/path%3e%3cpath d='M0 600L467.3381863289326 600L 0 132.66181367106742z' fill='url(%23SvgjsLinearGradient1002)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1410' height='600' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient1001'%3e%3cstop stop-color='rgba(7%2c 27%2c 47%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(7%2c 27%2c 47%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient1002'%3e%3cstop stop-color='rgba(7%2c 27%2c 47%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(7%2c 27%2c 47%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
-}
-
-li {
-  margin-top: 7px;
-  margin-bottom: 11px;
-}
-
-
-.footerLinks Text {
-  font-family: Oswald;
-}
-
-.footerLinks ul li :hover {
-  color: #ffffff !important;
-  padding-left: 9px !important;
-}
-
+.btn-3-rating,
+.btn-4-share,
 .rateus-share-div {
   height: auto;
   width: auto;
 }
-
+.darkfooter {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1410' height='600' preserveAspectRatio='none' viewBox='0 0 1410 600'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1410' height='600' x='0' y='0' fill='rgba(22%2c 57%2c 90%2c 1)'%3e%3c/rect%3e%3cpath d='M14 600L614 0L938 0L338 600z' fill='url(%23SvgjsLinearGradient1001)'%3e%3c/path%3e%3cpath d='M542.3 600L1142.3 0L1272.8 0L672.8 600z' fill='url(%23SvgjsLinearGradient1001)'%3e%3c/path%3e%3cpath d='M1363 600L763 0L529 0L1129 600z' fill='url(%23SvgjsLinearGradient1002)'%3e%3c/path%3e%3cpath d='M930.7 600L330.70000000000005 0L-50.299999999999955 0L549.7 600z' fill='url(%23SvgjsLinearGradient1002)'%3e%3c/path%3e%3cpath d='M942.6618136710674 600L1410 132.66181367106742L1410 600z' fill='url(%23SvgjsLinearGradient1001)'%3e%3c/path%3e%3cpath d='M0 600L467.3381863289326 600L 0 132.66181367106742z' fill='url(%23SvgjsLinearGradient1002)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1410' height='600' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='0%25' y1='100%25' x2='100%25' y2='0%25' id='SvgjsLinearGradient1001'%3e%3cstop stop-color='rgba(7%2c 27%2c 47%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(7%2c 27%2c 47%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='100%25' y1='100%25' x2='0%25' y2='0%25' id='SvgjsLinearGradient1002'%3e%3cstop stop-color='rgba(7%2c 27%2c 47%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-opacity='0' stop-color='rgba(7%2c 27%2c 47%2c 1)' offset='0.66'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+}
+li {
+  margin-top: 7px;
+  margin-bottom: 11px;
+}
+.footerLinks ul li :hover {
+  color: #fff !important;
+  padding-left: 9px !important;
+}
 .btn-3-rating {
-  font-family: Oswald;
-  color: black;
-  height: auto;
-  width: auto;
-  border: 0px;
+  color: #000;
+  border: 0;
   background-color: grey;
 }
-
 .btn-4-share {
-  color: black;
-  height: auto;
-  width: auto;
-  border: 0px;
-  background-color: white;
+  color: #000;
+  border: 0;
+  background-color: #fff;
 }
-
-.footerLinksDark ul li :hover{
+.footerLinksDark ul li :hover {
   color: #eacf54 !important;
   padding-left: 9px !important;
 }

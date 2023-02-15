@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row, Typography, Card, Carousel } from "antd";
 import "../../css/style.css";
 import { PlayCircleOutlined, CheckCircleOutlined } from "@ant-design/icons";
+import { caruselFrames } from "../../utils/iframContent";
 
 const { Title, Text } = Typography;
 
@@ -37,7 +38,7 @@ export default function CarouselForHome(props) {
                 color: darkMode ? "white" : "black",
               }}
             >
-             <CheckCircleOutlined /> Success Stories
+              <CheckCircleOutlined /> Success Stories
               <hr style={{ width: "50%" }} />
             </Title>
             <Text
@@ -52,6 +53,7 @@ export default function CarouselForHome(props) {
             </Text>
           </div>
           <br />
+
           <Row justify="center">
             <Col xs={24} sm={24} md={18} lg={18}>
               <Carousel
@@ -71,71 +73,41 @@ export default function CarouselForHome(props) {
                 effect="fade"
                 draggable
               >
-                <div style={contentStyle}>
-                  <Card hoverable={true}>
-                    <Row>
-                      <Col xs={24} sm={24} md={12} lg={12}>
-                        <iframe
-                          width="100%"
-                          height="245"
-                          src="https://www.youtube.com/embed/do0kj_a7dvA"
-                          title="YouTube video player"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          loading="lazy"
-                        ></iframe>
-                      </Col>
-                      <Col xs={24} sm={24} md={12} lg={12}>
-                        {/* <Text>Hello Mj</Text> */}
-                      </Col>
-                    </Row>
-                  </Card>
-                </div>
-                <div style={contentStyle}>
-                  <iframe
-                    width="100%"
-                    height="245"
-                    src="https://www.youtube.com/embed/iXgr8zsqLMM"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    loading="lazy"
-                  ></iframe>
-                </div>
-                <div style={contentStyle}>
-                  <iframe
-                    width="100%"
-                    height="245"
-                    src="https://www.youtube.com/embed/n0NoXbHf-kc"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    loading="lazy"
-                  ></iframe>
-                </div>
-                <div style={contentStyle}>
-                  <iframe
-                    width="100%"
-                    height="245"
-                    src="https://www.youtube.com/embed/lfUpLHnmtFw"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    loading="lazy"
-                  ></iframe>
-                </div>
-                <div style={contentStyle}>
-                  <iframe
-                    width="100%"
-                    height="245"
-                    src="https://www.youtube.com/embed/0UhyS4W_Ddk"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    loading="lazy"
-                  ></iframe>
-                </div>
+                {caruselFrames.map((ele) => (
+                  <div style={contentStyle}>
+                    <Card>
+                      <Row>
+                        <Col xs={12} sm={12} md={12} lg={12}>
+                          <a
+                            href={ele.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img
+                              style={{ width: "100%" }}
+                              src={ele.image}
+                              alt="No.....!"
+                            />
+                          </a>
+                        </Col>
+
+                        <Col xs={12} sm={12} md={12} lg={12}>
+                          <Title level={4} style={{ marginLeft:"10px", marginTop:"0px" }}>
+                            {ele.title}
+                          </Title>
+                          <Text style={{marginLeft:"10px"}}><span style={{fontSize:""}}>,,</span>{ele.shortDiscription}</Text><br />
+                          <Text  style={{marginLeft:"10px"}}>{ele.discriptions}</Text>
+                        </Col>
+                      </Row>
+                    </Card>
+                  </div>
+                ))}
               </Carousel>
-              <br /> <br />
             </Col>
           </Row>
         </Col>
       </Row>
+      <br /> <br />
     </>
   );
 }

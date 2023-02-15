@@ -4,9 +4,7 @@ import { SearchOutlined, ReadOutlined } from "@ant-design/icons";
 import "../../css/style.css";
 import img6 from "../../photos/img6.jpg";
 import { useNavigate } from "react-router-dom";
-// import NewProfilesOnHome from "../Home Components/NewProfilesOnHome";
-// import CarouselForHome from "../Home Components/CarouselForHome";
-// import GuidelinesForHome from "../Home Components/GuidelinesForHome";
+import cover11 from "../../images/cover11.jpg"
 const CarouselForHome = lazy(() =>
   import("../Home Components/CarouselForHome")
 );
@@ -49,7 +47,6 @@ export default function HomePage(props) {
             backgroundColor: "rgba(0,0,0,.3)",
             height: "100%",
             width: "100%",
-            justifyContent: "center",
             alignItems: "center",
           }}
           justify="center"
@@ -78,7 +75,6 @@ export default function HomePage(props) {
                 <div
                   style={{
                     textAlign: "center",
-                    alignItems: "center",
                     justifyContent: "center",
                     display: "flex",
                   }}
@@ -177,13 +173,10 @@ export default function HomePage(props) {
                   width: "100%",
                 }}
               >
-                <iframe
-                  width="100%"
-                  height="260px"
-                  src="https://www.youtube.com/embed/zw_FZ_pH-bk"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                ></iframe>
+                <a href="https://www.youtube.com/watch?v=zw_FZ_pH-bk" target="_blank" rel="noopener noreferrer">
+
+                <img loading="lazy" style={{width:"100%"}} src={cover11} alt="No....!"  />
+                </a>
               </Card>
               <br />
               <br />
@@ -207,7 +200,7 @@ export default function HomePage(props) {
       <Suspense>
         <GuidelinesForHome darkMode={darkMode} />
         <NewProfilesOnHome />
-        {/* <CarouselForHome darkMode={darkMode} /> */}
+        <CarouselForHome darkMode={darkMode} />
       </Suspense>
     </>
   );
