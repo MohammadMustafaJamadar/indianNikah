@@ -49,16 +49,7 @@ export default function NewProfilePage() {
                       md={16}
                       lg={16}
                       // style={{ backgroundColor: "green" }}
-                    >
-                      <ul style={{ listStyle: "none" }}>
-                        <li>
-                          <Title level={5}>{item.title}</Title>
-                        </li>
-                        <li>{item.brand}</li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                      </ul>
+                    >          
                     </Col>
                   </Row>
                 </Card>
