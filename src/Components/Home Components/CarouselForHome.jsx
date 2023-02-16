@@ -77,26 +77,31 @@ export default function CarouselForHome(props) {
                   <div style={contentStyle}>
                     <Card>
                       <Row>
-                        <Col xs={12} sm={12} md={12} lg={12}>
-                          <a
-                            href={ele.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <img
-                              style={{ width: "100%" }}
-                              src={ele.image}
-                              alt="No.....!"
-                            />
-                          </a>
+                        <Col xs={24} sm={24} md={12} lg={12}>
+                          <iframe
+                            width="100%"
+                            height="200px"
+                            src={ele.link}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            loading="lazy"
+                          ></iframe>
                         </Col>
 
-                        <Col xs={12} sm={12} md={12} lg={12}>
-                          <Title level={4} style={{ marginLeft:"10px", marginTop:"0px" }}>
+                        <Col xs={24} sm={24} md={12} lg={12}>
+                          <Title
+                            level={4}
+                            style={{ marginLeft: "10px", marginTop: "0px" }}
+                          >
                             {ele.title}
                           </Title>
-                          <Text style={{marginLeft:"10px"}}><span style={{fontSize:""}}>,,</span>{ele.shortDiscription}</Text><br />
-                          <Text  style={{marginLeft:"10px"}}>{ele.discriptions}</Text>
+                          <Text style={{ marginLeft: "10px" }}>
+                            {ele.shortDiscription}
+                          </Text>
+                          <br />
+                          <Text style={{ marginLeft: "10px" }}>
+                            {ele.discriptions}
+                          </Text>
                         </Col>
                       </Row>
                     </Card>

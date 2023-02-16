@@ -4,7 +4,7 @@ import { SearchOutlined, ReadOutlined } from "@ant-design/icons";
 import "../../css/style.css";
 import img6 from "../../photos/img6.jpg";
 import { useNavigate } from "react-router-dom";
-import cover11 from "../../images/cover11.jpg"
+
 const CarouselForHome = lazy(() =>
   import("../Home Components/CarouselForHome")
 );
@@ -81,7 +81,6 @@ export default function HomePage(props) {
                 >
                   <Button
                     onClick={navigate_Search}
-                    type="primary"
                     htmlType={"submit"}
                     shape="round"
                     size="medium"
@@ -92,7 +91,6 @@ export default function HomePage(props) {
                   </Button>{" "}
                   &nbsp;&nbsp;
                   <Button
-                    type="primary"
                     shape="round"
                     size="medium"
                     className="btn-2-guidliness"
@@ -168,15 +166,16 @@ export default function HomePage(props) {
             <Col xs={24} sm={24} md={8} lg={8}>
               <Card
                 className="cards-in-animation "
-                hoverable
-                style={{
-                  width: "100%",
-                }}
+                hoverable 
               >
-                <a href="https://www.youtube.com/watch?v=zw_FZ_pH-bk" target="_blank" rel="noopener noreferrer">
-
-                <img loading="lazy" style={{width:"100%"}} src={cover11} alt="No....!"  />
-                </a>
+                <iframe
+                  width="100%"
+                  height="315px"
+                  src="https://www.youtube.com/embed/zw_FZ_pH-bk"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  loading="lazy"
+                ></iframe>
               </Card>
               <br />
               <br />

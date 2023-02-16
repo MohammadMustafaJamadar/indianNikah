@@ -38,6 +38,7 @@ export default function NavBar(props) {
           background: darkMode
             ? "#071B2F"
             : `linear-gradient(332deg,rgb(234, 207, 84) -48%, rgb(231, 147, 17) -32%)`,
+            width:"100%"
         }}
       >
         <div className="mobile-nav-bar">
@@ -55,7 +56,7 @@ export default function NavBar(props) {
           </Button>
         </div>
 
-        <div style={{ width: "10%" }} className="nav-img-div">
+        <div  className="nav-img-div">
           <Link aria-current="page" to="/">
             <img
               src={logo}
@@ -84,7 +85,7 @@ export default function NavBar(props) {
         </div>
         <div>
           <Button
-            type="primary"
+         
             size="medium"
             shape="round"
             className="btn-5-myprofile"

@@ -33,6 +33,7 @@
 .btn-2-guidliness {
   color: #000;
   font-family: Oswald;
+  border: none;
 }
 .discription-about-row {
   text-align: left;
@@ -97,12 +98,14 @@
 }
 .btn-1-search:hover {
   background-color: #eacf54 !important;
+  color: white !important;
 }
 .btn-2-guidliness {
   background-color: #e79311;
 }
 .btn-2-guidliness:hover {
   background-color: #e79311 !important;
+  color: white !important;
 }
 .about-text-section {
   font-family: "Kaushan Script";

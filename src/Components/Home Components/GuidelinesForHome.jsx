@@ -21,19 +21,19 @@ export default function GuidelinesForHome(props) {
     if (!isCancelled) {
       const getRandomElements = (array, elements) => {
         const result = [];
-       
+
         for (let i = 0; i < elements; i++) {
-          const randomIndex = Math.floor(Math.random() * array.length)
-          const randomObject = array[randomIndex]
-          if (!result.some(obj => obj.id === randomObject.id)) {
-            result.push(randomObject)
+          const randomIndex = Math.floor(Math.random() * array.length);
+          const randomObject = array[randomIndex];
+          if (!result.some((obj) => obj.id === randomObject.id)) {
+            result.push(randomObject);
           }
         }
         return result;
       };
       const result = getRandomElements(iframContent, 4);
       setIframLinks(result);
-      console.log(result)
+      console.log(result);
     }
 
     return () => {
@@ -41,19 +41,6 @@ export default function GuidelinesForHome(props) {
       console.log("work terminated");
     };
   }, []);
-
-  // const randomData = [];
-
-  // while (randomData.length < 4) {
-  //   const randomIndex = Math.floor(Math.random() * data.length); // get a random index
-  //   const randomObject = data[randomIndex]; // get the object at the random index
-  //   if (!randomData.some(obj => obj.id === randomObject.id)) {
-  //     randomData.push(randomObject); // add object to list if it is not already included
-  //   }
-  // }
-  
-  // console.log(randomData); // prints an array of four random and non-repeating objects
-
 
   return (
     <>
@@ -101,31 +88,29 @@ export default function GuidelinesForHome(props) {
         style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
       >
         <Col xs={24} sm={24} md={20} lg={20}>
-          <Row justify="space-around" style={{ marginTop: "20px" }}>
+          <Row justify="center" style={{ marginTop: "20px", }}>
             {iframLinks.map((ele) => (
+          
               <Col
                 xs={24}
                 sm={24}
                 md={9}
                 lg={9}
-                style={{ marginBottom: "10px" }}
+                style={{ marginBottom: "10px", marginRight:"15px" }}
               >
+              
                 <Card
                   className="cards-in-animation "
                   cover={
                     <center>
-                      <a
-                        href={ele.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <img
-                          src={ele.image}
-                          alt="No.....!"
-                          style={{ width: "100%" }}
-                          loading="lazy"
-                        />
-                      </a>
+                      <iframe
+                        width="97%%"
+                        height="100%"
+                        src={ele.link}
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        loading="lazy"
+                      ></iframe>
                     </center>
                   }
                   actions={[
@@ -137,6 +122,7 @@ export default function GuidelinesForHome(props) {
                   title={ele.title}
                   hoverable
                   key={ele.id}
+          
                 >
                   <Meta
                     title={ele.metaTitle}
@@ -145,7 +131,9 @@ export default function GuidelinesForHome(props) {
                     key={ele.id}
                   ></Meta>
                 </Card>
+      
               </Col>
+          
             ))}
           </Row>
           <Row>
@@ -160,12 +148,7 @@ export default function GuidelinesForHome(props) {
               }}
             >
               <div>
-                <Button
-                  type="primary"
-                  shape="round"
-                  size="large"
-                  className="btn-2-guidliness"
-                >
+                <Button shape="round" size="large" className="btn-2-guidliness">
                   <ReadOutlined style={{ marginBottom: "-2px" }} /> &nbsp;
                   MARRIAGE GUIDELINES
                 </Button>

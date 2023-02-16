@@ -45,10 +45,6 @@
   bottom: -4px;
   left: 200px;
 }
-.nav-logo-image {
-  width: 100%;
-  height: 100%;
-}
 .btn-5-myprofile {
   background-color: #eacf54;
   color: #000;
@@ -58,38 +54,23 @@
     25.6px 13.7px 18.3px rgba(0, 0, 0, 0.05),
     44.9px 24.1px 38.5px rgba(0, 0, 0, 0.059),
     112px 60px 80px rgba(0, 0, 0, 0.07);
+    border: none;
 }
 .btn-5-myprofile:hover {
   background-color: #eacf54 !important;
+  color: white !important ;
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width :576px) {
+  .nav-logo-image{
+    width: 100%;
+  }
+  
+}
+@media screen and (max-width: 1415px) {
   .login-logout-btn-6,
-  .nav-links-ul-dek-mod li a {
-    display: none;
-  }
-  .mobile-nav-bar {
-    display: block;
-  }
-  .nav-img-div {
-    width: 40% !important;
-  }
-  .nav-logo-image {
-    width: 100%;
-    height: 100%;
-  }
-}
-@media screen and (max-width: 576px) {
-  .nav-img-div {
-    width: 100% !important;
-  }
-  .nav-logo-image {
-    width: 100%;
-    height: 100%;
-  }
-}
-@media screen and (max-width: 1440px) {
   .div-for-navdeck-links,
-  .login-logout-btn-6 {
+  .nav-links-ul-dek-mod li a {
     display: none;
   }
   .mobile-nav-bar {
