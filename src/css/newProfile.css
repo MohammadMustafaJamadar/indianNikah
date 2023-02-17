@@ -1,0 +1,11 @@
+.newprofile-title,
+.newprofiles-discription {
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.font-for-user-cards {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+  }

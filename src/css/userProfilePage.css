@@ -1,0 +1,94 @@
+.user-profile-page-guidelines{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.profile-alert{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.user-profile-card-discription{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px;
+}
+/* .user-profile-card-footer{
+    
+   
+
+} */
+
+.user-profile-photo-not-avl{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.preview-user{
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+
+}
+.user-details{
+    align-self: flex-start;
+
+}
+.download-bioData{
+    
+    align-self: flex-end;
+}
+@media (max-width:600px){
+    .preview-user{
+        flex-direction :column
+    }
+    .download-bioData{
+    
+        align-self: center;
+    }
+}
+th{
+   
+}
+
+.user-profile-table{
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center;*/
+    /* margin: 0 auto; */
+} 
+.user-profile-personal_info{
+    margin-top: 20px;
+}
+.user-profile-personal_info .ant-col{
+    border: 1px solid rgb(233, 220, 35);
+    padding-top:  15px;
+    padding-bottom:  15px;
+    padding-left: 4px;
+    padding-right: 4px;
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+.user-profile-tb-title{
+    background-color:  #e79311;
+}
+
+.conact-info-title .ant-col{
+    border: none;
+    ;
+}
+.conact-info-note{
+    border-radius: 5px;
+  
+    background-color: #eacf54;
+    width: 90%;
+}
