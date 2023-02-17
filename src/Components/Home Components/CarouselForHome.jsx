@@ -26,8 +26,6 @@ export default function CarouselForHome(props) {
           <div
             style={{
               textAlign: "center",
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
             <Title
@@ -112,7 +110,6 @@ export default function CarouselForHome(props) {
           </Row>
         </Col>
       </Row>
-      <br /> <br />
     </>
   );
 }

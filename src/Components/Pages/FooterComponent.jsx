@@ -29,32 +29,19 @@ const { Title, Text } = Typography;
 export default function FooterComponent(props) {
   const { darkMode } = props;
 
+  const styles = {
+    darkModes: {
+      darkBackGround: { backgroundColor: darkMode ? "#001F3D" : "white" },
+      darkText: { color: darkMode ? "white" : "black" },
+    },
+  };
+
   return (
     <>
-      <div
-        style={{
-          backgroundColor: darkMode ? "#001F3D" : "white",
-        }}
-      >
-        <Row justify="center">
-          <Col
-            xs={24}
-            sm={24}
-            md={8}
-            lg={8}
-            style={{
-              textAlign: "center",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Title
-              style={{
-                fontFamily: "Kaushan script",
-                color: darkMode ? "white" : "black",
-              }}
-              level={4}
-            >
+      <div className="sub-footer-up" style={styles.darkModes.darkBackGround}>
+        <Row justify="center" style={{ textAlign: "center" }}>
+          <Col xs={24} sm={24} md={8} lg={8}>
+            <Title style={styles.darkModes.darkText} level={4}>
               <TeamOutlined /> Total 309 Users found there partner yet
             </Title>
             <br />
@@ -62,7 +49,6 @@ export default function FooterComponent(props) {
               <Button type="primary" className="btn-3-rating" size="medium">
                 <Text
                   style={{
-                    fontFamily: "Oswald",
                     width: "auto",
                     height: "auto",
                   }}
@@ -78,7 +64,7 @@ export default function FooterComponent(props) {
               </Button>
               &nbsp; &nbsp;
               <Button size="medium" type="primary" className="btn-4-share ">
-                <Text style={{ fontFamily: "Oswald" }}>
+                <Text>
                   <ShareAltOutlined />
                   <br />
                   SHARE THIS WEBSITE
@@ -91,7 +77,7 @@ export default function FooterComponent(props) {
         <br />
       </div>
 
-      <div style={{ backgroundColor: darkMode ? "#001F3D" : "#EACF54" }}>
+      <div className="sub-footer-up" style={styles.darkModes.darkBackGround}>
         <Row justify="center">
           <Col
             xs={24}
@@ -100,17 +86,9 @@ export default function FooterComponent(props) {
             lg={8}
             style={{
               textAlign: "center",
-              alignItems: "center",
-              justifyContent: "center",
             }}
           >
-            <Title
-              style={{
-                fontFamily: "Kaushan script",
-                color: darkMode ? "white" : "black",
-              }}
-              level={4}
-            >
+            <Title style={styles.darkModes.darkText} level={4}>
               IndiaNikah is a 100% FREE service
             </Title>
             <div
@@ -118,12 +96,7 @@ export default function FooterComponent(props) {
                 textAlign: "left",
               }}
             >
-              <Text
-                style={{
-                  fontFamily: "Oswald",
-                  color: darkMode ? "white" : "black",
-                }}
-              >
+              <Text style={styles.darkModes.darkText}>
                 Terms Of Use : By using this site, you agree to terms and
                 conditions that you will not misuse the data. And you will talk
                 only about marriage proposals on Call/SMS/WhatsApp and not
@@ -156,12 +129,7 @@ export default function FooterComponent(props) {
               }}
             >
               <br />
-              <Text
-                style={{
-                  fontFamily: "Oswald",
-                  color: darkMode ? "white" : "black",
-                }}
-              >
+              <Text style={styles.darkModes.darkText}>
                 Disclaimer : indianikah.com is a non-profit matrimony website
                 and not for anything else apart from marriage match making. It
                 is not directly or indirectly responsible for any sort of misuse
@@ -172,17 +140,11 @@ export default function FooterComponent(props) {
           </Col>
           <Col xs={24} sm={24} md={6} lg={6}>
             <div style={{ marginLeft: "40px" }}>
-              <Title
-                level={4}
-                style={{
-                  fontFamily: "Kaushan Script",
-                  color: darkMode ? "white" : "black",
-                }}
-              >
+              <Title level={4} style={styles.darkModes.darkText}>
                 USEFUL LINKS{" "}
               </Title>
             </div>
-            <div className= {darkMode? "footerLinksDark": "footerLinks"}>
+            <div className={darkMode ? "footerLinksDark" : "footerLinks"}>
               <ul style={{ listStyleType: "none" }}>
                 <li>
                   {" "}
@@ -195,24 +157,14 @@ export default function FooterComponent(props) {
                 </li>
                 <li>
                   <Link aria-current="page" to="/profile">
-                    <Text
-                      style={{
-                        fontFamily: "Oswald",
-                        color: darkMode ? "white" : "black",
-                      }}
-                    >
+                    <Text style={styles.darkModes.darkText}>
                       <UserOutlined /> &nbsp; My Profile{" "}
                     </Text>
                   </Link>
                 </li>
                 <li>
                   <Link aria-current="page" to="/searchprofile">
-                    <Text
-                      style={{
-                        fontFamily: "Oswald",
-                        color: darkMode ? "white" : "black",
-                      }}
-                    >
+                    <Text style={styles.darkModes.darkText}>
                       {" "}
                       <SearchOutlined />
                       &nbsp; Search Profiles{" "}
@@ -221,12 +173,7 @@ export default function FooterComponent(props) {
                 </li>
                 <li>
                   <Link aria-current="page" to="guidelines/r/">
-                    <Text
-                      style={{
-                        fontFamily: "Oswald",
-                        color: darkMode ? "white" : "black",
-                      }}
-                    >
+                    <Text style={styles.darkModes.darkText}>
                       <ReadOutlined />
                       &nbsp; Marriage Guidelines
                     </Text>
@@ -236,7 +183,6 @@ export default function FooterComponent(props) {
                   <Link aria-current="page" to="/privacypolicy">
                     <Text
                       style={{
-                        fontFamily: "Oswald",
                         color: darkMode ? "white" : "black",
                       }}
                     >
@@ -247,12 +193,7 @@ export default function FooterComponent(props) {
                 </li>
                 <li>
                   <Link aria-current="page" to="/termsandconditions">
-                    <Text
-                      style={{
-                        fontFamily: "Oswald",
-                        color: darkMode ? "white" : "black",
-                      }}
-                    >
+                    <Text style={styles.darkModes.darkText}>
                       <FileProtectOutlined />
                       &nbsp; Terms & Conditions{" "}
                     </Text>
@@ -263,17 +204,11 @@ export default function FooterComponent(props) {
           </Col>
           <Col xs={24} sm={24} md={6} lg={6}>
             <div style={{ marginLeft: "40px" }}>
-              <Title
-                level={4}
-                style={{
-                  fontFamily: "Kaushan Script",
-                  color: darkMode ? "white" : "black",
-                }}
-              >
+              <Title level={4} style={styles.darkModes.darkText}>
                 <ContactsOutlined /> CONTACTS
               </Title>
             </div>
-            <div className={darkMode? "footerLinksDark": "footerLinks"}>
+            <div className={darkMode ? "footerLinksDark" : "footerLinks"}>
               <ul style={{ listStyleType: "none" }}>
                 <li>
                   {" "}
@@ -285,24 +220,14 @@ export default function FooterComponent(props) {
                   />
                 </li>
                 <li>
-                  <Text
-                    style={{
-                      fontFamily: "Oswald",
-                      color: darkMode ? "white" : "black",
-                    }}
-                  >
+                  <Text style={styles.darkModes.darkText}>
                     <EnvironmentOutlined />
                     &nbsp;Pune
                   </Text>
                 </li>
                 <li>
                   <a href="mailto:contact@indianikah.com">
-                    <Text
-                      style={{
-                        fontFamily: "Oswald",
-                        color: darkMode ? "white" : "black",
-                      }}
-                    >
+                    <Text style={styles.darkModes.darkText}>
                       <MailOutlined /> Contact@indianikah.com
                     </Text>
                   </a>
@@ -314,44 +239,39 @@ export default function FooterComponent(props) {
                 >
                   <a
                     href="https://t.me/IndiaNikah"
-                    style={{ color: darkMode ? "white" : "black" }}
+                    style={styles.darkModes.darkText}
                   >
                     <SendOutlined />
-                  </a>
+                  </a>{" "}
                   <a
                     href="https://wa.me/918482833177?text=Asslamu+alaikum"
-                    style={{ color: darkMode ? "white" : "black" }}
+                    style={styles.darkModes.darkText}
                   >
                     <WhatsAppOutlined />
-                  </a>
+                  </a>{" "}
                   <a
                     href="https://facebook.com/IndiaNikah"
-                    style={{ color: darkMode ? "white" : "black" }}
+                    style={styles.darkModes.darkText}
                   >
                     <FacebookOutlined />
-                  </a>
+                  </a>{" "}
                   <a
                     href="https://www.indianikah.com/"
-                    style={{ color: darkMode ? "white" : "black" }}
+                    style={styles.darkModes.darkText}
                   >
                     <GoogleOutlined />
                   </a>
                   &nbsp;
                   <a
                     href="https://www.youtube.com/c/IndiaNikah"
-                    style={{ color: darkMode ? "white" : "black" }}
+                    style={styles.darkModes.darkText}
                   >
                     <YoutubeOutlined />
-                  </a>
+                  </a>{" "}
                 </li>
 
                 <li>
-                  <Text
-                    style={{
-                      fontFamily: "Oswald",
-                      color: darkMode ? "white" : "black",
-                    }}
-                  >
+                  <Text style={styles.darkModes.darkText}>
                     ( We are on above social media )
                   </Text>
                 </li>

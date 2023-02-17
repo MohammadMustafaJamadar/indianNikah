@@ -82,9 +82,7 @@ export default function UserProfilePage() {
           <Col xs={24} sm={24} md={20} lg={20}>
             <Card
               style={{
-                // display: "flex",
-                // justifyContent: "center",
-                // alignItems: "center",
+      
                 borderColor: "red",
               }}
             >

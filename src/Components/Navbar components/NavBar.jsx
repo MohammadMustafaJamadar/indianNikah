@@ -1,10 +1,9 @@
 import React, { lazy, Suspense } from "react";
 import { Button, Switch } from "antd";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MenuOutlined, UserOutlined } from "@ant-design/icons";
 import logo from "../../images/indiaNikhah.png";
-import "../../css/style.css";
 import "../../css/navbar.css";
 const DekstopNavbar = lazy(() => import("./DekstopNavbar"));
 const MobilNav = lazy(() => import("./MobilNav"));
@@ -13,6 +12,18 @@ export default function NavBar(props) {
   const { darkMode, setDarkMode } = props;
 
   const [open, setOpen] = useState(false);
+  const navigateUser = useNavigate();
+
+  const styles = {
+    darkModes: {
+      darkBackGround: {
+        background: darkMode
+          ? "#071B2F"
+          : `linear-gradient(332deg,rgb(234, 207, 84) -48%, rgb(231, 147, 17) -32%)`,
+      },
+      darkText: { color: darkMode ? "white" : "black" },
+    },
+  };
 
   const openNav = () => {
     setOpen(true);
@@ -30,33 +41,25 @@ export default function NavBar(props) {
     }
   };
 
+  const navigateUser_myProfile = () => {
+    navigateUser("/profile/my-profile/")
+  }
+
   return (
     <>
-      <div
-        className="nav-bar"
-        style={{
-          background: darkMode
-            ? "#071B2F"
-            : `linear-gradient(332deg,rgb(234, 207, 84) -48%, rgb(231, 147, 17) -32%)`,
-            width:"100%"
-        }}
-      >
+      <div className="nav-bar" style={styles.darkModes.darkBackGround}>
         <div className="mobile-nav-bar">
           <Button
             size="large"
-            style={{
-              background: darkMode
-                ? "#071B2F"
-                : "linear-gradient(332deg, rgb(234, 207, 84) -48%, rgb(231, 147, 17) -32%)",
-            }}
+            style={styles.darkModes.darkBackGround}
             type="primary"
             onClick={openNav}
           >
-            <MenuOutlined style={{ color: darkMode ? "white" : "black" }} />
+            <MenuOutlined style={styles.darkModes.darkText} />
           </Button>
         </div>
 
-        <div  className="nav-img-div">
+        <div className="nav-img-div">
           <Link aria-current="page" to="/">
             <img
               src={logo}
@@ -72,7 +75,7 @@ export default function NavBar(props) {
             <DekstopNavbar darkMode={darkMode} />
           </Suspense>
         </div>
-        <div style={{marginRight:"10px"}}>
+        <div style={{ marginRight: "10px" }}>
           <Button
             type="primary"
             size="medium"
@@ -84,12 +87,7 @@ export default function NavBar(props) {
           </Button>
         </div>
         <div>
-          <Button
-         
-            size="medium"
-            shape="round"
-            className="btn-5-myprofile"
-          >
+          <Button size="medium" shape="round" className="btn-5-myprofile" onClick={navigateUser_myProfile}>
             <UserOutlined />
             My Profile
           </Button>

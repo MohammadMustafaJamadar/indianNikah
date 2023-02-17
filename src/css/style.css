@@ -12,6 +12,7 @@
   font-size: 18px;
   line-height: 1.2;
   font-weight: 300;
+  font-family: Roboto, sans-serif !important;
 }
 .homepage {
   width: 100%;
@@ -26,9 +27,7 @@
   position: relative;
   margin-top: 60px;
 }
-.about-discription-1 {
-  font-family: Roboto, sans-serif;
-}
+
 .btn-1-search,
 .btn-2-guidliness {
   color: #000;
@@ -52,6 +51,9 @@
   }
   #heading-title {
     font-size: medium;
+  }
+  .homepage{
+    height: 200px;
   }
 }
 .cube {

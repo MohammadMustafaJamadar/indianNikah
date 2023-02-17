@@ -5,7 +5,6 @@ import { useState } from 'react';
 import FooterComponent from './Components/Pages/FooterComponent';
 import MarraigeGuideliness from './Components/Pages/MarraigeGuideliness';
 import SearchPage from './Components/Pages/SearchPage';
-// import NewProfilesOnHome from "./Components/Home Components/NewProfilesOnHome";
 import UserProfilePage from "./Components/Pages/UserProfilePage"
 import NewProfilePage from "./Components/Pages/NewProfilePage";
 function App() {

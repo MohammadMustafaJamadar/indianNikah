@@ -45,6 +45,13 @@ const items = [
 
 export default function DekstopNavbar(props) {
   const { darkMode } = props;
+
+  const styles = {
+    darkModes: {
+      darkText: { color: darkMode ? "white" : "black" },
+    },
+  };
+
   return (
     <>
       <ul
@@ -54,102 +61,67 @@ export default function DekstopNavbar(props) {
       >
         <li>
           <Link aria-current="page" to="/login">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <HeartOutlined /> Favourites
+            <Text style={styles.darkModes.darkText}  type="primary" strong>
+              Favourites  <HeartOutlined  />
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <SearchOutlined /> Search Profiles
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+              Search Profiles <SearchOutlined /> 
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <ReadOutlined /> Marriage Guidelines
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+              Marriage Guidelines  <ReadOutlined  />
             </Text>
           </Link>
         </li>
         <li>
           <Dropdown menu={{ items, selectable: true }}>
-            <Typography.Link
-              strong
-              style={{ color: darkMode ? "white" : "black" }}
-            >
+            <Typography.Link strong style={styles.darkModes.darkText}>
               <IdcardOutlined /> Supports <DownOutlined />
             </Typography.Link>
           </Dropdown>
         </li>
         <li>
           <Link aria-current="page" to="/signup ">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <MessageOutlined />
-              &nbsp; feedbacks
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+              
+            feedbacks <MessageOutlined  />
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <InfoCircleOutlined /> About Us
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+             About Us  <InfoCircleOutlined  /> 
             </Text>
           </Link>
         </li>
 
         <li>
           <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <PlusCircleOutlined />
-              &nbsp; New Profiles
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+              
+             New Profiles   <PlusCircleOutlined />
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <BarsOutlined /> Categories
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+               Categories <BarsOutlined  />
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <FileTextOutlined /> Document Service
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+              Document Service <FileTextOutlined  />
             </Text>
           </Link>
         </li>

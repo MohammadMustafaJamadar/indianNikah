@@ -8,6 +8,7 @@ import {
   EllipsisOutlined,
 } from "@ant-design/icons";
 import { iframContent } from "../../utils/iframContent";
+import getRandomElements from "../../utils/randomDataicker";
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
@@ -16,21 +17,16 @@ export default function GuidelinesForHome(props) {
   const { darkMode } = props;
   const [iframLinks, setIframLinks] = useState([]);
 
+  const styles = {
+    darkModes : {
+      darkBackGround:{ backgroundColor: darkMode ? "#16395A" : "white" },
+    }
+  }
+
   useEffect(() => {
     let isCancelled = false;
     if (!isCancelled) {
-      const getRandomElements = (array, elements) => {
-        const result = [];
-
-        for (let i = 0; i < elements; i++) {
-          const randomIndex = Math.floor(Math.random() * array.length);
-          const randomObject = array[randomIndex];
-          if (!result.some((obj) => obj.id === randomObject.id)) {
-            result.push(randomObject);
-          }
-        }
-        return result;
-      };
+     
       const result = getRandomElements(iframContent, 4);
       setIframLinks(result);
       console.log(result);
@@ -38,13 +34,12 @@ export default function GuidelinesForHome(props) {
 
     return () => {
       isCancelled = true;
-      console.log("work terminated");
     };
   }, []);
 
   return (
     <>
-      <Row style={{ backgroundColor: darkMode ? "#16395A" : "white" }}>
+      <Row style={styles.darkModes.darkBackGround}>
         <Col xs={24} sm={24} md={24} lg={24}>
           {" "}
           <div
@@ -85,7 +80,7 @@ export default function GuidelinesForHome(props) {
       </Row>
       <Row
         justify="center"
-        style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
+        style={styles.darkModes.darkBackGround}
       >
         <Col xs={24} sm={24} md={20} lg={20}>
           <Row justify="center" style={{ marginTop: "20px", }}>

@@ -46,6 +46,25 @@ const items = [
 
 export default function MobilNav(props) {
   const { handelNavClose, darkMode, open } = props;
+
+  const styles = {
+    darkModes: {
+      darkText: { color: darkMode ? "white" : "black" },
+      darkForDrawer: {
+        color: darkMode ? "white" : "black",
+        border: "0px",
+        backgroundColor: darkMode ? "#12264C" : "white",
+      },
+    },
+    cssForUl: {
+      listStyle: "none",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      marginLeft: "-46px",
+    },
+  };
+
   return (
     <>
       <div>
@@ -56,16 +75,12 @@ export default function MobilNav(props) {
           onClose={handelNavClose}
           open={open}
           key="left"
-          style={{
-            color: darkMode ? "white" : "black",
-            border: "0px",
-            backgroundColor: darkMode ? "#12264C" : "white",
-          }}
+          style={styles.darkModes.darkForDrawer}
         >
           <Title
             style={{
               fontFamily: "Kaushan Script",
-              color: darkMode ? "white" : "black",
+              color: styles.darkModes.darkText.color,
             }}
             level={3}
           >
@@ -74,20 +89,11 @@ export default function MobilNav(props) {
 
           <div onClick={handelNavClose}>
             <div className="nav-links">
-              <ul
-                style={{
-                  listStyle: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  marginLeft: "-46px",
-                }}
-              >
+              <ul style={styles.cssForUl}>
                 <li>
                   <Link type="primary" aria-current="page" to="/">
                     <Text
-                      className="footerLinks"
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -98,10 +104,7 @@ export default function MobilNav(props) {
                 <li>
                   <Link aria-current="page" to="/login">
                     <Text
-                      style={{
-                        color: darkMode ? "white" : "black",
-                        textDecoration: "none !important",
-                      }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -112,7 +115,7 @@ export default function MobilNav(props) {
                 <li>
                   <Link aria-current="page" to="/signup">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -123,7 +126,7 @@ export default function MobilNav(props) {
                 <li>
                   <Link aria-current="page" to="/signup">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -133,10 +136,7 @@ export default function MobilNav(props) {
                 </li>
                 <li>
                   <Dropdown menu={{ items, selectable: true }}>
-                    <Typography.Link
-                      strong
-                      style={{ color: darkMode ? "white" : "black" }}
-                    >
+                    <Typography.Link strong style={styles.darkModes.darkText}>
                       <IdcardOutlined /> Supports <DownOutlined />
                     </Typography.Link>
                   </Dropdown>
@@ -144,7 +144,7 @@ export default function MobilNav(props) {
                 <li>
                   <Link aria-current="page" to="/signup">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -156,7 +156,7 @@ export default function MobilNav(props) {
                 <li>
                   <Link aria-current="page" to="/signup">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -168,7 +168,7 @@ export default function MobilNav(props) {
                 <li>
                   <Link aria-current="page" to="/signup">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -180,7 +180,7 @@ export default function MobilNav(props) {
                 <li>
                   <Link aria-current="page" to="/signup">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -191,7 +191,7 @@ export default function MobilNav(props) {
                 <li>
                   <Link aria-current="page" to="/signup">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
