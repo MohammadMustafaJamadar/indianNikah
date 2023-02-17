@@ -49,7 +49,7 @@ const userdata = {
 };
 const { Text, Title } = Typography;
 export default function UserProfilePage() {
-  const [user, setUser] = useState(userdata);
+  const [user, ] = useState(userdata);
 
   const navigateUser = useNavigate()
   const handleEdit = () => {
@@ -233,7 +233,7 @@ export default function UserProfilePage() {
               <Col span={17}>{user.OtherInfo.ExtraInfo}</Col>
             </Row>
           </Col>
-          <Row justify="center">
+          <Row justify="center" style={{ marginBottom:"20px"}}>
             <Col span={12}>
               <div
                 style={{

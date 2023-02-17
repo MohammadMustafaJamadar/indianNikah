@@ -60,21 +60,21 @@ export default function DekstopNavbar(props) {
         }
       >
         <li>
-          <Link aria-current="page" to="/login">
+          <Link aria-current="page" to="/favourites/list/">
             <Text style={styles.darkModes.darkText}  type="primary" strong>
               Favourites  <HeartOutlined  />
             </Text>
           </Link>
         </li>
         <li>
-          <Link aria-current="page" to="/signup">
+          <Link aria-current="page" to="/search">
             <Text style={styles.darkModes.darkText} type="primary" strong>
               Search Profiles <SearchOutlined /> 
             </Text>
           </Link>
         </li>
         <li>
-          <Link aria-current="page" to="/signup">
+          <Link aria-current="page" to="/guidelines/r/">
             <Text style={styles.darkModes.darkText} type="primary" strong>
               Marriage Guidelines  <ReadOutlined  />
             </Text>
@@ -88,7 +88,7 @@ export default function DekstopNavbar(props) {
           </Dropdown>
         </li>
         <li>
-          <Link aria-current="page" to="/signup ">
+          <Link aria-current="page" to="/feedbacks/post-feedback/ ">
             <Text style={styles.darkModes.darkText} type="primary" strong>
               
             feedbacks <MessageOutlined  />
@@ -96,7 +96,7 @@ export default function DekstopNavbar(props) {
           </Link>
         </li>
         <li>
-          <Link aria-current="page" to="/signup">
+          <Link aria-current="page" to="/about-us/">
             <Text style={styles.darkModes.darkText} type="primary" strong>
              About Us  <InfoCircleOutlined  /> 
             </Text>
@@ -104,7 +104,7 @@ export default function DekstopNavbar(props) {
         </li>
 
         <li>
-          <Link aria-current="page" to="/signup">
+          <Link aria-current="page" to="/profiles/newly-added-profiles">
             <Text style={styles.darkModes.darkText} type="primary" strong>
               
              New Profiles   <PlusCircleOutlined />
@@ -112,14 +112,14 @@ export default function DekstopNavbar(props) {
           </Link>
         </li>
         <li>
-          <Link aria-current="page" to="/signup">
+          <Link aria-current="page" to="/profiles/profile-categories">
             <Text style={styles.darkModes.darkText} type="primary" strong>
                Categories <BarsOutlined  />
             </Text>
           </Link>
         </li>
         <li>
-          <Link aria-current="page" to="/signup">
+          <Link aria-current="page" to="/post-document-service/">
             <Text style={styles.darkModes.darkText} type="primary" strong>
               Document Service <FileTextOutlined  />
             </Text>

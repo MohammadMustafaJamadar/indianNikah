@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Button, Typography, Card } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   TeamOutlined,
   InfoCircleOutlined,
@@ -16,11 +16,16 @@ const { Meta } = Card;
 export default function GuidelinesForHome(props) {
   const { darkMode } = props;
   const [iframLinks, setIframLinks] = useState([]);
+  const navigateUser = useNavigate();
 
   const styles = {
     darkModes : {
       darkBackGround:{ backgroundColor: darkMode ? "#16395A" : "white" },
     }
+  }
+
+  const navigateUser_GuidlinePage = () => {
+    navigateUser("/guidelines/r/")
   }
 
   useEffect(() => {
@@ -143,7 +148,7 @@ export default function GuidelinesForHome(props) {
               }}
             >
               <div>
-                <Button shape="round" size="large" className="btn-2-guidliness">
+                <Button shape="round" size="large" className="btn-2-guidliness" onClick={navigateUser_GuidlinePage}>
                   <ReadOutlined style={{ marginBottom: "-2px" }} /> &nbsp;
                   MARRIAGE GUIDELINES
                 </Button>

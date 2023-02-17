@@ -63,7 +63,6 @@ export default function HomePage(props) {
                 <div>
                   <Title
                     level={3}
-                    style={{}}
                     className="animate__animated animate__backInDown"
                     id="heading-title"
                   >
@@ -198,7 +197,7 @@ export default function HomePage(props) {
       </Row>
       <Suspense>
         <GuidelinesForHome darkMode={darkMode} />
-        <NewProfilesOnHome />
+        <NewProfilesOnHome darkMode={darkMode} />
         <CarouselForHome darkMode={darkMode} />
       </Suspense>
     </>

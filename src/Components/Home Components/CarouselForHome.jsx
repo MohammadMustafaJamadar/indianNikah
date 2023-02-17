@@ -20,8 +20,8 @@ export default function CarouselForHome(props) {
     <>
       <Row
         justify="center"
-        style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
-      >
+        style={{ backgroundColor: darkMode ? "#16395A" : "white",  }}
+       >
         <Col xs={24} sm={24} md={16} lg={16}>
           <div
             style={{
@@ -52,17 +52,19 @@ export default function CarouselForHome(props) {
           </div>
           <br />
 
-          <Row justify="center">
+          <Row justify="center" >
             <Col xs={24} sm={24} md={18} lg={18}>
               <Carousel
                 className="cards-in-animation "
                 style={{
-                  boxShadow: ` 1.6px 0px 21.2px rgba(0, 0, 0, 0.038),
+                  boxShadow: ` 
+              1.6px 0px 21.2px rgba(0, 0, 0, 0.038),
               3.4px 0px 43.9px rgba(0, 0, 0, 0.042),
               5.8px 0px 68.5px rgba(0, 0, 0, 0.047),
               9.4px 0px 94.9px rgba(0, 0, 0, 0.053),
               16.5px 0px 121.4px rgba(0, 0, 0, 0.061),
               41px 0px 143px rgba(0,0,0,0.07)`,
+              marginBottom:"20px"
                 }}
                 autoplay
                 dots={true}

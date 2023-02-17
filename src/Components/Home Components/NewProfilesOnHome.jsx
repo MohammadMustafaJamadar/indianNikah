@@ -4,6 +4,7 @@ import { UsergroupAddOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import manimg from "../../images/man.jpg";
 import womanimg from "../../images/woman.jpg";
 import "../../css/style.css";
+import { useNavigate } from "react-router-dom";
 
 const { Text, Title } = Typography;
 
@@ -66,17 +67,31 @@ const users = [
   },
 ];
 
-const NewProfilesOnHome = () => {
+const NewProfilesOnHome = (props) => {
+  const { darkMode } = props;
+  const navigateUser = useNavigate();
+
+  const navigateUser_NewProfile = () => {
+    navigateUser("/profiles/newly-added-profiles");
+  };
+
+  const styles = {
+    dakrModes: {
+      darkBackGround: { backgroundColor: darkMode ? "#001F3D" : "white" },
+      darkText: { color: darkMode ? "white" : "black" },
+    },
+  };
+
   return (
     <>
-      <Row justify="center">
+      <Row justify="center" style={styles.dakrModes.darkBackGround}>
         <Col xs={24} sm={24} md={16} lg={16}>
           <div className="newprofile-home-title">
             <Title
               level={3}
               style={{
                 fontFamily: "kaushan script",
-                color: "black",
+                color: styles.dakrModes.darkText.color,
               }}
             >
               <UsergroupAddOutlined /> New Profiles
@@ -87,7 +102,7 @@ const NewProfilesOnHome = () => {
             <Text
               style={{
                 fontFamily: "Source Code Pro, monospace",
-                color: "black",
+                color: styles.dakrModes.darkText.color,
               }}
             >
               <PlusCircleOutlined /> Some newly added profiles
@@ -139,6 +154,7 @@ const NewProfilesOnHome = () => {
                 shape="round"
                 size="medium"
                 className="newprofile-home-visit-btn-2"
+                onClick={navigateUser_NewProfile}
               >
                 <PlusCircleOutlined />
                 Visit New Profile

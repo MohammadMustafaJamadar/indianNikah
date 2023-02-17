@@ -22,7 +22,7 @@ function App() {
           <Route
             element={<NewProfilePage/>}
             darkMode={darkMode}
-            path="/profile/newly-added-profile"
+            path="/profiles/newly-added-profiles"
           ></Route>
           <Route
             element={<UserProfilePage/>}

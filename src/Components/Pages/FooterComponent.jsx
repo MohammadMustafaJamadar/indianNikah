@@ -31,15 +31,16 @@ export default function FooterComponent(props) {
 
   const styles = {
     darkModes: {
-      darkBackGround: { backgroundColor: darkMode ? "#001F3D" : "white" },
+      darkBackGround: { backgroundColor: darkMode ? "#001F3D" : "#eacf54" },
       darkText: { color: darkMode ? "white" : "black" },
+      darkBackGroundFirstDiv: { backgroundColor: darkMode ? "#001F3D" : "lightgray" },
     },
   };
 
   return (
     <>
-      <div className="sub-footer-up" style={styles.darkModes.darkBackGround}>
-        <Row justify="center" style={{ textAlign: "center" }}>
+      <div className="sub-footer-up" style={styles.darkModes.darkBackGroundFirstDiv}>
+        <Row justify="center" style={{ textAlign: "center",}}>
           <Col xs={24} sm={24} md={8} lg={8}>
             <Title style={styles.darkModes.darkText} level={4}>
               <TeamOutlined /> Total 309 Users found there partner yet
@@ -156,7 +157,7 @@ export default function FooterComponent(props) {
                   />
                 </li>
                 <li>
-                  <Link aria-current="page" to="/profile">
+                  <Link aria-current="page" to="/profile/my-profile/">
                     <Text style={styles.darkModes.darkText}>
                       <UserOutlined /> &nbsp; My Profile{" "}
                     </Text>
@@ -180,7 +181,7 @@ export default function FooterComponent(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-current="page" to="/privacypolicy">
+                  <Link aria-current="page" to="/privacy-policy/">
                     <Text
                       style={{
                         color: darkMode ? "white" : "black",
@@ -192,7 +193,7 @@ export default function FooterComponent(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-current="page" to="/termsandconditions">
+                  <Link aria-current="page" to="/terms-and-conditions/">
                     <Text style={styles.darkModes.darkText}>
                       <FileProtectOutlined />
                       &nbsp; Terms & Conditions{" "}

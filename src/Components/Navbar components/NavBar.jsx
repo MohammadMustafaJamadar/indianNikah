@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Button, Switch } from "antd";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MenuOutlined, UserOutlined } from "@ant-design/icons";
+import { MenuOutlined, UserOutlined, LoginOutlined } from "@ant-design/icons";
 import logo from "../../images/indiaNikhah.png";
 import "../../css/navbar.css";
 const DekstopNavbar = lazy(() => import("./DekstopNavbar"));
@@ -82,7 +82,7 @@ export default function NavBar(props) {
             shape="round"
             className="login-logout-btn-6"
           >
-            <UserOutlined />
+            <LoginOutlined />
             Login
           </Button>
         </div>

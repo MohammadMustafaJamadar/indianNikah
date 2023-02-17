@@ -13,6 +13,7 @@ import {
   BarsOutlined,
   FileTextOutlined,
   DownOutlined,
+  LoginOutlined
 } from "@ant-design/icons";
 import "../../css/navbar.css";
 
@@ -102,7 +103,7 @@ export default function MobilNav(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-current="page" to="/login">
+                  <Link aria-current="page" to="/favourites/list/">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -124,7 +125,7 @@ export default function MobilNav(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-current="page" to="/signup">
+                  <Link aria-current="page" to="/guidelines/r/">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -142,7 +143,7 @@ export default function MobilNav(props) {
                   </Dropdown>
                 </li>
                 <li>
-                  <Link aria-current="page" to="/signup">
+                  <Link aria-current="page" to="/feedbacks/post-feedback/">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -154,7 +155,7 @@ export default function MobilNav(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-current="page" to="/signup">
+                  <Link aria-current="page" to="/about-us/">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -166,7 +167,7 @@ export default function MobilNav(props) {
                 </li>
 
                 <li>
-                  <Link aria-current="page" to="/signup">
+                  <Link aria-current="page" to="/profiles/newly-added-profiles">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -178,7 +179,7 @@ export default function MobilNav(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-current="page" to="/signup">
+                  <Link aria-current="page" to="/profiles/profile-categories">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -189,7 +190,7 @@ export default function MobilNav(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-current="page" to="/signup">
+                  <Link aria-current="page" to="/post-document-service/">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -206,7 +207,7 @@ export default function MobilNav(props) {
                     shape="round"
                     className="login-logout-btn-mobnav-6"
                   >
-                    <UserOutlined />
+                    <LoginOutlined />
                     Login
                   </Button>
                 </li>
