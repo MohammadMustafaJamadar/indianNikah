@@ -34,7 +34,6 @@ export default function GuidelinesForHome(props) {
      
       const result = getRandomElements(iframContent, 4);
       setIframLinks(result);
-      console.log(result);
     }
 
     return () => {
@@ -97,6 +96,7 @@ export default function GuidelinesForHome(props) {
                 md={9}
                 lg={9}
                 style={{ marginBottom: "10px", marginRight:"15px" }}
+                key={ele.id}
               >
               
                 <Card

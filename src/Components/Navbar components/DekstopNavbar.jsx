@@ -62,21 +62,21 @@ export default function DekstopNavbar(props) {
         <li>
           <Link aria-current="page" to="/favourites/list/">
             <Text style={styles.darkModes.darkText}  type="primary" strong>
-              Favourites  <HeartOutlined  />
+            <HeartOutlined  /> {" "}   Favourites
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/search">
             <Text style={styles.darkModes.darkText} type="primary" strong>
-              Search Profiles <SearchOutlined /> 
+            <SearchOutlined />  {" "}  Search Profiles 
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/guidelines/r/">
             <Text style={styles.darkModes.darkText} type="primary" strong>
-              Marriage Guidelines  <ReadOutlined  />
+            <ReadOutlined  /> {" "}   Marriage Guidelines  
             </Text>
           </Link>
         </li>
@@ -91,14 +91,14 @@ export default function DekstopNavbar(props) {
           <Link aria-current="page" to="/feedbacks/post-feedback/ ">
             <Text style={styles.darkModes.darkText} type="primary" strong>
               
-            feedbacks <MessageOutlined  />
+            <MessageOutlined  /> {" "}  feedbacks
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/about-us/">
             <Text style={styles.darkModes.darkText} type="primary" strong>
-             About Us  <InfoCircleOutlined  /> 
+            <InfoCircleOutlined  />  {" "} About Us
             </Text>
           </Link>
         </li>
@@ -107,21 +107,21 @@ export default function DekstopNavbar(props) {
           <Link aria-current="page" to="/profiles/newly-added-profiles">
             <Text style={styles.darkModes.darkText} type="primary" strong>
               
-             New Profiles   <PlusCircleOutlined />
+            <PlusCircleOutlined /> {" "}   New Profiles   
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/profiles/profile-categories">
             <Text style={styles.darkModes.darkText} type="primary" strong>
-               Categories <BarsOutlined  />
+            <BarsOutlined  /> {" "}   Categories 
             </Text>
           </Link>
         </li>
         <li>
           <Link aria-current="page" to="/post-document-service/">
             <Text style={styles.darkModes.darkText} type="primary" strong>
-              Document Service <FileTextOutlined  />
+            <FileTextOutlined  /> {" "}   Document Service 
             </Text>
           </Link>
         </li>

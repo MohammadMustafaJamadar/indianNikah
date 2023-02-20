@@ -20,8 +20,8 @@ export default function CarouselForHome(props) {
     <>
       <Row
         justify="center"
-        style={{ backgroundColor: darkMode ? "#16395A" : "white",  }}
-       >
+        style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
+      >
         <Col xs={24} sm={24} md={16} lg={16}>
           <div
             style={{
@@ -52,7 +52,7 @@ export default function CarouselForHome(props) {
           </div>
           <br />
 
-          <Row justify="center" >
+          <Row justify="center">
             <Col xs={24} sm={24} md={18} lg={18}>
               <Carousel
                 className="cards-in-animation "
@@ -64,7 +64,7 @@ export default function CarouselForHome(props) {
               9.4px 0px 94.9px rgba(0, 0, 0, 0.053),
               16.5px 0px 121.4px rgba(0, 0, 0, 0.061),
               41px 0px 143px rgba(0,0,0,0.07)`,
-              marginBottom:"20px"
+                  marginBottom: "20px",
                 }}
                 autoplay
                 dots={true}
@@ -74,7 +74,7 @@ export default function CarouselForHome(props) {
                 draggable
               >
                 {caruselFrames.map((ele) => (
-                  <div style={contentStyle}>
+                  <div style={contentStyle} key={ele.id}>
                     <Card>
                       <Row>
                         <Col xs={24} sm={24} md={12} lg={12}>

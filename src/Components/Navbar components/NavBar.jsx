@@ -3,16 +3,18 @@ import { Button, Switch } from "antd";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MenuOutlined, UserOutlined, LoginOutlined } from "@ant-design/icons";
-import logo from "../../images/indiaNikhah.png";
+import logo from "../../images/indiaNikahLogo.png";
+import moon from "../../images/moon.png";
+import sun from "../../images/sun.png";
 import "../../css/navbar.css";
 const DekstopNavbar = lazy(() => import("./DekstopNavbar"));
 const MobilNav = lazy(() => import("./MobilNav"));
 
 export default function NavBar(props) {
   const { darkMode, setDarkMode } = props;
-
   const [open, setOpen] = useState(false);
   const navigateUser = useNavigate();
+
 
   const styles = {
     darkModes: {
@@ -42,7 +44,11 @@ export default function NavBar(props) {
   };
 
   const navigateUser_myProfile = () => {
-    navigateUser("/profile/my-profile/")
+    navigateUser("/profile/my-profile/");
+  };
+
+  const navigateUser_Login = () => {
+    navigateUser("accounts/login/")
   }
 
   return (
@@ -68,7 +74,6 @@ export default function NavBar(props) {
               loading="lazy"
             />
           </Link>
-          <div></div>
         </div>
         <div className="div-for-navdeck-links" style={{ width: "70%" }}>
           <Suspense>
@@ -81,13 +86,19 @@ export default function NavBar(props) {
             size="medium"
             shape="round"
             className="login-logout-btn-6"
+            onClick={navigateUser_Login}
           >
             <LoginOutlined />
             Login
           </Button>
         </div>
         <div>
-          <Button size="medium" shape="round" className="btn-5-myprofile" onClick={navigateUser_myProfile}>
+          <Button
+            size="medium"
+            shape="round"
+            className="btn-5-myprofile"
+            onClick={navigateUser_myProfile}
+          >
             <UserOutlined />
             My Profile
           </Button>
@@ -103,8 +114,11 @@ export default function NavBar(props) {
         </div>
         <div style={{ marginLeft: "20px" }}>
           <Switch
-            checkedChildren="Disable"
-            unCheckedChildren="Enable"
+            checkedChildren={
+                 <img width="100%" height="18px" style={{marginTop:"2px"}} src={moon} alt="No....!" />
+            
+            }
+            unCheckedChildren={<img width="100%" height="16px"  src={sun} alt="No....!" />}
             size="large"
             onChange={handelDarMode}
           />

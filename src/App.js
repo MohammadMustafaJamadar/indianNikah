@@ -1,12 +1,13 @@
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
-import HomePage from './Components/Pages/HomePage';
-import NavBar from './Components/Navbar components/NavBar';
-import { useState } from 'react';
-import FooterComponent from './Components/Pages/FooterComponent';
-import MarraigeGuideliness from './Components/Pages/MarraigeGuideliness';
-import SearchPage from './Components/Pages/SearchPage';
-import UserProfilePage from "./Components/Pages/UserProfilePage"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./Components/Pages/HomePage";
+import NavBar from "./Components/Navbar components/NavBar";
+import { useState } from "react";
+import FooterComponent from "./Components/Pages/FooterComponent";
+import MarraigeGuideliness from "./Components/Pages/MarraigeGuideliness";
+import SearchPage from "./Components/Pages/SearchPage";
+import UserProfilePage from "./Components/Pages/UserProfilePage";
 import NewProfilePage from "./Components/Pages/NewProfilePage";
+import AboutUsPage from "./Components/Pages/AboutUsPage";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   return (
@@ -20,15 +21,19 @@ function App() {
           <Route element={<MarraigeGuideliness />} path="guidelines/r/"></Route>
           <Route element={<SearchPage />} path="/profile/"></Route>
           <Route
-            element={<NewProfilePage/>}
+            element={<NewProfilePage />}
             darkMode={darkMode}
             path="/profiles/newly-added-profiles"
           ></Route>
           <Route
-            element={<UserProfilePage/>}
-
+            element={<UserProfilePage />}
             darkMode={darkMode}
             path="/profile/my-profile"
+          ></Route>
+          <Route
+            element={<AboutUsPage />}
+            darkMode={darkMode}
+            path="/about-us"
           ></Route>
         </Routes>
         <FooterComponent darkMode={darkMode} />

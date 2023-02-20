@@ -18,58 +18,152 @@ import {
   TeamOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import logo from "../../images/indiaNikhah.png";
+import logo from "../../images/indiaNikahLogo.png";
 import { Button, Col, Row } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import "../../css/footer.css";
-import { Typography } from "antd";
+import { Typography, Modal } from "antd";
 
 const { Title, Text } = Typography;
 
 export default function FooterComponent(props) {
   const { darkMode } = props;
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    if (isModalOpen === false) {
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleCancel = () => {
+    if (isModalOpen === true) {
+      setIsModalOpen(false);
+    }
+  };
 
   const styles = {
     darkModes: {
       darkBackGround: { backgroundColor: darkMode ? "#001F3D" : "#eacf54" },
       darkText: { color: darkMode ? "white" : "black" },
-      darkBackGroundFirstDiv: { backgroundColor: darkMode ? "#001F3D" : "lightgray" },
+      darkBackGroundFirstDiv: {
+        backgroundColor: darkMode ? "#001F3D" : "lightgray",
+      },
     },
   };
 
   return (
     <>
-      <div className="sub-footer-up" style={styles.darkModes.darkBackGroundFirstDiv}>
-        <Row justify="center" style={{ textAlign: "center",}}>
+      <div
+        className="sub-footer-up"
+        style={styles.darkModes.darkBackGroundFirstDiv}
+      >
+        <Row justify="center" style={{ textAlign: "center" }}>
           <Col xs={24} sm={24} md={8} lg={8}>
             <Title style={styles.darkModes.darkText} level={4}>
               <TeamOutlined /> Total 309 Users found there partner yet
             </Title>
             <br />
             <div className="rateus-share-div">
-              <Button type="primary" className="btn-3-rating" size="medium">
-                <Text
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                  }}
-                >
-                  <StarOutlined />
-                  <StarOutlined />
-                  <StarOutlined />
-                  <StarOutlined />
-                  <StarOutlined />
-                  <br />
-                  RATE US ON GOOGLE
-                </Text>
-              </Button>
+              <a
+                href="https://g.page/r/Cbq60nFUvcUuEB0/review"
+                target="_blank"
+                rel="noopener noreferrer" 
+              >
+                <Button type="primary" className="btn-3-rating" size="medium">
+                  <Text
+                    style={{
+                      width: "auto",
+                      height: "auto",
+                    }}
+                  >
+                    <StarOutlined />
+                    <StarOutlined />
+                    <StarOutlined />
+                    <StarOutlined />
+                    <StarOutlined />
+                    <br />
+                    RATE US ON GOOGLE
+                  </Text>
+                </Button>
+              </a>
               &nbsp; &nbsp;
-              <Button size="medium" type="primary" className="btn-4-share ">
+              <Button
+                size="medium"
+                type="primary"
+                className="btn-4-share "
+                onClick={showModal}
+              >
                 <Text>
                   <ShareAltOutlined />
                   <br />
                   SHARE THIS WEBSITE
                 </Text>
+
+                <Modal
+                  open={isModalOpen}
+                  onOk={handleCancel}
+                  onCancel={handleCancel}
+                >
+                  <Row
+                    justify="center"
+                    style={{
+                      backgroundColor: darkMode ? "#001F3D" : "lightgray",
+                    }}
+                  >
+                    <Col xs={24} sm={24} md={24} lg={24}>
+                      <div
+                        className={darkMode ? "footerLinksDark" : "footerLinks"}
+                      >
+                        <ul style={{ listStyleType: "none" }}>
+                          <li
+                            style={{
+                              fontSize: "30px",
+                            }}
+                          >
+                            <a
+                              href="https://t.me/IndiaNikah"
+                              style={styles.darkModes.darkText}
+                            >
+                              <SendOutlined />
+                            </a>{" "}
+                            <a
+                              href="https://wa.me/918482833177?text=Asslamu+alaikum"
+                              style={styles.darkModes.darkText}
+                            >
+                              <WhatsAppOutlined />
+                            </a>{" "}
+                            <a
+                              href="https://facebook.com/IndiaNikah"
+                              style={styles.darkModes.darkText}
+                            >
+                              <FacebookOutlined />
+                            </a>{" "}
+                            <a
+                              href="https://www.indianikah.com/"
+                              style={styles.darkModes.darkText}
+                            >
+                              <GoogleOutlined />
+                            </a>
+                            &nbsp;
+                            <a
+                              href="https://www.youtube.com/c/IndiaNikah"
+                              style={styles.darkModes.darkText}
+                            >
+                              <YoutubeOutlined />
+                            </a>{" "}
+                          </li>
+
+                          <li>
+                            <Text style={styles.darkModes.darkText}>
+                              ( We are on above social media )
+                            </Text>
+                          </li>
+                        </ul>
+                      </div>
+                    </Col>
+                  </Row>
+                </Modal>
               </Button>
             </div>
           </Col>

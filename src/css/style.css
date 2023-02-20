@@ -14,14 +14,17 @@
   font-weight: 300;
   font-family: Roboto, sans-serif !important;
 }
+
+.marquee {
+flex-direction: row-reverse !important;
+}
+
 .homepage {
   width: 100%;
   height: 350px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  justify-content: center;
-  align-items: center;
+  background-position: bottom;
   overflow: hidden;
   animation: 15s infinite Gradient;
   position: relative;
@@ -51,49 +54,14 @@
   #heading-title {
     font-size: medium;
   }
-  .homepage{
+  .homepage {
     height: 200px;
   }
+  .marquee {
+    flex-direction: row !important;
+    }
 }
-.cube {
-  position: absolute;
-  top: 20vh;
-  left: 20vw;
-  width: 10px;
-  height: 10px;
-  border: 1px solid #e79311;
-  transform-origin: top left;
-  transform: scale(0) rotate(0) translate(-50%, -50%);
-  animation: 12s ease-in infinite forwards cube;
-}
-.cube:nth-child(2n) {
-  border-color: #eacf54;
-}
-.cube:nth-child(2) {
-  animation-delay: 2s;
-  left: 25vw;
-  top: 30vh;
-}
-.cube:nth-child(3) {
-  animation-delay: 4s;
-  left: 75vw;
-  top: 20vh;
-}
-.cube:nth-child(4) {
-  animation-delay: 6s;
-  left: 90vw;
-  top: 10vh;
-}
-.cube:nth-child(5) {
-  animation-delay: 8s;
-  left: 10vw;
-  top: 20vh;
-}
-.cube:nth-child(6) {
-  animation-delay: 10s;
-  left: 50vw;
-  top: 10vh;
-}
+
 .btn-1-search {
   background-color: #eacf54;
 }
@@ -111,9 +79,7 @@
 .about-text-section {
   font-family: "Kaushan Script";
 }
-.about-text-section:hover {
-  transform: scale(1.3);
-}
+
 .about-discription-2 {
   font-family: Roboto, sans-serif;
   color: #df3768;
@@ -174,13 +140,4 @@
     opacity: 1;
   }
 }
-@keyframes cube {
-  from {
-    transform: scale(0) rotate(0) translate(-50%, -50%);
-    opacity: 1;
-  }
-  to {
-    transform: scale(20) rotate(960deg) translate(-50%, -50%);
-    opacity: 0;
-  }
-}
+

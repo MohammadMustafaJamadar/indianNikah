@@ -2,8 +2,9 @@ import React, { lazy, Suspense } from "react";
 import { Col, Row, Button, Typography, Card } from "antd";
 import { SearchOutlined, ReadOutlined } from "@ant-design/icons";
 import "../../css/style.css";
-import img6 from "../../photos/img6.jpg";
+import img20 from "../../photos/img20.jpg";
 import { useNavigate } from "react-router-dom";
+import Marquee from "react-fast-marquee";
 
 const CarouselForHome = lazy(() =>
   import("../Home Components/CarouselForHome")
@@ -19,8 +20,9 @@ const { Title, Text } = Typography;
 
 export default function HomePage(props) {
   const { darkMode } = props;
-
-  console.log(darkMode);
+  // const [arabicHadidth, setArabicHadidth] = useState(true);
+  // const [englishcHadidth, setarEnglishHadidth] = useState(false);
+  // const [urduHadidth, setUrduHadidth] = useState(false);
 
   const navigateUser = useNavigate();
 
@@ -36,12 +38,24 @@ export default function HomePage(props) {
 
   return (
     <>
-      <div className="homepage" style={{ backgroundImage: `url(${img6})` }}>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
+      <div className="homepage" style={{ backgroundImage: `url(${img20})` }}>
+        <Marquee
+          direction="left"
+          speed={50}
+          style={{
+            color: "white",
+            backgroundColor: "rgb(0 0 0 / 67%)",
+            fontSize: "20px",
+          }}
+          gradient={false}
+        >
+          <div>
+            "Marry the single people from among you and the righteous slaves and
+            slave-girls. If you are poor, Allah (SwT) will make you rich through
+            His favour; and Allah (SwT) is Bountiful, All-Knowing." (24:32).
+          </div>
+        </Marquee>
+
         <Row
           style={{
             backgroundColor: "rgba(0,0,0,.3)",
@@ -165,7 +179,19 @@ export default function HomePage(props) {
             <Col xs={24} sm={24} md={8} lg={8}>
               <Card
                 className="cards-in-animation "
-                hoverable 
+                hoverable
+                style={{
+                  boxShadow: `  6.9px 9.7px 15.6px rgba(0, 0, 0, 0.07),
+                  14.6px 20.4px 20.7px rgba(0, 0, 0, 0.001),
+                  23.2px 32.5px 24.4px rgba(0, 0, 0, -0.003),
+                  33.3px 46.7px 27.5px rgba(0, 0, 0, -0.001),
+                  45.8px 64.1px 30.5px rgba(0, 0, 0, 0.002),
+                  61.8px 86.6px 33.6px rgba(0, 0, 0, 0.004),
+                  83.8px 117.4px 37.1px rgba(0, 0, 0, 0.006),
+                  116.4px 163.1px 41.5px rgba(0, 0, 0, 0.006),
+                  171.1px 239.7px 47.9px rgba(0, 0, 0, 0.005),
+                  292px 409px 65px rgba(0, 0, 0, 0.003)`,
+                }}
               >
                 <iframe
                   width="100%"

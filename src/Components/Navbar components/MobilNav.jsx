@@ -1,6 +1,6 @@
 import React from "react";
 import { Drawer, Typography, Dropdown, Button } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   UserOutlined,
   HeartOutlined,
@@ -48,6 +48,8 @@ const items = [
 export default function MobilNav(props) {
   const { handelNavClose, darkMode, open } = props;
 
+  const navigateUser = useNavigate();
+
   const styles = {
     darkModes: {
       darkText: { color: darkMode ? "white" : "black" },
@@ -65,6 +67,11 @@ export default function MobilNav(props) {
       marginLeft: "-46px",
     },
   };
+
+  const navigateUser_Login = () => {
+    navigateUser("accounts/login/")
+  }
+
 
   return (
     <>
@@ -92,7 +99,7 @@ export default function MobilNav(props) {
             <div className="nav-links">
               <ul style={styles.cssForUl}>
                 <li>
-                  <Link type="primary" aria-current="page" to="/">
+                  <Link type="primary" aria-current="page" to="/profile/my-profile/">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -149,7 +156,7 @@ export default function MobilNav(props) {
                       type="primary"
                       strong
                     >
-                      <MessageOutlined />
+                      <MessageOutlined /> {" "}
                       feedbacks
                     </Text>
                   </Link>
@@ -173,7 +180,7 @@ export default function MobilNav(props) {
                       type="primary"
                       strong
                     >
-                      <PlusCircleOutlined />
+                      <PlusCircleOutlined /> {" "}
                       New Profiles
                     </Text>
                   </Link>
@@ -206,6 +213,7 @@ export default function MobilNav(props) {
                     size="medium"
                     shape="round"
                     className="login-logout-btn-mobnav-6"
+                    onClick={navigateUser_Login}
                   >
                     <LoginOutlined />
                     Login

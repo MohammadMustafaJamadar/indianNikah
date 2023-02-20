@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import { Alert } from "antd";
 import { useNavigate } from "react-router-dom";
 
-
 const userdata = {
   PersonsalInfo: {
     name: "Mohammed mustafa",
@@ -49,17 +48,15 @@ const userdata = {
 };
 const { Text, Title } = Typography;
 export default function UserProfilePage() {
-  const [user, ] = useState(userdata);
+  const [user] = useState(userdata);
 
-  const navigateUser = useNavigate()
+  const navigateUser = useNavigate();
   const handleEdit = () => {
-    navigateUser("/profile/update")
-  }
+    navigateUser("/profile/update");
+  };
   const handleDelete = () => {
     navigateUser("/profile/delete");
   };
-
-
 
   console.log(user);
   return (
@@ -82,7 +79,6 @@ export default function UserProfilePage() {
           <Col xs={24} sm={24} md={20} lg={20}>
             <Card
               style={{
-      
                 borderColor: "red",
               }}
             >
@@ -166,106 +162,218 @@ export default function UserProfilePage() {
       </Row>
       <div className="user-profile-table">
         <Row justify="center">
-          <Col span={20}>
+          <Col xs={20} sm={20} md={20} lg={20}>
             <Row className="user-profile-personal_info">
-              <Col span={24} className="user-profile-tb-title">
-                {" "}<UserOutlined />{" "}Personal Information
-              </Col>
-              <Col span={7}>Name</Col>
-              <Col span={17}>{user.PersonsalInfo.name}</Col>
-              <Col span={7}>Gender</Col>
-              <Col span={17}>{user.PersonsalInfo.age}</Col>
-              <Col span={7}>Height</Col>
-              <Col span={17}>{user.PersonsalInfo.height}</Col>
-              <Col span={7}>Occupation</Col>
-              <Col span={17}>{user.PersonsalInfo.ocucupation}</Col>
-              <Col span={7}>Education</Col>
-              <Col span={17}>{user.PersonsalInfo.Education}</Col>
-              <Col span={7}>Physical Status</Col>
-              <Col span={17}>{user.PersonsalInfo.PhysicalStatus}</Col>
-              <Col span={7}>Hobbies</Col>
-              <Col span={17}>{user.PersonsalInfo.hobbies}</Col>
-              <Col span={7}>Weight</Col>
-              <Col span={17}>{user.PersonsalInfo.height}</Col>
-              <Col span={7}>Native</Col>
-              <Col span={17}>{user.PersonsalInfo.Native}</Col>
-              <Col span={7}>Current Location</Col>
-              <Col span={17}>{user.PersonsalInfo.currentLocation}</Col>
-              <Col span={24} className="user-profile-tb-title">
+              <Col
+                xs={24}
+                sm={24}
+                md={24}
+                lg={24}
+                className="user-profile-tb-title"
+              >
                 {" "}
-                <HomeOutlined />{" "} Family Information
+                <UserOutlined /> Personal Information
               </Col>
-              <Col span={7}>Father</Col>
-              <Col span={17}>{user.FamilyInfo.Father}</Col>
-              <Col span={7}>Mother</Col>
-              <Col span={17}>{user.FamilyInfo.mother}</Col>
-              <Col span={7}>Siblings</Col>
-              <Col span={17}>{user.FamilyInfo.siblings}</Col>
-              <Col span={7}>Biradari</Col>
-              <Col span={17}>{user.FamilyInfo.biradari}</Col>
-              <Col span={7}>Maslak</Col>
-              <Col span={17}>{user.FamilyInfo.maslak}</Col>
-              <Col span={24} className="user-profile-tb-title">
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Name
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.PersonsalInfo.name}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Gender
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.PersonsalInfo.age}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Height
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.PersonsalInfo.height}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Occupation
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.PersonsalInfo.ocucupation}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Education
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.PersonsalInfo.Education}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Physical Status
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.PersonsalInfo.PhysicalStatus}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Hobbies
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.PersonsalInfo.hobbies}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Weight
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17} xl={17}>
+                {user.PersonsalInfo.height}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Native
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.PersonsalInfo.Native}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7} xl={7}>
+                Current Location
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.PersonsalInfo.currentLocation}
+              </Col>
+              <Col
+                xs={24}
+                sm={24}
+                md={24}
+                lg={24}
+                className="user-profile-tb-title"
+              >
+                {" "}
+                <HomeOutlined /> Family Information
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Father
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.FamilyInfo.Father}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Mother
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.FamilyInfo.mother}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Siblings
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.FamilyInfo.siblings}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Biradari
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.FamilyInfo.biradari}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Maslak
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.FamilyInfo.maslak}
+              </Col>
+              <Col
+                xs={24}
+                md={24}
+                sm={24}
+                lg={24}
+                className="user-profile-tb-title"
+              >
                 <Row justify="space-around" className="conact-info-title">
-                  <Col span={24}>
+                  <Col xs={24} sm={24} md={24} lg={24}>
                     {" "}
-                    <MobileOutlined />{" "} Conact Information
+                    <MobileOutlined /> Conact Information
                   </Col>
-                  <Col className="conact-info-note" span={24}>
+                  <Col
+                    xs={24}
+                    md={24}
+                    sm={24}
+                    lg={24}
+                    className="conact-info-note"
+                  >
                     Note : Contact details are only availble during 9AM morning
                     to 9PM evening (IST, Indian time)
                   </Col>
                 </Row>
               </Col>
-              <Col span={7}>Conact</Col>
-              <Col span={17}>{user.ContactInfo.Conact}</Col>
-              <Col span={7}>Whatsapp Number</Col>
-              <Col span={17}>{user.ContactInfo.WhatsappNo}</Col>
-              <Col span={7}>Conact Of</Col>
-              <Col span={17}>{user.ContactInfo.ContactOf}</Col>
-              <Col span={24} className="user-profile-tb-title">
-                {" "}
-                <InfoCircleOutlined /> {" "}Other Information
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Conact
               </Col>
-              <Col span={7}>Expectations</Col>
-              <Col span={17}>{user.OtherInfo.Expectations}</Col>
-              <Col span={7}>Extra Information</Col>
-              <Col span={17}>{user.OtherInfo.ExtraInfo}</Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.ContactInfo.Conact}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                Whatsapp Number
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.ContactInfo.WhatsappNo}
+              </Col>
+              <Col xs={7} sm={7} md={7} lg={7}>
+                {" "}
+                Conact Of
+              </Col>
+              <Col xs={17} sm={17} md={17} lg={17}>
+                {user.ContactInfo.ContactOf}
+              </Col>
+              <Col
+                xs={24}
+                sm={24}
+                md={24}
+                lg={24}
+                className="user-profile-tb-title"
+               >
+                {" "}
+                <InfoCircleOutlined /> Other Information
+              </Col>
+              <Col xs={9} sm={9} md={7} lg={7}>
+                Expectations
+              </Col>
+              <Col xs={15} sm={15} md={17} lg={17}>
+                {user.OtherInfo.Expectations}
+              </Col>
+              <Col xs={9} sm={9} md={7} lg={7}>
+                Extra Information
+              </Col>
+              <Col xs={15} sm={15} md={17} lg={17}>
+                {user.OtherInfo.ExtraInfo}
+              </Col>
             </Row>
           </Col>
-          <Row justify="center" style={{ marginBottom:"20px"}}>
-            <Col span={12}>
-              <div
-                style={{
-                  display: "flex",
-                  textAlign: "center",
-                  justifyContent: "center",
-                  marginTop: "40px",
-                }}
+
+          <Col xs={12} sm={12} md={12} lg={12}>
+            <div
+              style={{
+                display: "flex",
+                textAlign: "center",
+                justifyContent: "center",
+                marginTop: "40px",
+                marginBottom: "20px",
+              }}
+            >
+              <Button
+                htmlType={"submit"}
+                shape="round"
+                size="large"
+                className="btn-1-search"
+                onClick={handleEdit}
               >
-                <Button
-                  htmlType={"submit"}
-                  shape="round"
-                  size="large"
-                  className="btn-1-search"
-                  onClick={handleEdit}
-                >
-                  <EditOutlined />
-                  EDIT PROFILE
-                </Button>{" "}
-                &nbsp;&nbsp;
-                <Button
-                  shape="round"
-                  size="large"
-                  className="btn-2-guidliness"
-                  onClick={handleDelete}
-                >
-                  <DeleteOutlined />
-                  DELETE PROFILE
-                </Button>
-              </div>
-            </Col>
-          </Row>
+                <EditOutlined />
+                EDIT PROFILE
+              </Button>{" "}
+              &nbsp;&nbsp;
+              <Button
+                shape="round"
+                size="large"
+                className="btn-2-guidliness"
+                onClick={handleDelete}
+              >
+                <DeleteOutlined />
+                DELETE PROFILE
+              </Button>
+            </div>
+          </Col>
         </Row>
       </div>
     </div>
