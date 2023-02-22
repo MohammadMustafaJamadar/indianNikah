@@ -54,7 +54,7 @@ export default function GuidelinesForHome(props) {
             <Title
               level={3}
               style={{
-                fontFamily: "kaushan script",
+                fontFamily:' "Roboto", sans-serif',
                 color: darkMode ? "white" : "black",
               }}
             >
@@ -100,7 +100,7 @@ export default function GuidelinesForHome(props) {
               >
               
                 <Card
-                  className="cards-in-animation "
+                  className="cards-in-animation card-iframe "
                   cover={
                     <center>
                       <iframe

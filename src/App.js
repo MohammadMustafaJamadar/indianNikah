@@ -4,10 +4,12 @@ import NavBar from "./Components/Navbar components/NavBar";
 import { useState } from "react";
 import FooterComponent from "./Components/Pages/FooterComponent";
 import MarraigeGuideliness from "./Components/Pages/MarraigeGuideliness";
-import SearchPage from "./Components/Pages/SearchPage";
 import UserProfilePage from "./Components/Pages/UserProfilePage";
 import NewProfilePage from "./Components/Pages/NewProfilePage";
 import AboutUsPage from "./Components/Pages/AboutUsPage";
+import ScrollTopButton from "./Components/Pages/ScrollTopButton";
+import SearchPage from "./Components/Pages/SearchPage"
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   return (
@@ -19,7 +21,7 @@ function App() {
             {" "}
           </Route>
           <Route element={<MarraigeGuideliness />} path="guidelines/r/"></Route>
-          <Route element={<SearchPage />} path="/profile/"></Route>
+          <Route element={<SearchPage/>} path="/profiles/"></Route>
           <Route
             element={<NewProfilePage />}
             darkMode={darkMode}
@@ -35,7 +37,9 @@ function App() {
             darkMode={darkMode}
             path="/about-us"
           ></Route>
+         
         </Routes>
+        <ScrollTopButton/>
         <FooterComponent darkMode={darkMode} />
       </Router>
     </>

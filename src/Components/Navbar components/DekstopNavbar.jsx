@@ -67,7 +67,7 @@ export default function DekstopNavbar(props) {
           </Link>
         </li>
         <li>
-          <Link aria-current="page" to="/search">
+          <Link aria-current="page" to="/profiles/">
             <Text style={styles.darkModes.darkText} type="primary" strong>
             <SearchOutlined />  {" "}  Search Profiles 
             </Text>
@@ -81,7 +81,7 @@ export default function DekstopNavbar(props) {
           </Link>
         </li>
         <li>
-          <Dropdown menu={{ items, selectable: true }}>
+          <Dropdown menu={{ items, selectable: true }} trigger={["click"]}>
             <Typography.Link strong style={styles.darkModes.darkText}>
               <IdcardOutlined /> Supports <DownOutlined />
             </Typography.Link>

@@ -20,9 +20,6 @@ const { Title, Text } = Typography;
 
 export default function HomePage(props) {
   const { darkMode } = props;
-  // const [arabicHadidth, setArabicHadidth] = useState(true);
-  // const [englishcHadidth, setarEnglishHadidth] = useState(false);
-  // const [urduHadidth, setUrduHadidth] = useState(false);
 
   const navigateUser = useNavigate();
 
@@ -135,10 +132,10 @@ export default function HomePage(props) {
             <Title
               className="about-text-section"
               style={{
-                color: darkMode ? "white" : "black",
+                color: darkMode ? "white" : "#4f4f4f",
               }}
             >
-              About Indian Nikah{" "}
+              About IndiaNikah{" "}
             </Title>
           </div>
           <Row justify="center" className="discription-about-row">
@@ -178,24 +175,15 @@ export default function HomePage(props) {
             </Col>
             <Col xs={24} sm={24} md={8} lg={8}>
               <Card
-                className="cards-in-animation "
+                className="cards-in-animation card-iframe "
                 hoverable
-                style={{
-                  boxShadow: `  6.9px 9.7px 15.6px rgba(0, 0, 0, 0.07),
-                  14.6px 20.4px 20.7px rgba(0, 0, 0, 0.001),
-                  23.2px 32.5px 24.4px rgba(0, 0, 0, -0.003),
-                  33.3px 46.7px 27.5px rgba(0, 0, 0, -0.001),
-                  45.8px 64.1px 30.5px rgba(0, 0, 0, 0.002),
-                  61.8px 86.6px 33.6px rgba(0, 0, 0, 0.004),
-                  83.8px 117.4px 37.1px rgba(0, 0, 0, 0.006),
-                  116.4px 163.1px 41.5px rgba(0, 0, 0, 0.006),
-                  171.1px 239.7px 47.9px rgba(0, 0, 0, 0.005),
-                  292px 409px 65px rgba(0, 0, 0, 0.003)`,
-                }}
+                bordered={true}
+                size="small"
+                style={{ height: 285, alignItems: "center" }}
               >
                 <iframe
                   width="100%"
-                  height="315px"
+                  height="260"
                   src="https://www.youtube.com/embed/zw_FZ_pH-bk"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -204,17 +192,23 @@ export default function HomePage(props) {
               </Card>
               <br />
               <br />
-              <Text
-                style={{
-                  fontFamily: "roboto,sans-serif",
-                  fontSize: "16px",
-                  lineHeight: "1.2",
-                  color: darkMode ? "white" : "#84817a",
-                }}
+              <div
+                className="div-download-discription"
+                style={{ textAlign: "center" }}
               >
-                How it works | Mobile App | Features | Marriage guidelines |
-                Website in Hindi Urdu | Jobs (Watch in full screen)
-              </Text>
+                <Text
+                  style={{
+                    fontFamily: "roboto,sans-serif",
+                    fontWeight: "700",
+                    fontSize: "16px",
+                    lineHeight: "1.2",
+                    color: darkMode ? "white" : "#black",
+                  }}
+                >
+                  How it works | Mobile App | Features | Marriage guidelines |
+                  Website in Hindi Urdu | Jobs (Watch in full screen)
+                </Text>
+              </div>
               <br />
               <br />
             </Col>

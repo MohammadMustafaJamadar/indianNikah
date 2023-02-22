@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 const { Text, Title } = Typography;
 
-const location = "Nanded";
 const education = "Graduate";
 const users = [
   {
@@ -17,7 +16,7 @@ const users = [
     work: `Full Stack Developer (${education})`,
     gender: "Male",
     maslak: "Tablighi",
-    age: `22 Years (${location})`,
+    age: `22 Years`,
     img: manimg,
   },
   {
@@ -26,7 +25,7 @@ const users = [
     work: `Full Stack Developer (${education})`,
     gender: "Male",
     maslak: "Tablighi",
-    age: `22 Years (${location})`,
+    age: `22 Years `,
     img: womanimg,
   },
   {
@@ -35,7 +34,7 @@ const users = [
     work: `Full Stack Developer (${education})`,
     gender: "Male",
     maslak: "Tablighi",
-    age: `22 Years (${location})`,
+    age: `22 Years `,
     img: manimg,
   },
   {
@@ -44,7 +43,7 @@ const users = [
     work: `Full Stack Developer (${education})`,
     gender: "Male",
     maslak: "Tablighi",
-    age: `22 Years (${location})`,
+    age: `22 Years `,
     img: womanimg,
   },
   {
@@ -53,7 +52,7 @@ const users = [
     work: `Full Stack Developer (${education})`,
     gender: "Male",
     maslak: "Tablighi",
-    age: `22 Years (${location})`,
+    age: `22 Years `,
     img: manimg,
   },
   {
@@ -62,7 +61,7 @@ const users = [
     work: `	Assisstant Teacher (${education})`,
     gender: "Male",
     maslak: "Tablighi",
-    age: `22 Years (${location})`,
+    age: `22 Years `,
     img: womanimg,
   },
 ];
@@ -112,6 +111,7 @@ const NewProfilesOnHome = (props) => {
             {users.map((user) => (
               <Col xs={24} sm={24} md={11} lg={11} key={user.id}>
                 <Card
+                className="card-iframe"
                   hoverable
                   bordered={true}
                   style={{ marginBottom: "10px", marginLeft: "10px" }}
@@ -123,25 +123,21 @@ const NewProfilesOnHome = (props) => {
                         style={{
                           marginTop: "8px",
                           height: "auto",
-                          width: "100%",
+                          width: "80%",
                         }}
                         alt="No...!"
                         loading="lazy"
                       />
                     </Col>
                     <Col xs={16} sm={16} md={16} lg={16}>
-                      <Text className="font-for-user-cards">{user.name}</Text>
+                      <Text className="font-for-user-cards">{user.name} ({user.age})</Text>
                       <br />
                       <Text className="font-for-user-cards">{user.work}</Text>
                       <br />
-                      <Text className="font-for-user-cards">{user.gender}</Text>
-                      <br />
-                      <Text className="font-for-user-cards">{user.maslak}</Text>
-                      <br />
-                      <Text className="font-for-user-cards">{user.age}</Text>
+                      <Text className="font-for-user-cards">{user.maslak} </Text>
                     </Col>
                     <Col xs={2} sm={2} md={2} lg={2}>
-                      <p>NRI</p>
+                    <Button size="small" shape="square" >NRI</Button>
                     </Col>
                   </Row>
                 </Card>

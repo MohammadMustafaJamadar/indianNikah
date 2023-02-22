@@ -13,40 +13,40 @@ import {
   BarsOutlined,
   FileTextOutlined,
   DownOutlined,
-  LoginOutlined
+  LoginOutlined,
 } from "@ant-design/icons";
 import "../../css/navbar.css";
 
 const { Text, Title } = Typography;
-const items = [
-  {
-    key: "1",
-    label: (
-      <Link aria-current="page" to="/jobsupport">
-        Job Supprt
-      </Link>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <Link aria-current="page" to="/scholarship">
-        Scholarship
-      </Link>
-    ),
-  },
-  {
-    key: "3",
-    label: (
-      <Link aria-current="page" to="/accomodation">
-        Accomodation
-      </Link>
-    ),
-  },
-];
 
 export default function MobilNav(props) {
-  const { handelNavClose, darkMode, open } = props;
+  const { handelNavClose, darkMode, open,  } = props;
+  const items = [
+    {
+      key: "1",
+      label: (
+        <Link aria-current="page" to="/jobsupport" onClick={handelNavClose}>
+          Job Supprt
+        </Link>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <Link aria-current="page" to="/scholarship" onClick={handelNavClose}>
+          Scholarship
+        </Link>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <Link aria-current="page" to="/accomodation" onClick={handelNavClose}>
+          Accomodation
+        </Link>
+      ),
+    },
+  ];
 
   const navigateUser = useNavigate();
 
@@ -69,9 +69,8 @@ export default function MobilNav(props) {
   };
 
   const navigateUser_Login = () => {
-    navigateUser("accounts/login/")
-  }
-
+    navigateUser("accounts/login/");
+  };
 
   return (
     <>
@@ -95,11 +94,15 @@ export default function MobilNav(props) {
             INDIA NIKAH
           </Title>
 
-          <div onClick={handelNavClose}>
+          <div>
             <div className="nav-links">
               <ul style={styles.cssForUl}>
-                <li>
-                  <Link type="primary" aria-current="page" to="/profile/my-profile/">
+                <li onClick={handelNavClose}>
+                  <Link
+                    type="primary"
+                    aria-current="page"
+                    to="/profile/my-profile/"
+                  >
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -109,7 +112,7 @@ export default function MobilNav(props) {
                     </Text>
                   </Link>
                 </li>
-                <li>
+                <li onClick={handelNavClose}>
                   <Link aria-current="page" to="/favourites/list/">
                     <Text
                       style={styles.darkModes.darkText}
@@ -120,8 +123,8 @@ export default function MobilNav(props) {
                     </Text>
                   </Link>
                 </li>
-                <li>
-                  <Link aria-current="page" to="/signup">
+                <li onClick={handelNavClose}>
+                  <Link aria-current="page" to="/profiles/">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
@@ -131,7 +134,7 @@ export default function MobilNav(props) {
                     </Text>
                   </Link>
                 </li>
-                <li>
+                <li onClick={handelNavClose}>
                   <Link aria-current="page" to="/guidelines/r/">
                     <Text
                       style={styles.darkModes.darkText}
@@ -143,25 +146,27 @@ export default function MobilNav(props) {
                   </Link>
                 </li>
                 <li>
-                  <Dropdown menu={{ items, selectable: true }}>
+                  <Dropdown
+                    menu={{ items, selectable: true }}
+                    trigger={["click"]}
+                  >
                     <Typography.Link strong style={styles.darkModes.darkText}>
                       <IdcardOutlined /> Supports <DownOutlined />
                     </Typography.Link>
                   </Dropdown>
                 </li>
-                <li>
+                <li onClick={handelNavClose}>
                   <Link aria-current="page" to="/feedbacks/post-feedback/">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
-                      <MessageOutlined /> {" "}
-                      feedbacks
+                      <MessageOutlined /> feedbacks
                     </Text>
                   </Link>
                 </li>
-                <li>
+                <li onClick={handelNavClose}>
                   <Link aria-current="page" to="/about-us/">
                     <Text
                       style={styles.darkModes.darkText}
@@ -173,19 +178,18 @@ export default function MobilNav(props) {
                   </Link>
                 </li>
 
-                <li>
+                <li onClick={handelNavClose}>
                   <Link aria-current="page" to="/profiles/newly-added-profiles">
                     <Text
                       style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
-                      <PlusCircleOutlined /> {" "}
-                      New Profiles
+                      <PlusCircleOutlined /> New Profiles
                     </Text>
                   </Link>
                 </li>
-                <li>
+                <li onClick={handelNavClose}>
                   <Link aria-current="page" to="/profiles/profile-categories">
                     <Text
                       style={styles.darkModes.darkText}
@@ -196,7 +200,7 @@ export default function MobilNav(props) {
                     </Text>
                   </Link>
                 </li>
-                <li>
+                <li onClick={handelNavClose}>
                   <Link aria-current="page" to="/post-document-service/">
                     <Text
                       style={styles.darkModes.darkText}

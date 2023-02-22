@@ -11,12 +11,15 @@
 .about-discription-2 {
   font-size: 18px;
   line-height: 1.2;
-  font-weight: 300;
-  font-family: Roboto, sans-serif !important;
-}
 
+  font-family: roboto, sans-serif !important;
+}
+.card-iframe {
+  border: 1px solid gray;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
 .marquee {
-flex-direction: row-reverse !important;
+  flex-direction: row-reverse !important;
 }
 
 .homepage {
@@ -59,7 +62,11 @@ flex-direction: row-reverse !important;
   }
   .marquee {
     flex-direction: row !important;
-    }
+  }
+  .carousel-btn-1, .carousel-btn-2{
+  display: none;
+  
+  }
 }
 
 .btn-1-search {
@@ -77,11 +84,11 @@ flex-direction: row-reverse !important;
   color: white !important;
 }
 .about-text-section {
-  font-family: "Kaushan Script";
+  font-family: "Roboto Serif", serif;
 }
 
 .about-discription-2 {
-  font-family: Roboto, sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #df3768;
 }
 .cards-in-animation {
@@ -107,15 +114,25 @@ flex-direction: row-reverse !important;
 }
 .font-for-user-cards {
   font-family: Roboto, sans-serif;
-  font-weight: 300;
+font-weight: 500 !important;
+  color: #000;
+  
 }
 .newprofile-home-visit-btn-2 {
   margin-top: 10px;
+  margin-bottom: 20px;
   background: linear-gradient(90deg, #525a69, #898dda);
   border: none;
   color: #000;
   font-family: Oswald;
 }
+
+.carousel-btn-1, .carousel-btn-2{
+  height: 100%;
+ margin-top: 100px;
+}
+
+
 @-webkit-keyframes cards-in-animation {
   0% {
     -webkit-transform: scale(0);
@@ -140,4 +157,3 @@ flex-direction: row-reverse !important;
     opacity: 1;
   }
 }
-
