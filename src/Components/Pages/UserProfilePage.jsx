@@ -65,7 +65,6 @@ export default function UserProfilePage() {
         <Text>
           <Link
             style={{
-              //   fontFamily: "Source Code Pro, monospace",
               color: "black",
             }}
             to="guidelines/r/"
@@ -356,7 +355,7 @@ export default function UserProfilePage() {
                 htmlType={"submit"}
                 shape="round"
                 size="large"
-                className="btn-1-search"
+                className="btn-1-editeprofile"
                 onClick={handleEdit}
               >
                 <EditOutlined />

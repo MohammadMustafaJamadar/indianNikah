@@ -8,39 +8,43 @@ import UserProfilePage from "./Components/Pages/UserProfilePage";
 import NewProfilePage from "./Components/Pages/NewProfilePage";
 import AboutUsPage from "./Components/Pages/AboutUsPage";
 import ScrollTopButton from "./Components/Pages/ScrollTopButton";
-import SearchPage from "./Components/Pages/SearchPage"
+import SearchPage from "./Components/Pages/SearchPage";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [colors, setColors] = useState({
+    green: false,
+    blue: false,
+    purple: false,
+    darkMode:false
+  });
   return (
     <>
       <Router>
-        <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <NavBar  colors={colors} setColors={setColors} />
         <Routes>
-          <Route element={<HomePage darkMode={darkMode} />} path="/">
+          <Route element={<HomePage  colors={colors} />} path="/">
             {" "}
           </Route>
           <Route element={<MarraigeGuideliness />} path="guidelines/r/"></Route>
-          <Route element={<SearchPage/>} path="/profiles/"></Route>
+          <Route element={<SearchPage />} path="/profiles/"></Route>
           <Route
             element={<NewProfilePage />}
-            darkMode={darkMode}
+            darkMode={colors.darkMode}
             path="/profiles/newly-added-profiles"
           ></Route>
           <Route
             element={<UserProfilePage />}
-            darkMode={darkMode}
+            darkMode={colors.darkMode}
             path="/profile/my-profile"
           ></Route>
           <Route
             element={<AboutUsPage />}
-            darkMode={darkMode}
+            darkMode={colors.darkMode}
             path="/about-us"
           ></Route>
-         
         </Routes>
-        <ScrollTopButton/>
-        <FooterComponent darkMode={darkMode} />
+        <ScrollTopButton darkMode={colors.darkMode} colors={colors} />
+        <FooterComponent darkMode={colors.darkMode} colors={colors} />
       </Router>
     </>
   );

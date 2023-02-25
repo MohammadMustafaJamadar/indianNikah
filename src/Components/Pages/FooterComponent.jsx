@@ -16,6 +16,8 @@ import {
   CopyrightOutlined,
   ContactsOutlined,
   TeamOutlined,
+  MessageOutlined,
+  FileTextOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import logo from "../../images/indiaNikahLogo.png";
@@ -27,7 +29,7 @@ import { Typography, Modal } from "antd";
 const { Title, Text } = Typography;
 
 export default function FooterComponent(props) {
-  const { darkMode } = props;
+  const { darkMode, colors } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -44,7 +46,17 @@ export default function FooterComponent(props) {
 
   const styles = {
     darkModes: {
-      darkBackGround: { backgroundColor: darkMode ? "#001F3D" : "#eacf54" },
+      darkBackGround: {
+        backgroundColor: darkMode
+          ? "#001F3D"
+          : colors.green
+          ? "#48BA78"
+          : colors.blue
+          ? "#4D8FF6"
+          : colors.purple
+          ? "#9F7AEB"
+          : "#c5204f",
+      },
       darkText: { color: darkMode ? "white" : "black" },
       darkBackGroundFirstDiv: {
         backgroundColor: darkMode ? "#001F3D" : "lightgray",
@@ -55,36 +67,30 @@ export default function FooterComponent(props) {
   return (
     <>
       <div
-        className="sub-footer-up"
+        className="sub-footer-up-1"
         style={styles.darkModes.darkBackGroundFirstDiv}
       >
         <Row justify="center" style={{ textAlign: "center" }}>
-          <Col xs={24} sm={24} md={8} lg={8}>
+          <Col xs={24} sm={24} md={23} lg={23} xl={23} xxl={8}>
             <Title style={styles.darkModes.darkText} level={4}>
-              <TeamOutlined /> Total 309 Users found there partner yet
+              <TeamOutlined style={styles.darkModes.darkText} /> Total 309 Users
+              found there partner yet
             </Title>
             <br />
             <div className="rateus-share-div">
               <a
                 href="https://g.page/r/Cbq60nFUvcUuEB0/review"
                 target="_blank"
-                rel="noopener noreferrer" 
+                rel="noopener noreferrer"
               >
                 <Button type="primary" className="btn-3-rating" size="medium">
-                  <Text
-                    style={{
-                      width: "auto",
-                      height: "auto",
-                    }}
-                  >
-                    <StarOutlined />
-                    <StarOutlined />
-                    <StarOutlined />
-                    <StarOutlined />
-                    <StarOutlined />
-                    <br />
-                    RATE US ON GOOGLE
-                  </Text>
+                  <StarOutlined />
+                  <StarOutlined />
+                  <StarOutlined />
+                  <StarOutlined />
+                  <StarOutlined />
+                  <br />
+                  RATE US ON GOOGLE
                 </Button>
               </a>
               &nbsp; &nbsp;
@@ -94,12 +100,9 @@ export default function FooterComponent(props) {
                 className="btn-4-share "
                 onClick={showModal}
               >
-                <Text>
-                  <ShareAltOutlined />
-                  <br />
-                  SHARE THIS WEBSITE
-                </Text>
-
+                <ShareAltOutlined />
+                <br />
+                SHARE THIS WEBSITE
                 <Modal
                   open={isModalOpen}
                   onOk={handleCancel}
@@ -172,26 +175,24 @@ export default function FooterComponent(props) {
         <br />
       </div>
 
-      <div className="sub-footer-up" style={styles.darkModes.darkBackGround}>
+      <div className="sub-footer-up-2" style={styles.darkModes.darkBackGround}>
         <Row justify="center">
           <Col
             xs={24}
             sm={24}
-            md={8}
-            lg={8}
+            md={12}
+            lg={12}
             style={{
               textAlign: "center",
             }}
           >
-            <Title style={styles.darkModes.darkText} level={4}>
-              IndiaNikah is a 100% FREE service
-            </Title>
+            <Title level={4}>IndiaNikah is a 100% FREE service</Title>
             <div
               style={{
                 textAlign: "left",
               }}
             >
-              <Text style={styles.darkModes.darkText}>
+              <Text>
                 Terms Of Use : By using this site, you agree to terms and
                 conditions that you will not misuse the data. And you will talk
                 only about marriage proposals on Call/SMS/WhatsApp and not
@@ -206,7 +207,7 @@ export default function FooterComponent(props) {
           </Col>
         </Row>
       </div>
-      <div className={darkMode ? "darkfooter" : "footer"}>
+      <div className="footer">
         <Row justify="center">
           <Col xs={24} sm={24} md={8} lg={8}>
             <center>
@@ -224,7 +225,7 @@ export default function FooterComponent(props) {
               }}
             >
               <br />
-              <Text style={styles.darkModes.darkText}>
+              <Text>
                 Disclaimer : indianikah.com is a non-profit matrimony website
                 and not for anything else apart from marriage match making. It
                 is not directly or indirectly responsible for any sort of misuse
@@ -235,11 +236,9 @@ export default function FooterComponent(props) {
           </Col>
           <Col xs={24} sm={24} md={6} lg={6}>
             <div style={{ marginLeft: "40px" }}>
-              <Title level={4} style={styles.darkModes.darkText}>
-                USEFUL LINKS{" "}
-              </Title>
+              <Title level={4}>USEFUL LINKS </Title>
             </div>
-            <div className={darkMode ? "footerLinksDark" : "footerLinks"}>
+            <div className="footerLinks">
               <ul style={{ listStyleType: "none" }}>
                 <li>
                   {" "}
@@ -252,15 +251,15 @@ export default function FooterComponent(props) {
                 </li>
                 <li>
                   <Link aria-current="page" to="/profile/my-profile/">
-                    <Text style={styles.darkModes.darkText}>
+                    <Text>
                       <UserOutlined /> &nbsp; My Profile{" "}
                     </Text>
                   </Link>
                 </li>
                 <li>
                   <Link aria-current="page" to="/searchprofile">
-                    <Text style={styles.darkModes.darkText}>
-                      {" "}
+                    {" "}
+                    <Text>
                       <SearchOutlined />
                       &nbsp; Search Profiles{" "}
                     </Text>
@@ -268,7 +267,7 @@ export default function FooterComponent(props) {
                 </li>
                 <li>
                   <Link aria-current="page" to="guidelines/r/">
-                    <Text style={styles.darkModes.darkText}>
+                    <Text>
                       <ReadOutlined />
                       &nbsp; Marriage Guidelines
                     </Text>
@@ -276,11 +275,7 @@ export default function FooterComponent(props) {
                 </li>
                 <li>
                   <Link aria-current="page" to="/privacy-policy/">
-                    <Text
-                      style={{
-                        color: darkMode ? "white" : "black",
-                      }}
-                    >
+                    <Text>
                       <LockOutlined />
                       &nbsp; Privacy Policy
                     </Text>
@@ -288,9 +283,16 @@ export default function FooterComponent(props) {
                 </li>
                 <li>
                   <Link aria-current="page" to="/terms-and-conditions/">
-                    <Text style={styles.darkModes.darkText}>
+                    <Text>
                       <FileProtectOutlined />
                       &nbsp; Terms & Conditions{" "}
+                    </Text>
+                  </Link>
+                </li>
+                <li>
+                  <Link aria-current="page" to="/post-document-service/">
+                    <Text type="primary">
+                      <FileTextOutlined /> Document Service
                     </Text>
                   </Link>
                 </li>
@@ -299,7 +301,7 @@ export default function FooterComponent(props) {
           </Col>
           <Col xs={24} sm={24} md={6} lg={6}>
             <div style={{ marginLeft: "40px" }}>
-              <Title level={4} style={styles.darkModes.darkText}>
+              <Title level={4}>
                 <ContactsOutlined /> CONTACTS
               </Title>
             </div>
@@ -315,14 +317,23 @@ export default function FooterComponent(props) {
                   />
                 </li>
                 <li>
-                  <Text style={styles.darkModes.darkText}>
-                    <EnvironmentOutlined />
-                    &nbsp;Pune
-                  </Text>
+                  <Link aria-current="page" to="/feedbacks/post-feedback/ ">
+                    <Text type="primary">
+                      <MessageOutlined /> Feedbacks
+                    </Text>
+                  </Link>
+                </li>
+                <li>
+                  <Link>
+                    <Text>
+                      <EnvironmentOutlined />
+                      &nbsp;Pune
+                    </Text>
+                  </Link>
                 </li>
                 <li>
                   <a href="mailto:contact@indianikah.com">
-                    <Text style={styles.darkModes.darkText}>
+                    <Text>
                       <MailOutlined /> Contact@indianikah.com
                     </Text>
                   </a>
@@ -332,43 +343,26 @@ export default function FooterComponent(props) {
                     fontSize: "30px",
                   }}
                 >
-                  <a
-                    href="https://t.me/IndiaNikah"
-                    style={styles.darkModes.darkText}
-                  >
+                  <a href="https://t.me/IndiaNikah">
                     <SendOutlined />
                   </a>{" "}
-                  <a
-                    href="https://wa.me/918482833177?text=Asslamu+alaikum"
-                    style={styles.darkModes.darkText}
-                  >
+                  <a href="https://wa.me/918482833177?text=Asslamu+alaikum">
                     <WhatsAppOutlined />
                   </a>{" "}
-                  <a
-                    href="https://facebook.com/IndiaNikah"
-                    style={styles.darkModes.darkText}
-                  >
+                  <a href="https://facebook.com/IndiaNikah">
                     <FacebookOutlined />
                   </a>{" "}
-                  <a
-                    href="https://www.indianikah.com/"
-                    style={styles.darkModes.darkText}
-                  >
+                  <a href="https://www.indianikah.com/">
                     <GoogleOutlined />
                   </a>
                   &nbsp;
-                  <a
-                    href="https://www.youtube.com/c/IndiaNikah"
-                    style={styles.darkModes.darkText}
-                  >
+                  <a href="https://www.youtube.com/c/IndiaNikah">
                     <YoutubeOutlined />
                   </a>{" "}
                 </li>
 
                 <li>
-                  <Text style={styles.darkModes.darkText}>
-                    ( We are on above social media )
-                  </Text>
+                  <Text>( We are on above social media )</Text>
                 </li>
               </ul>
             </div>

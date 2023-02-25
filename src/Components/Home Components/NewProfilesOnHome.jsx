@@ -84,12 +84,12 @@ const NewProfilesOnHome = (props) => {
   return (
     <>
       <Row justify="center" style={styles.dakrModes.darkBackGround}>
-        <Col xs={24} sm={24} md={16} lg={16}>
+        <Col xs={23} sm={23} md={23} lg={23} xl={23} xxl={16}>
           <div className="newprofile-home-title">
             <Title
               level={3}
               style={{
-                fontFamily: "kaushan script",
+                fontFamily: '"Roboto", sans-serif',
                 color: styles.dakrModes.darkText.color,
               }}
             >
@@ -107,16 +107,17 @@ const NewProfilesOnHome = (props) => {
               <PlusCircleOutlined /> Some newly added profiles
             </Text>
           </div>
-          <Row justify="center">
+          <Row justify="center" style={{marginTop:"20px"}}>
             {users.map((user) => (
-              <Col xs={24} sm={24} md={11} lg={11} key={user.id}>
+              <Col xs={24} sm={24} md={12} lg={12} xl={8} xxl={8} key={user.id}>
                 <Card
                 className="card-iframe"
                   hoverable
+                  size="small"
                   bordered={true}
                   style={{ marginBottom: "10px", marginLeft: "10px" }}
                 >
-                  <Row justify="space-around">
+                  <Row justify="space-around" >
                     <Col xs={6} sm={6} md={6} lg={6}>
                       <img
                         src={user.img}

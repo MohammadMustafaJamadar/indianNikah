@@ -28,7 +28,7 @@ export default function CarouselForHome(props) {
         justify="center"
         style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
       >
-        <Col xs={24} sm={24} md={16} lg={16}>
+        <Col xs={24} sm={24} md={23} lg={20} xl={16}>
           <div
             style={{
               textAlign: "center",
@@ -37,7 +37,7 @@ export default function CarouselForHome(props) {
             <Title
               style={{
                 textAlign: "center",
-                fontFamily: "Kaushan Script",
+                fontFamily: '"Roboto", sans-serif',
                 marginTop: "25px",
                 color: darkMode ? "white" : "black",
               }}

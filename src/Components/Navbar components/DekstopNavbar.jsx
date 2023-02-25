@@ -3,14 +3,10 @@ import { Typography, Dropdown } from "antd";
 import { Link } from "react-router-dom";
 import {
   HeartOutlined,
-  SearchOutlined,
-  ReadOutlined,
   IdcardOutlined,
-  MessageOutlined,
   InfoCircleOutlined,
   PlusCircleOutlined,
   BarsOutlined,
-  FileTextOutlined,
   DownOutlined,
 } from "@ant-design/icons";
 import "../../css/navbar.css";
@@ -45,7 +41,6 @@ const items = [
 
 export default function DekstopNavbar(props) {
   const { darkMode } = props;
-
   const styles = {
     darkModes: {
       darkText: { color: darkMode ? "white" : "black" },
@@ -60,23 +55,23 @@ export default function DekstopNavbar(props) {
         }
       >
         <li>
+          <Link aria-current="page" to="/profiles/newly-added-profiles">
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+              <PlusCircleOutlined /> New Profiles
+            </Text>
+          </Link>
+        </li>
+        <li>
           <Link aria-current="page" to="/favourites/list/">
-            <Text style={styles.darkModes.darkText}  type="primary" strong>
-            <HeartOutlined  /> {" "}   Favourites
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+              <HeartOutlined /> Favourites
             </Text>
           </Link>
         </li>
         <li>
-          <Link aria-current="page" to="/profiles/">
+          <Link aria-current="page" to="/profiles/profile-categories">
             <Text style={styles.darkModes.darkText} type="primary" strong>
-            <SearchOutlined />  {" "}  Search Profiles 
-            </Text>
-          </Link>
-        </li>
-        <li>
-          <Link aria-current="page" to="/guidelines/r/">
-            <Text style={styles.darkModes.darkText} type="primary" strong>
-            <ReadOutlined  /> {" "}   Marriage Guidelines  
+              <BarsOutlined /> Categories
             </Text>
           </Link>
         </li>
@@ -88,40 +83,9 @@ export default function DekstopNavbar(props) {
           </Dropdown>
         </li>
         <li>
-          <Link aria-current="page" to="/feedbacks/post-feedback/ ">
-            <Text style={styles.darkModes.darkText} type="primary" strong>
-              
-            <MessageOutlined  /> {" "}  feedbacks
-            </Text>
-          </Link>
-        </li>
-        <li>
           <Link aria-current="page" to="/about-us/">
             <Text style={styles.darkModes.darkText} type="primary" strong>
-            <InfoCircleOutlined  />  {" "} About Us
-            </Text>
-          </Link>
-        </li>
-
-        <li>
-          <Link aria-current="page" to="/profiles/newly-added-profiles">
-            <Text style={styles.darkModes.darkText} type="primary" strong>
-              
-            <PlusCircleOutlined /> {" "}   New Profiles   
-            </Text>
-          </Link>
-        </li>
-        <li>
-          <Link aria-current="page" to="/profiles/profile-categories">
-            <Text style={styles.darkModes.darkText} type="primary" strong>
-            <BarsOutlined  /> {" "}   Categories 
-            </Text>
-          </Link>
-        </li>
-        <li>
-          <Link aria-current="page" to="/post-document-service/">
-            <Text style={styles.darkModes.darkText} type="primary" strong>
-            <FileTextOutlined  /> {" "}   Document Service 
+              <InfoCircleOutlined /> About Us
             </Text>
           </Link>
         </li>

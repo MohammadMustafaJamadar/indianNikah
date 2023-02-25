@@ -1,12 +1,8 @@
 import React, { lazy, Suspense } from "react";
-import { Button, Dropdown,  } from "antd";
+import { Button, Dropdown } from "antd";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  MenuOutlined,
-  UserOutlined,
-  LoginOutlined,
-} from "@ant-design/icons";
+import { MenuOutlined, UserOutlined, LoginOutlined } from "@ant-design/icons";
 import logo from "../../images/indiaNikahLogo.png";
 import moon from "../../images/moon.png";
 import sun from "../../images/sun.png";
@@ -15,15 +11,15 @@ const DekstopNavbar = lazy(() => import("./DekstopNavbar"));
 const MobilNav = lazy(() => import("./MobilNav"));
 
 export default function NavBar(props) {
-  const { darkMode, setDarkMode } = props;
+  const { setColors, colors } = props;
   const [open, setOpen] = useState(false);
   const navigateUser = useNavigate();
 
   const handelDarMode = () => {
-    if (darkMode === false) {
-      setDarkMode(true);
+    if (colors.darkMode === true) {
+      setColors({ darkMode: false });
     } else {
-      setDarkMode(false);
+      setColors({ darkMode: true });
     }
   };
 
@@ -34,18 +30,57 @@ export default function NavBar(props) {
   const handelNavClose = () => {
     setOpen(false);
   };
+  const setGreenTheme = () => {
+    if (colors.green === true) {
+      setColors({ green: false });
+    } else {
+      setColors({ green: true });
+    }
+  };
+  const setBlueTheme = () => {
+    if (colors.blue === true) {
+      setColors({ blue: false });
+    } else {
+      setColors({ blue: true });
+    }
+  };
+  const setPurpleTheme = () => {
+    if (colors.purple === true) {
+      setColors({ purple: false });
+    } else {
+      setColors({ purple: true });
+    }
+  };
 
   const items = [
     {
-      label: <Button shape="circle" style={{backgroundColor:"#ED65A7"}} />,
+      label: (
+        <Button
+          shape="circle"
+          onClick={setGreenTheme}
+          style={{ backgroundColor: "#48BA78" }}
+        />
+      ),
       key: 1,
     },
     {
-      label: <Button shape="circle" style={{backgroundColor:"#4D8FF6"}} />,
+      label: (
+        <Button
+          shape="circle"
+          onClick={setBlueTheme}
+          style={{ backgroundColor: "#4D8FF6" }}
+        />
+      ),
       key: 2,
     },
     {
-      label: <Button shape="circle" style={{backgroundColor:"#9F7AEB"}} />,
+      label: (
+        <Button
+          shape="circle"
+          onClick={setPurpleTheme}
+          style={{ backgroundColor: "#9F7AEB" }}
+        />
+      ),
       key: 3,
     },
     {
@@ -53,7 +88,7 @@ export default function NavBar(props) {
         <Button
           shape="circle"
           icon={
-            darkMode ? (
+            colors.darkMode ? (
               <img width="auto" height="18px" src={sun} alt="No....!" />
             ) : (
               <img
@@ -75,11 +110,17 @@ export default function NavBar(props) {
   const styles = {
     darkModes: {
       darkBackGround: {
-        background: darkMode
+        background: colors.darkMode
           ? "#071B2F"
-          : `linear-gradient(332deg,rgb(234, 207, 84) -48%, rgb(231, 147, 17) -32%)`,
+          : colors.green
+          ? `#48BA78`
+          : colors.blue
+          ? "#4D8FF6"
+          : colors.purple
+          ? "#9F7AEB"
+          : "#df3768",
       },
-      darkText: { color: darkMode ? "white" : "black" },
+      darkText: { color: colors.darkMode ? "white" : "black" },
     },
   };
 
@@ -115,9 +156,9 @@ export default function NavBar(props) {
             />
           </Link>
         </div>
-        <div className="div-for-navdeck-links" style={{ width: "70%" }}>
+        <div className="div-for-navdeck-links" style={{ width: "100%" }}>
           <Suspense>
-            <DekstopNavbar darkMode={darkMode} />
+            <DekstopNavbar darkMode={colors.darkMode} />
           </Suspense>
         </div>
         <div style={{ marginRight: "10px" }}>
@@ -147,7 +188,7 @@ export default function NavBar(props) {
           <Suspense>
             <MobilNav
               handelNavClose={handelNavClose}
-              darkMode={darkMode}
+              darkMode={colors.darkMode}
               open={open}
               openNav={openNav}
             />
@@ -156,7 +197,6 @@ export default function NavBar(props) {
         <div className="nav-theme-div" style={{ marginLeft: "20px" }}>
           <Dropdown menu={{ items }} trigger={["click"]}>
             <Button className="theme-btn" size="medium" shape="round">
-     
               <svg
                 width="20"
                 height="20"

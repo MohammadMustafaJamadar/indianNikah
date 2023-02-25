@@ -1,10 +1,12 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Col, Row, Button, Typography, Card } from "antd";
 import { SearchOutlined, ReadOutlined } from "@ant-design/icons";
 import "../../css/style.css";
 import img20 from "../../photos/img20.jpg";
+import imagesArray from "../../utils/images";
 import { useNavigate } from "react-router-dom";
 import Marquee from "react-fast-marquee";
+import getRandomElements from "../../utils/randomDataicker";
 
 const CarouselForHome = lazy(() =>
   import("../Home Components/CarouselForHome")
@@ -19,7 +21,39 @@ const NewProfilesOnHome = lazy(() =>
 const { Title, Text } = Typography;
 
 export default function HomePage(props) {
-  const { darkMode } = props;
+  const {  colors } = props;
+  const [image, setImage] = useState(img20);
+
+  const styles = {
+    backGroundStyle: {
+      backgroundColor: colors.green
+        ? "#48BA78"
+        : colors.blue
+        ? "#4D8FF6"
+        : colors.purple
+        ? "#9F7AEB"
+        : colors.darkMode
+        ? "#df3768"
+        : "#df3768",
+    },
+  };
+
+  useEffect(() => {
+    let isCancelled = false;
+    let intervalId;
+    const result = getRandomElements(imagesArray, 1);
+
+    if (!isCancelled) {
+      intervalId = setInterval(() => {
+        setImage(result);
+      }, 10000);
+    }
+    console.log(image.length);
+    return () => {
+      isCancelled = true;
+      clearInterval(intervalId);
+    };
+  }, [image]);
 
   const navigateUser = useNavigate();
 
@@ -35,18 +69,20 @@ export default function HomePage(props) {
 
   return (
     <>
-      <div className="homepage" style={{ backgroundImage: `url(${img20})` }}>
+      <div className="homepage" style={{ backgroundImage: `url(${image})` }}>
         <Marquee
           direction="left"
           speed={50}
           style={{
             color: "white",
-            backgroundColor: "rgb(0 0 0 / 67%)",
+            backgroundColor: "#263238",
             fontSize: "20px",
           }}
           gradient={false}
         >
-          <div>
+          <div
+            style={{ fontFamily: '"Roboto", sans-serif', textAlign: "center" }}
+          >
             "Marry the single people from among you and the righteous slaves and
             slave-girls. If you are poor, Allah (SwT) will make you rich through
             His favour; and Allah (SwT) is Bountiful, All-Knowing." (24:32).
@@ -64,13 +100,7 @@ export default function HomePage(props) {
         >
           <Col xs={24} sm={24} md={16} lg={16}>
             <center>
-              <div
-                style={{
-                  borderRadius: "0px 100px 0px 100px",
-                  backgroundColor: "#b1b1ae33",
-                  width: "50%",
-                }}
-              >
+              <div>
                 <div>
                   <Title
                     level={3}
@@ -94,6 +124,7 @@ export default function HomePage(props) {
                     htmlType={"submit"}
                     shape="round"
                     size="medium"
+                    style={styles.backGroundStyle}
                     className="btn-1-search"
                   >
                     <SearchOutlined />
@@ -117,33 +148,34 @@ export default function HomePage(props) {
       </div>
       <Row
         justify="center"
-        style={{ backgroundColor: darkMode ? "#001F3D" : "white" }}
+        style={{ backgroundColor: colors.darkMode ? "#001F3D" : "white" }}
       >
         <br />
         <br /> <br />
         <Col
-          xs={24}
-          sm={24}
+          xs={22}
+          sm={22}
           md={24}
           lg={24}
           style={{ textAlign: "center", marginTop: "10px" }}
         >
-          <div>
+          <div style={{ marginBottom: "40px" }}>
             <Title
+              level={3}
               className="about-text-section"
               style={{
-                color: darkMode ? "white" : "#4f4f4f",
+                color: colors.darkMode ? "white" : "#4f4f4f",
               }}
             >
               About IndiaNikah{" "}
             </Title>
           </div>
           <Row justify="center" className="discription-about-row">
-            <Col xs={24} sm={24} md={8} lg={8}>
+            <Col xs={22} sm={22} md={22} lg={22} xl={8}>
               <Text
                 className="about-discription-1"
                 style={{
-                  color: darkMode ? "white" : "#84817a",
+                  color: colors.darkMode ? "white" : "#84817a",
                 }}
               >
                 India Nikah is India's 100% free matrimony/shaadi/rishta/rishtey
@@ -173,7 +205,7 @@ export default function HomePage(props) {
             <Col xs={24} sm={24} md={1} lg={1}>
               {" "}
             </Col>
-            <Col xs={24} sm={24} md={8} lg={8}>
+            <Col xs={22} sm={22} md={22} lg={22} xl={8}>
               <Card
                 className="cards-in-animation card-iframe "
                 hoverable
@@ -202,7 +234,7 @@ export default function HomePage(props) {
                     fontWeight: "700",
                     fontSize: "16px",
                     lineHeight: "1.2",
-                    color: darkMode ? "white" : "#black",
+                    color: colors.darkMode ? "white" : "#black",
                   }}
                 >
                   How it works | Mobile App | Features | Marriage guidelines |
@@ -216,9 +248,9 @@ export default function HomePage(props) {
         </Col>
       </Row>
       <Suspense>
-        <GuidelinesForHome darkMode={darkMode} />
-        <NewProfilesOnHome darkMode={darkMode} />
-        <CarouselForHome darkMode={darkMode} />
+        <GuidelinesForHome darkMode={colors.darkMode} />
+        <NewProfilesOnHome darkMode={colors.darkMode} />
+        <CarouselForHome darkMode={colors.darkMode} />
       </Suspense>
     </>
   );
