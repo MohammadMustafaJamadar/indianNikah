@@ -4,7 +4,6 @@ import { Button, Card, Col, Row, Typography } from "antd";
 import {
   DownloadOutlined,
   EditOutlined,
-  ReadOutlined,
   UserOutlined,
   HomeOutlined,
   MobileOutlined,
@@ -47,8 +46,16 @@ const userdata = {
   OtherInfo: { Expectations: "Nothing", ExtraInfo: "Nothing" },
 };
 const { Text, Title } = Typography;
-export default function UserProfilePage() {
+export default function UserProfilePage(props) {
+  const { darkMode, colors } = props;
   const [user] = useState(userdata);
+
+  const styles = {
+    backGroundColor:{
+      backgroundColor: darkMode ? "#16395A" : "white",
+      marginTop:"60px"
+    }
+  }
 
   const navigateUser = useNavigate();
   const handleEdit = () => {
@@ -58,29 +65,12 @@ export default function UserProfilePage() {
     navigateUser("/profile/delete");
   };
 
-  console.log(user);
   return (
-    <div style={{ marginTop: "60px" }}>
-      <div className="user-profile-page-guidelines">
-        <Text>
-          <Link
-            style={{
-              color: "black",
-            }}
-            to="guidelines/r/"
-          >
-            <ReadOutlined /> Visit Marriage Guidelines
-          </Link>
-        </Text>
-      </div>
-      <div className="user-profile-edit">
+    <div style={styles.backGroundColor}>
+      <div >
         <Row justify="center">
           <Col xs={24} sm={24} md={20} lg={20}>
-            <Card
-              style={{
-                borderColor: "red",
-              }}
-            >
+            <Card className="user-profile-card">
               <Button
                 size="large"
                 style={{ width: "100%", backgroundColor: "gray" }}
@@ -99,22 +89,17 @@ export default function UserProfilePage() {
                   <Alert
                     className="profile-alert"
                     message={
-                      <h3>
+                      <h4>
                         Important Note : If you do not find a match in your
                         biradari/maslak then it is perfectly fine in islam to
                         marriage outside your biradari/maslak with other Muslim.
                         Watch{" "}
                         <Link to="guidelines/r/">Marriage Guidelines</Link>{" "}
                         section for more information.
-                      </h3>
+                      </h4>
                     }
                     type="success"
                   />
-                </div>
-                <div className="user-profile-card-footer">
-                  <Title style={{ borderBlock: " 1px solid" }} level={4}>
-                    This section is only visible to you
-                  </Title>
                 </div>
               </div>
             </Card>
@@ -125,7 +110,7 @@ export default function UserProfilePage() {
             level={4}
             style={{
               marginTop: "10px",
-              color: "black",
+              color:darkMode?"white" : "black",
             }}
           >
             Photo Not Available!
@@ -136,15 +121,15 @@ export default function UserProfilePage() {
         <Col xs={24} sm={24} md={20} lg={20}>
           <div className="preview-user">
             <div className="user-details">
-              <Text style={{ fontSize: "18px ", fontWeight: "bold" }}>
+              <Text style={{ fontSize: "18px ", fontWeight: "bold",color:darkMode?"white" : "black", }}>
                 Mohammad Mustafa | Profile Code: 076873
               </Text>
               <br />
-              <Text style={{ fontSize: "18px ", fontWeight: "bold" }}>
+              <Text style={{ fontSize: "18px ", fontWeight: "bold",color:darkMode?"white" : "black", }}>
                 Created On February 04 2023
               </Text>
             </div>
-            <div className="download-bioData">
+            <div className="download-bioData" style={{color:darkMode?"white" : "black",}}>
               <Button
                 size="large"
                 shape="rond"
@@ -159,7 +144,7 @@ export default function UserProfilePage() {
           </div>
         </Col>
       </Row>
-      <div className="user-profile-table">
+      <div className="user-profile-table" style={{color:darkMode?"white" : "black",}}>
         <Row justify="center">
           <Col xs={20} sm={20} md={20} lg={20}>
             <Row className="user-profile-personal_info">
@@ -169,6 +154,7 @@ export default function UserProfilePage() {
                 md={24}
                 lg={24}
                 className="user-profile-tb-title"
+                style={{backgroundColor:darkMode?"#071B2F" : "rgb(223, 55, 104)"}}
               >
                 {" "}
                 <UserOutlined /> Personal Information
@@ -239,6 +225,7 @@ export default function UserProfilePage() {
                 md={24}
                 lg={24}
                 className="user-profile-tb-title"
+                style={{backgroundColor:darkMode?"#071B2F" : "rgb(223, 55, 104)"}}
               >
                 {" "}
                 <HomeOutlined /> Family Information
@@ -279,8 +266,9 @@ export default function UserProfilePage() {
                 sm={24}
                 lg={24}
                 className="user-profile-tb-title"
+                style={{backgroundColor:darkMode?"#071B2F" : "rgb(223, 55, 104)"}}
               >
-                <Row justify="space-around" className="conact-info-title">
+                <Row justify="space-around" className="conact-info-title"   >
                   <Col xs={24} sm={24} md={24} lg={24}>
                     {" "}
                     <MobileOutlined /> Conact Information
@@ -322,7 +310,8 @@ export default function UserProfilePage() {
                 md={24}
                 lg={24}
                 className="user-profile-tb-title"
-               >
+                style={{backgroundColor:darkMode?"#071B2F" : "rgb(223, 55, 104)"}}
+              >
                 {" "}
                 <InfoCircleOutlined /> Other Information
               </Col>

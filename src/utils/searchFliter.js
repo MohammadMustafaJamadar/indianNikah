@@ -121,6 +121,31 @@ const states = [
   { value: "West Bengal", label: "West Bengal" },
 ];
 
+const countries = [
+  { value: "India" },
+  { value: "Saudi Arabia" },
+  { value: "Qatar" },
+  { value: "Kuwait" },
+  { value: "Bahrain" },
+  { value: "USA" },
+  { value: "Canada" },
+  { value: "UK" },
+  { value: "Oman" },
+  { value: "Italy" },
+  { value: "UAE" },
+  { value: "Germany" },
+  { value: "France" },
+  { value: "South Africa" },
+  { value: "Singapore" },
+  { value: "Australia" },
+  { value: "Malaysia" },
+  { value: "Malawi" },
+  { value: "Spain" },
+  { value: "Algeria" },
+  { value: "Ethiopia" },
+  { value: "Tanzania" },
+];
+
 export {
   states,
   biradariSlectBar,
@@ -130,4 +155,5 @@ export {
   forPhysicalStatus,
   selectGenderList,
   ageGroupSelectList,
+  countries,
 };

@@ -47,35 +47,42 @@ export default function AboutUsPage(props) {
 
   return (
     <>
-      <div style={{ marginTop: "70px" }}>
-        <Title
-          level={3}
-          style={{ textAlign: "center", fontFamily: "Kaushan Script" }}
-        >
-          {" "}
-          About IndiaNikah
-        </Title>
-      </div>
-
-      <Row
-        justify="space-around"
-        style={{ backgroundColor: darkMode ? "#001F3D" : "white" }}
+      <div
+        style={{
+          marginTop: "60px",
+          backgroundColor: darkMode ? "#001F3D" : "white",
+        }}
       >
-        <Col xs={24} sm={24} md={10} lg={10}>
-          {aboutUsContent.map((ele) => (
-            <Card hoverable>
-              <iframe
-                width="100%"
-                height="315"
-                src={ele.link}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              ></iframe>
-              <Text style={styles.fontFamily.text}>{ele.discription}</Text>
-            </Card>
-          ))}
-        </Col>
-      </Row>
+        <div>
+          <Title
+            level={3}
+            style={{ textAlign: "center", fontFamily: "Kaushan Script" }}
+          >
+            {" "}
+            About IndiaNikah
+          </Title>
+        </div>
+
+        <Row
+          justify="space-around"
+          style={{ backgroundColor: darkMode ? "#001F3D" : "white" }}
+        >
+          <Col xs={24} sm={24} md={10} lg={10}>
+            {aboutUsContent.map((ele) => (
+              <Card hoverable>
+                <iframe
+                  width="100%"
+                  height="315"
+                  src={ele.link}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                ></iframe>
+                <Text style={styles.fontFamily.text}>{ele.discription}</Text>
+              </Card>
+            ))}
+          </Col>
+        </Row>
+      </div>
     </>
   );
 }

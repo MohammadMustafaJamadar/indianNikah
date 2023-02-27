@@ -65,7 +65,6 @@
 }
 
 .btn-1-search {
-
   color: white;
 }
 .btn-1-search:hover,
@@ -128,6 +127,39 @@
   margin-top: 100px;
 }
 
+.tracking-in-expand {
+  -webkit-animation: tracking-in-expand 3s cubic-bezier(0.215, 0.61, 0.355, 1)
+    infinite both;
+  animation: tracking-in-expand 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite
+    both;
+}
+
+
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @-webkit-keyframes cards-in-animation {
   0% {
     -webkit-transform: scale(0);
@@ -154,7 +186,7 @@
 }
 
 @media screen and (max-width: 1199px) {
- .card-iframe{
-margin-top: 30px;
- }
+  .card-iframe {
+    margin-top: 30px;
+  }
 }

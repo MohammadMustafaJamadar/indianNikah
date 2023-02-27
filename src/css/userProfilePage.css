@@ -1,20 +1,25 @@
-.btn-1-editeprofile{
+.user-profile-card{
+  margin-top: 20px;
+  border: 1px solid red;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.user-profile-table{
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+}
+
+.btn-1-editeprofile {
   background-color: #155724;
   color: white;
   font-family: Oswald;
   border: none;
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
-.btn-1-editeprofile:hover{
-  background-color:darkblue !important;
+.btn-1-editeprofile:hover {
+  background-color: darkblue !important;
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
-.user-profile-page-guidelines {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5px;
-}
+
 .profile-alert {
   color: #155724;
   background-color: #d4edda;
@@ -56,19 +61,35 @@
   margin-top: 20px;
 }
 .user-profile-personal_info .ant-col {
-  border: 1px solid #e9dc23;
+  border: 1px solid #dee2e6;
+ 
+  border-top: none;
   padding: 15px 4px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: large;
+  font-size: medium;
 }
 .user-profile-tb-title {
-  background-color: #e79311;
+  background-color: rgb(223, 55, 104);
+  color: white;
+  font-family: 'Roboto Serif', serif;
+  font-size: 300;
 }
 .conact-info-title .ant-col {
   border: none;
 }
 .conact-info-note {
   border-radius: 5px;
-  background-color: #eacf54;
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
   width: 90%;
+}
+
+
+ h4:where(.css-dev-only-do-not-override-j0nf2s).ant-typography,
+div:where(.css-dev-only-do-not-override-j0nf2s).ant-typography-h4,
+div:where(.css-dev-only-do-not-override-j0nf2s).ant-typography-h4 > textarea,
+:where(.css-dev-only-do-not-override-j0nf2s).ant-typography h4 {
+  font-weight: 200px !important;
+ 
 }

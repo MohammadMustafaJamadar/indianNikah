@@ -18,6 +18,7 @@ import {
   TeamOutlined,
   MessageOutlined,
   FileTextOutlined,
+  ReadFilled
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import logo from "../../images/indiaNikahLogo.png";
@@ -250,6 +251,14 @@ export default function FooterComponent(props) {
                   />
                 </li>
                 <li>
+                  <Link aria-current="page" to="/quraan-hadith">
+                    <Text>
+                    <ReadFilled />
+                      &nbsp; Quraan Hadith
+                    </Text>
+                  </Link>
+                </li>
+                <li>
                   <Link aria-current="page" to="/profile/my-profile/">
                     <Text>
                       <UserOutlined /> &nbsp; My Profile{" "}
@@ -257,7 +266,7 @@ export default function FooterComponent(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link aria-current="page" to="/searchprofile">
+                  <Link aria-current="page" to="/profiles/">
                     {" "}
                     <Text>
                       <SearchOutlined />

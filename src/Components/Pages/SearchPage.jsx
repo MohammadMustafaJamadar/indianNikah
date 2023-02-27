@@ -10,7 +10,6 @@ import SearchFliter from "../search Components/SearchFliter";
 export default function SearchPage() {
   const { Text, Title } = Typography;
   const [usersData, setUsersData] = useState([]);
-  // const [currentUpdatedusersList,setCurrentUpdatedusersList]=
   const [totalusers, setTotalUsers] = useState("");
   const [page, setPage] = useState(1);
   const [usersPerPage, ] = useState(40);

@@ -21,7 +21,7 @@ const NewProfilesOnHome = lazy(() =>
 const { Title, Text } = Typography;
 
 export default function HomePage(props) {
-  const {  colors } = props;
+  const { colors } = props;
   const [image, setImage] = useState(img20);
 
   const styles = {
@@ -59,7 +59,7 @@ export default function HomePage(props) {
 
   const navigate_Search = (event) => {
     event.preventDefault();
-    navigateUser("profile/");
+    navigateUser("/profiles/");
   };
 
   const navigate_Guideliness = (event) => {
@@ -69,25 +69,30 @@ export default function HomePage(props) {
 
   return (
     <>
-      <div className="homepage" style={{ backgroundImage: `url(${image})` }}>
-        <Marquee
-          direction="left"
-          speed={50}
+      <div className="homepage" style={{ backgroundImage: `url(${image})`,  transition:" background-image 0.5s ease-in-out;" }}>
+        <div
           style={{
             color: "white",
             backgroundColor: "#263238",
             fontSize: "20px",
+            height:"50px",
+        
           }}
-          gradient={false}
         >
-          <div
-            style={{ fontFamily: '"Roboto", sans-serif', textAlign: "center" }}
-          >
-            "Marry the single people from among you and the righteous slaves and
-            slave-girls. If you are poor, Allah (SwT) will make you rich through
-            His favour; and Allah (SwT) is Bountiful, All-Knowing." (24:32).
-          </div>
-        </Marquee>
+          <Marquee direction="left" speed={50} gradient={false}>
+            <div
+              style={{
+                fontFamily: '"Roboto", sans-serif',
+                marginTop:"10px"
+              }}
+            >
+              "Marry the single people from among you and the righteous slaves
+              and slave-girls. If you are poor, Allah (SwT) will make you rich
+              through His favour; and Allah (SwT) is Bountiful, All-Knowing."
+              (24:32).
+            </div>
+          </Marquee>
+        </div>
 
         <Row
           style={{
@@ -101,12 +106,8 @@ export default function HomePage(props) {
           <Col xs={24} sm={24} md={16} lg={16}>
             <center>
               <div>
-                <div>
-                  <Title
-                    level={3}
-                    className="animate__animated animate__backInDown"
-                    id="heading-title"
-                  >
+                <div className="tracking-in-expand">
+                  <Title level={3} id="heading-title">
                     Free Indian Muslim Matrimony (Non-Profit)
                     <hr style={{ width: "20%" }} />
                   </Title>
