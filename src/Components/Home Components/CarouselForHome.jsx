@@ -26,7 +26,11 @@ export default function CarouselForHome(props) {
     <>
       <Row
         justify="center"
-        style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
+        style={{
+          background: darkMode
+            ? "#16395A"
+            : "linear-gradient(332deg, rgba(223,55,61,1) 21%, rgba(223,55,104,1) 83%)",
+        }}
       >
         <Col xs={24} sm={24} md={23} lg={20} xl={16}>
           <div
@@ -74,11 +78,16 @@ export default function CarouselForHome(props) {
                   <div style={contentStyle} key={ele.id}>
                     <Card>
                       <Row justify="center">
-                        <Col md={1} lg={1} >
-                          <Button size="small" shape="circle" icon={ <LeftCircleOutlined />} className="carousel-btn-1" onClick={()=>{ref.current.prev()}}/>
-
-                         
-                       
+                        <Col md={1} lg={1}>
+                          <Button
+                            size="small"
+                            shape="circle"
+                            icon={<LeftCircleOutlined />}
+                            className="carousel-btn-1"
+                            onClick={() => {
+                              ref.current.prev();
+                            }}
+                          />
                         </Col>
                         <Col xs={23} sm={23} md={11} lg={11}>
                           <iframe
@@ -106,11 +115,16 @@ export default function CarouselForHome(props) {
                             {ele.discriptions}
                           </Text>
                         </Col>
-                        <Col  md={1} lg={1} >
-                          <Button size="small"  shape="circle" className="carousel-btn-2" icon={ <RightCircleOutlined />} onClick={()=>{ref.current.next()}} />
-
-                         
-                  
+                        <Col md={1} lg={1}>
+                          <Button
+                            size="small"
+                            shape="circle"
+                            className="carousel-btn-2"
+                            icon={<RightCircleOutlined />}
+                            onClick={() => {
+                              ref.current.next();
+                            }}
+                          />
                         </Col>
                       </Row>
                     </Card>

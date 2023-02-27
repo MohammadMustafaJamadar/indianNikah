@@ -8,6 +8,7 @@
   overflow: hidden;
   top: 0;
   width: 100%;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
 }
 
 .mobile-nav-bar {
@@ -26,8 +27,6 @@
   justify-content: space-evenly;
   list-style: none;
   flex-direction: row-reverse;
-
-
 }
 .nav-links ul li:hover {
   padding-left: 9px !important;
@@ -79,7 +78,7 @@
 .login-logout-btn-6:hover,
 .theme-btn:hover,
 .btn-5-myprofile:hover {
-  background-color: #3B40B5 !important;
+  background-color: #3b40b5 !important;
   color: white !important;
   box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
 }
@@ -122,11 +121,6 @@
   .mobile-nav-bar {
     display: block;
   }
-  
-
 }
-@media screen and (max-width: 650){
-
+@media screen and (max-width: 650) {
 }
-
-

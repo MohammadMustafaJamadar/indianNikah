@@ -59,7 +59,7 @@ export default function FooterComponent(props) {
       },
       darkText: { color: darkMode ? "white" : "black" },
       darkBackGroundFirstDiv: {
-        backgroundColor: darkMode ? "#001F3D" : "lightgray",
+        backgroundColor: darkMode ? "#001F3D" : "#df3768",
       },
     },
   };
@@ -71,7 +71,7 @@ export default function FooterComponent(props) {
         style={styles.darkModes.darkBackGroundFirstDiv}
       >
         <Row justify="center" style={{ textAlign: "center" }}>
-          <Col xs={24} sm={24} md={23} lg={23} xl={23} xxl={8}>
+          <Col xs={24} sm={24} md={23} lg={23} xl={23} xxl={8} >
             <Title style={styles.darkModes.darkText} level={4}>
               <TeamOutlined style={styles.darkModes.darkText} /> Total 309 Users
               found there partner yet
@@ -362,7 +362,8 @@ export default function FooterComponent(props) {
                 </li>
 
                 <li>
-                  <Text>( We are on above social media )</Text>
+                  <Text>( We are on above social media )</Text> <br />
+                  <Text> WhatsApp: +91 848283 3177 (No Calls) </Text>
                 </li>
               </ul>
             </div>
