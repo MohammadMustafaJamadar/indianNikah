@@ -5,14 +5,14 @@ import Typography from "antd/es/typography";
 import { useEffect, useState } from "react";
 import "../../css/searchPage.css";
 import { users } from "../../utils/demoUsers";
-import SearchFliter from "../search Components/SearchFliter";
+import SearchFliter from "./SearchFliter";
 
 export default function SearchPage() {
   const { Text, Title } = Typography;
   const [usersData, setUsersData] = useState([]);
   const [totalusers, setTotalUsers] = useState("");
   const [page, setPage] = useState(1);
-  const [usersPerPage, ] = useState(40);
+  const [usersPerPage] = useState(40);
   const [showFilter, setShowFliter] = useState(false);
 
   // all state variables of searchFilter
@@ -106,18 +106,11 @@ export default function SearchPage() {
         </Col>
       </Row>
       <Row justify="center">
-        <Col xs={24} sm={24} md={16} lg={16}>
+        <Col xs={23} sm={23} md={23} lg={22} xl={16}>
           <Row justify="center">
             {currebtusers.map((user) => (
-              <Col xs={24} sm={24} md={11} lg={11} key={user.id}>
-                <Card
-                  hoverable
-                  bordered={true}
-                  style={{
-                    marginBottom: "10px",
-                    marginLeft: "10px",
-                  }}
-                >
+              <Col xs={24} sm={24} md={8} lg={8} xl={8} key={user.id}>
+                <Card hoverable bordered={true} className="card-userInfo" size="small">
                   <Row justify="space-around">
                     <Col xs={6} sm={6} md={6} lg={6}>
                       <img
@@ -135,8 +128,6 @@ export default function SearchPage() {
                       <Text className="font-for-user-cards">{user.name}</Text>
                       <br />
                       <Text className="font-for-user-cards">{user.work}</Text>
-                      <br />
-                      <Text className="font-for-user-cards">{user.gender}</Text>
                       <br />
                       <Text className="font-for-user-cards">{user.maslak}</Text>
                       <br />

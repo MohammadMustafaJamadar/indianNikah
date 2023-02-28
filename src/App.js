@@ -8,9 +8,8 @@ import UserProfilePage from "./Components/Pages/UserProfilePage";
 import NewProfilePage from "./Components/Pages/NewProfilePage";
 import AboutUsPage from "./Components/Pages/AboutUsPage";
 import ScrollTopButton from "./Components/Pages/ScrollTopButton";
-import SearchPage from "./Components/Pages/SearchPage";
+import SearchPage from "./Components/search Components/SearchPage";
 import CategoriesPage from "./Components/Categories Component/CategoriesPage";
-import CategoriesSlectors from "./Components/Categories Component/CategoriesSelectors";
 import QuranAndHadith from "./Components/Pages/QuranAndHadith";
 
 function App() {

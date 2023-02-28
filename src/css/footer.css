@@ -16,8 +16,7 @@ li {
   margin-top: 7px;
   margin-bottom: 11px;
 }
-.sub-footer-up-1 span,
-.darkfooter span {
+.sub-footer-up-1 span {
   font-family: Oswald;
 }
 
@@ -30,8 +29,7 @@ li {
   color: white;
 }
 
-.sub-footer-up-1 h4,
-.darkfooter h4 {
+.sub-footer-up-1 h4 {
   font-family: "Roboto", sans-serif;
 }
 
@@ -43,9 +41,7 @@ li {
   color: #000;
   background-color: #fff;
 }
-.footerLinksDark ul li :hover {
-  padding-left: 4px !important;
-}
+
 .footerLinks ul li a:hover {
   padding-left: 4px !important;
 }

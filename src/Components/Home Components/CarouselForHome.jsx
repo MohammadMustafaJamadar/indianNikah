@@ -19,7 +19,7 @@ const contentStyle = {
   alignItems: "center",
 };
 export default function CarouselForHome(props) {
-  const { darkMode } = props;
+  const { darkMode, colors } = props;
   const ref = useRef();
 
   return (
@@ -29,6 +29,12 @@ export default function CarouselForHome(props) {
         style={{
           background: darkMode
             ? "#16395A"
+            : colors.green
+            ? "linear-gradient(107deg, rgb(13, 198, 180) 8.1%, rgb(33, 198, 138) 79.5%)"
+            : colors.purple
+            ? "linear-gradient(to bottom right, #B27BE0, #8B51FF)"
+            : colors.blue
+            ? "linear-gradient(to bottom right, #0487A0, #6A70DD)"
             : "linear-gradient(332deg, rgba(223,55,61,1) 21%, rgba(223,55,104,1) 83%)",
         }}
       >
@@ -43,7 +49,7 @@ export default function CarouselForHome(props) {
                 textAlign: "center",
                 fontFamily: '"Roboto", sans-serif',
                 marginTop: "25px",
-                color: darkMode ? "white" : "black",
+                color: "white",
               }}
             >
               <CheckCircleOutlined /> Success Stories
@@ -53,7 +59,7 @@ export default function CarouselForHome(props) {
               style={{
                 textAlign: "center",
                 fontFamily: "Source Code Pro, monospace",
-                color: darkMode ? "white" : "black",
+                color: "white",
               }}
             >
               <PlayCircleOutlined style={{ marginBottom: "-2px" }} />

@@ -1,5 +1,9 @@
 import { Button, Card, Col, Input, Row, Select } from "antd";
-import { SearchOutlined, ClearOutlined ,CloseCircleOutlined} from "@ant-design/icons";
+import {
+  SearchOutlined,
+  ClearOutlined,
+  CloseCircleOutlined,
+} from "@ant-design/icons";
 import "../../css/searchPage.css";
 
 import {
@@ -35,7 +39,7 @@ export default function SearchFliter(props) {
 
   const handleSelectChangeGender = (value) => {
     setgenderSelect(value);
-    console.log(typeof value)
+    console.log(typeof value);
   };
   const handleSelectChangeEducation = (value) => {
     setEducationSelect(value);
@@ -51,7 +55,6 @@ export default function SearchFliter(props) {
   };
   const handleSelectChangeMaslak = (value) => {
     setMaslak(value);
-
   };
   const handleSelectChangeState = (value) => {
     setSelectState(value);
@@ -60,26 +63,25 @@ export default function SearchFliter(props) {
     setExampleInput(e.target.value);
   };
 
-  const handleExit=()=>{
-    setShowFliter(false)
-  }
-  const handleClear=()=>{
-   
-    setgenderSelect(null)
+  const handleExit = () => {
+    setShowFliter(false);
+  };
+  const handleClear = () => {
+    setgenderSelect(null);
     setEducationSelect(null);
     setbiradariSelect(null);
     setAgeGroup(null);
     setMaritalStatus(null);
     setMaslak(null);
     setSelectState(null);
-    setExampleInput(null)
-  }
+    setExampleInput(null);
+  };
   return (
     <div style={{ marginTop: "60px" }}>
       <Row justify="center">
         <Col sm={23} xs={23} md={23} lg={23}></Col>
-        <Col sm={22} xs={22} md={18} lg={18}>
-          <Card>
+        <Col xs={23} sm={23} md={23} lg={22} xl={16}>
+          <Card className="card-userInfo">
             <Row justify="space-around">
               <Col sm={22} xs={22} md={11} lg={11}>
                 <div className="dropdown">
@@ -180,25 +182,24 @@ export default function SearchFliter(props) {
               <Col sm={6} xs={6} md={8} lg={8}>
                 {" "}
                 <Button
-                  style={{ background: "#e79311" }}
-                  type="primary"
+                  className="btn-searchfilter-exit"
                   icon={<CloseCircleOutlined />}
                   onClick={handleExit}
+                  danger
                 >
                   Exit
                 </Button>
               </Col>
               <Col sm={16} xs={16} md={11} lg={11} flex="none">
                 <Button
-                  style={{ background: "#c23616" }}
-                  type="primary"
+                  className="btn-searchfilter-clear"
                   icon={<ClearOutlined />}
                   onClick={handleClear}
-                >Clear
+                >
+                  Clear
                 </Button>{" "}
                 <Button
-                  type="primary"
-                  style={{ background: "#eacf54" }}
+                  className="btn-searchfilter-search"
                   icon={<SearchOutlined />}
                 >
                   Search

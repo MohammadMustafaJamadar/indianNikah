@@ -46,7 +46,7 @@ export default function CategoriesPage() {
                 shape="round"
                 danger
               >
-                Exit
+                Hide
               </Button>
             ) : (
               <Button
@@ -61,14 +61,14 @@ export default function CategoriesPage() {
         </Row>
         <hr style={{ width: "50%" }} />
         <Row justify="center" style={{ marginTop: "10px" }}>
-          <Col xs={24} sm={24} md={20} lg={20} xl={16}>
+          <Col xs={23} sm={23} md={23} lg={20} xl={16}>
             <div className="categories-selector-text-div">
               <Text>Showing 5605 Profiles(40 per page)</Text>
             </div>
             <br /> <br />
             <Row justify="center">
               {currebtusers.map((user) => (
-                <Col xs={24} sm={24} md={12} lg={12} key={user.id}>
+                <Col xs={24} sm={24} md={8} lg={8} xl={8} key={user.id}>
                   <Card hoverable className="card-userInfo" size="small">
                     <Row justify="space-around">
                       <Col xs={6} sm={6} md={6} lg={6}>
@@ -84,14 +84,13 @@ export default function CategoriesPage() {
                         />
                       </Col>
                       <Col xs={16} sm={16} md={16} lg={16}>
-                        <Text className="font-for-user-cards">{user.name}</Text>
+                        <Text className="font-for-user-cards">
+                          {user.name}{" "}
+                        </Text>
                         <br />
                         <Text className="font-for-user-cards">{user.work}</Text>
                         <br />
-                        <Text className="font-for-user-cards">
-                          {user.gender}
-                        </Text>
-                        <br />
+
                         <Text className="font-for-user-cards">
                           {user.maslak}
                         </Text>

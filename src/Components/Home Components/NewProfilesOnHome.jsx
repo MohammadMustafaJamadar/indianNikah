@@ -114,7 +114,7 @@ const NewProfilesOnHome = (props) => {
           </div>
           <Row justify="center" style={{ marginTop: "20px" }}>
             {users.map((user) => (
-              <Col xs={24} sm={24} md={12} lg={12} xl={8} xxl={8} key={user.id}>
+              <Col xs={24} sm={24} md={12} lg={12} xl={8} key={user.id}>
                 <Card
                   className="card-iframe"
                   hoverable

@@ -158,8 +158,8 @@ export default function HomePage(props) {
           sm={22}
           md={24}
           lg={24}
-          style={{ textAlign: "center", marginTop: "10px" }}
-        >
+           style={{ textAlign: "center", marginTop: "10px" }}
+          >
           <div style={{ marginBottom: "40px" }}>
             <Title
               level={3}
@@ -171,8 +171,9 @@ export default function HomePage(props) {
               About IndiaNikah{" "}
             </Title>
           </div>
+          </Col>
           <Row justify="center" className="discription-about-row">
-            <Col xs={22} sm={22} md={22} lg={22} xl={8}>
+            <Col xs={22} sm={22} md={22} lg={12} xl={8}>
               <Text
                 className="about-discription-1"
                 style={{
@@ -206,7 +207,7 @@ export default function HomePage(props) {
             <Col xs={24} sm={24} md={1} lg={1}>
               {" "}
             </Col>
-            <Col xs={22} sm={22} md={22} lg={22} xl={8}>
+            <Col xs={22} sm={22} md={22} lg={11} xl={8}>
               <Card
                 className="cards-in-animation card-iframe "
                 hoverable
@@ -217,7 +218,7 @@ export default function HomePage(props) {
                 <iframe
                   width="100%"
                   height="260"
-                  src="https://www.youtube.com/embed/zw_FZ_pH-bk"
+                  src="https://www.youtube.com/embed/a8U6yKS3ydg"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   loading="lazy"
@@ -246,12 +247,12 @@ export default function HomePage(props) {
               <br />
             </Col>
           </Row>
-        </Col>
+      
       </Row>
       <Suspense>
-        <GuidelinesForHome darkMode={colors.darkMode} />
-        <NewProfilesOnHome darkMode={colors.darkMode} />
-        <CarouselForHome darkMode={colors.darkMode} />
+        <GuidelinesForHome darkMode={colors.darkMode} colors={colors} />
+        <NewProfilesOnHome darkMode={colors.darkMode} colors={colors} />
+        <CarouselForHome darkMode={colors.darkMode} colors={colors} />
       </Suspense>
     </>
   );

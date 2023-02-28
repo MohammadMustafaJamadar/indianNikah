@@ -50,26 +50,19 @@ export default function AboutUsPage(props) {
       <div
         style={{
           marginTop: "60px",
-          backgroundColor: darkMode ? "#001F3D" : "white",
+          backgroundColor: darkMode ? "rgb(22, 57, 90)" : "white",
         }}
       >
-        <div>
-          <Title
-            level={3}
-            style={{ textAlign: "center", fontFamily: "Kaushan Script" }}
-          >
-            {" "}
-            About IndiaNikah
-          </Title>
-        </div>
-
-        <Row
-          justify="space-around"
-          style={{ backgroundColor: darkMode ? "#001F3D" : "white" }}
-        >
-          <Col xs={24} sm={24} md={10} lg={10}>
+        <Row justify="space-around">
+          <Col xs={23} sm={23} md={23} lg={16} xl={10}>
+            <div style={{ textAlign: "center" }}>
+              <Title level={3} style={{ color: darkMode ? "white" : "black" }}>
+                {" "}
+                About IndiaNikah
+              </Title>
+            </div>
             {aboutUsContent.map((ele) => (
-              <Card hoverable>
+              <Card className="card-userInfo" hoverable>
                 <iframe
                   width="100%"
                   height="315"
