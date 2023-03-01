@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "../../css/userProfilePage.css";
-import { Button, Card, Col, Row, Typography } from "antd";
+import { Button, Card, Checkbox, Col, Modal, Row, Typography } from "antd";
 import {
   DownloadOutlined,
+  InfoCircleFilled,
   EditOutlined,
   UserOutlined,
   HomeOutlined,
   MobileOutlined,
   InfoCircleOutlined,
   DeleteOutlined,
+  WhatsAppOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Alert } from "antd";
@@ -49,13 +51,14 @@ const { Text, Title } = Typography;
 export default function UserProfilePage(props) {
   const { darkMode, colors } = props;
   const [user] = useState(userdata);
-
+  const [modalOpen, setModalOpen] = useState(false);
+  const [checkbox, setCheckBox] = useState();
   const styles = {
-    backGroundColor:{
+    backGroundColor: {
       backgroundColor: darkMode ? "#16395A" : "white",
-      marginTop:"60px"
-    }
-  }
+      marginTop: "60px",
+    },
+  };
 
   const navigateUser = useNavigate();
   const handleEdit = () => {
@@ -64,10 +67,29 @@ export default function UserProfilePage(props) {
   const handleDelete = () => {
     navigateUser("/profile/delete");
   };
-
+  const handleWhatsappContact = () => {
+    setModalOpen(true);
+  };
+  const handleCancel = () => {
+    console.log("Clicked cancel button");
+    setModalOpen(false);
+  };
+  const handleContinue = () => {
+    const number =userdata.ContactInfo.WhatsappNo
+    const url = `https://wa.me/91${number}?text=Asslamu+alaikum`
+    setModalOpen(false);
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    if (newWindow) {
+      newWindow.opener = null;
+    }
+  };
+  const handleCheckBox = (e) => {
+    console.log("checked", e.target.checked);
+    setCheckBox(e.target.checked);
+  };
   return (
     <div style={styles.backGroundColor}>
-      <div >
+      <div>
         <Row justify="center">
           <Col xs={24} sm={24} md={20} lg={20}>
             <Card className="user-profile-card">
@@ -110,7 +132,7 @@ export default function UserProfilePage(props) {
             level={4}
             style={{
               marginTop: "10px",
-              color:darkMode?"white" : "black",
+              color: darkMode ? "white" : "black",
             }}
           >
             Photo Not Available!
@@ -121,15 +143,30 @@ export default function UserProfilePage(props) {
         <Col xs={24} sm={24} md={20} lg={20}>
           <div className="preview-user">
             <div className="user-details">
-              <Text style={{ fontSize: "18px ", fontWeight: "bold",color:darkMode?"white" : "black", }}>
+              <Text
+                style={{
+                  fontSize: "18px ",
+                  fontWeight: "bold",
+                  color: darkMode ? "white" : "black",
+                }}
+              >
                 Mohammad Mustafa | Profile Code: 076873
               </Text>
               <br />
-              <Text style={{ fontSize: "18px ", fontWeight: "bold",color:darkMode?"white" : "black", }}>
+              <Text
+                style={{
+                  fontSize: "18px ",
+                  fontWeight: "bold",
+                  color: darkMode ? "white" : "black",
+                }}
+              >
                 Created On February 04 2023
               </Text>
             </div>
-            <div className="download-bioData" style={{color:darkMode?"white" : "black",}}>
+            <div
+              className="download-bioData"
+              style={{ color: darkMode ? "white" : "black" }}
+            >
               <Button
                 size="large"
                 shape="rond"
@@ -144,7 +181,10 @@ export default function UserProfilePage(props) {
           </div>
         </Col>
       </Row>
-      <div className="user-profile-table" style={{color:darkMode?"white" : "black",}}>
+      <div
+        className="user-profile-table"
+        style={{ color: darkMode ? "white" : "black" }}
+      >
         <Row justify="center">
           <Col xs={20} sm={20} md={20} lg={20}>
             <Row className="user-profile-personal_info">
@@ -154,7 +194,9 @@ export default function UserProfilePage(props) {
                 md={24}
                 lg={24}
                 className="user-profile-tb-title"
-                style={{backgroundColor:darkMode?"#071B2F" : "rgb(223, 55, 104)"}}
+                style={{
+                  backgroundColor: darkMode ? "#071B2F" : "rgb(223, 55, 104)",
+                }}
               >
                 {" "}
                 <UserOutlined /> Personal Information
@@ -225,7 +267,9 @@ export default function UserProfilePage(props) {
                 md={24}
                 lg={24}
                 className="user-profile-tb-title"
-                style={{backgroundColor:darkMode?"#071B2F" : "rgb(223, 55, 104)"}}
+                style={{
+                  backgroundColor: darkMode ? "#071B2F" : "rgb(223, 55, 104)",
+                }}
               >
                 {" "}
                 <HomeOutlined /> Family Information
@@ -266,9 +310,11 @@ export default function UserProfilePage(props) {
                 sm={24}
                 lg={24}
                 className="user-profile-tb-title"
-                style={{backgroundColor:darkMode?"#071B2F" : "rgb(223, 55, 104)"}}
+                style={{
+                  backgroundColor: darkMode ? "#071B2F" : "rgb(223, 55, 104)",
+                }}
               >
-                <Row justify="space-around" className="conact-info-title"   >
+                <Row justify="space-around" className="conact-info-title">
                   <Col xs={24} sm={24} md={24} lg={24}>
                     {" "}
                     <MobileOutlined /> Conact Information
@@ -295,7 +341,109 @@ export default function UserProfilePage(props) {
                 Whatsapp Number
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.ContactInfo.WhatsappNo}
+                <Button
+                  shape="round"
+                  size="large"
+                  className="btn-whatsapp"
+                  onClick={handleWhatsappContact}
+                >
+                  <WhatsAppOutlined />
+                </Button>
+                <Modal
+                  okButtonProps={{ disabled: !checkbox }}
+                  onOk={handleContinue}
+                  okText={<>Continue</>}
+                  title={
+                    <>
+                      <InfoCircleFilled /> instructions
+                    </>
+                  }
+                  width="70%"
+                  onCancel={handleCancel}
+                  open={modalOpen}
+                >
+                  <Row>
+                    <Col
+                      key={77}
+                      xs={24}
+                      sm={24}
+                      md={24}
+                      lg={24}
+                      xl={24}
+                      xxl={24}
+                    >
+                      <div className="terms-conditions-english">
+                        1. Respect, Respect and Respect each other. Give respect
+                        and take respect. <br />
+                        2. Read expectations clearly before start talking to
+                        others. (Set your expecations also clearly in your
+                        profile).
+                        <br />
+                        3. Elder males (35+) not to communicate with females of
+                        age 20-25. Female profiles may not feel good in such
+                        cases..
+                        <br />
+                        4. Be a good Muslim, a human being and show good
+                        character on WhatsApp chats/calls/messages.
+                        <br />
+                        5. 2nd marriage interested males to be extra careful to
+                        whom you are sending messages.
+                        <br />
+                        6. Lets make this world a better place to live for
+                        everyone.
+                      </div>
+                    </Col>
+                    <Col
+                      key={88}
+                      xs={24}
+                      sm={24}
+                      md={24}
+                      lg={24}
+                      xl={24}
+                      xxl={24}
+                    >
+                      <div className="terms-conditions-marathi">
+                        1. इज़्ज़त एहतराम से बात चीत की शुरुवात करें। इज़्ज़त दें और
+                        इज़्ज़त लें।
+                        <br />
+                        2. दूसरों से बात करना शुरू करने से पहले उनकी
+                        एक्सपेक्टेशन(रिश्ता कैसा चाहिए) ये अच्छे से पढ़ें। (अपनी
+                        एक्सपेक्टेशन को भी अपनी प्रोफ़ाइल में अच्छे से लिखें)।
+                        <br />
+                        3. बड़ी उम्र के मेल(मर्द) (35+) , छोटी उम्र की फीमेल
+                        प्रोफाइल से कांटेक्ट न करें । इससे से फीमेल प्रोफाइल को
+                        अच्छा नहीं लग सकता ह। <br />
+                        4. एक अच्छा मुसलमान, एक अच्छा इंसान बनें और व्हाट्सएप
+                        चैट/कॉल/मैसेज पर अच्छा किरदार/अख़लाक़ दिखाएँ।
+                        <br />
+                        5. दूसरी शादी की उम्मीद रखने वाले मर्द, किसी से कांटेक्ट
+                        करने के पहले ध्यान दे। हर फीमेल प्रोफाइल से कांटेक्ट न
+                        करे।
+                        <br />
+                        6. आइए इस दुनिया को सभी के रहने के लिए एक बेहतर जगह
+                        बनाएं।
+                      </div>
+                    </Col>
+                    <Col
+                      key={99}
+                      xs={24}
+                      sm={24}
+                      md={24}
+                      lg={24}
+                      xl={24}
+                      xxl={24}
+                    >
+                      <Checkbox
+                        className="terms-and-conditions"
+                        defaultChecked={false}
+                        onChange={handleCheckBox}
+                        checked={checkbox}
+                      >
+                        accept terms and conditions
+                      </Checkbox>
+                    </Col>
+                  </Row>
+                </Modal>
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 {" "}
@@ -310,7 +458,9 @@ export default function UserProfilePage(props) {
                 md={24}
                 lg={24}
                 className="user-profile-tb-title"
-                style={{backgroundColor:darkMode?"#071B2F" : "rgb(223, 55, 104)"}}
+                style={{
+                  backgroundColor: darkMode ? "#071B2F" : "rgb(223, 55, 104)",
+                }}
               >
                 {" "}
                 <InfoCircleOutlined /> Other Information
