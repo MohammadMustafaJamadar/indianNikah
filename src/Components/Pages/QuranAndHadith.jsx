@@ -3,17 +3,35 @@ import { Col, Row, Card } from "antd";
 import quraanhadiths from "../../utils/quraanAndHadith";
 import "../../css/quraanhadith.css";
 
-const QuranAndHadith = () => {
+const QuranAndHadith = (props) => {
+  const { darkMode } = props;
   return (
     <>
-      <div style={{ marginTop: "60px" }}>
+      <div
+        style={{
+          marginTop: "60px",
+          backgroundColor: darkMode ? "rgb(22, 57, 90)" : "white",
+        }}
+      >
         <Row justify="center">
           <Col xs={22} sm={22} md={22} lg={20} xl={16}>
-            <div className="title-hadith">Hadith
-            <hr style={{width:"50%"}} /></div>
+            <div
+              className="title-hadith"
+              style={{ color: darkMode ? "white" : "black" }}
+            >
+              Hadith
+              <hr style={{ width: "50%" }} />
+            </div>
             {quraanhadiths.map((quraanAndHadith) => (
               <>
-                <Card className="cards-quraan-hadith">
+                <Card
+                  className={
+                    darkMode
+                      ? "cards-quraan-hadith-darkTheme"
+                      : "cards-quraan-hadith"
+                  }
+                  hoverable
+                >
                   <Row justify="space-around">
                     <Col
                       xs={23}

@@ -9,43 +9,69 @@
   align-items: center;
 }
 
-.btn-top-filter {
+.btn-top-filter,
+.btn-top-filter-darktheme {
   background-color: #263238;
   margin: 15px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
   color: white;
   border: none;
 }
-
-.btn-top-filter:hover {
+.btn-top-filter {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.btn-top-filter-darktheme {
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.16),
+    0 2px 10px rgba(255, 255, 255, 0.12);
+}
+.btn-top-filter:hover,
+.btn-top-filter-darktheme:hover {
   background-color: #065fd4 !important  ;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
   color: white !important;
 }
+.card-userInfo,
+.card-userInfo-darkTheme {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.card-userInfo-darkTheme {
+  border: 1px solid white;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.16),
+  0 2px 10px rgba(255, 255, 255, 0.12);
+}
 .card-userInfo {
   border: 1px solid gray;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
-  margin-bottom: 10px;
-  margin-left: 10px;
 }
-
-.categories-slector-btns {
+.categories-slector-btns,
+.categories-darktheme-slector-btns {
   margin-bottom: 10px;
   margin-left: 10px;
-  box-shadow:0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%) ;
   border: none;
-
+}
+.categories-slector-btns {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.categories-darktheme-slector-btns {
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.16),
+    0 2px 10px rgba(255, 255, 255, 0.12);
+  background-color: #030303;
+  color: white;
 }
 
-.categories-slector-btns:hover  {
+.categories-slector-btns:hover {
   background-color: #030303;
   color: white !important;
 }
-
-.categories-slector-div{
+.categories-darktheme-slector-btns:hover {
+  background-color: white;
+  color: black !important;
+}
+.categories-slector-div {
   text-align: center;
 }
 
-.categories-selector-text-div{
+.categories-selector-text-div {
   text-align: center;
 }

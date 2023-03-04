@@ -8,13 +8,19 @@ import CategoriesSelectors from "./CategoriesSelectors";
 
 const { Text } = Typography;
 
-export default function CategoriesPage() {
+export default function CategoriesPage(props) {
+  const { darkMode } = props;
   const [usersData, setUsersData] = useState([]);
   const [totalusers, setTotalUsers] = useState("");
   const [page, setPage] = useState(1);
   const [usersPerPage] = useState(40);
   const [showFilter, setShowFliter] = useState(false);
 
+  const styles = {
+    darkThemText: {
+      color: darkMode ? "white" : "black",
+    },
+  };
   useEffect(() => {
     setUsersData(users);
     setTotalUsers(users.length);
@@ -35,14 +41,19 @@ export default function CategoriesPage() {
 
   return (
     <>
-      <div style={{ marginTop: "70px" }}>
-        {showFilter && <CategoriesSelectors />}
+      <div
+        style={{
+          marginTop: "60px",
+          backgroundColor: darkMode ? "rgb(22, 57, 90)" : "white",
+        }}
+      >
+        {showFilter && <CategoriesSelectors darkMode={darkMode} styles={styles} />}
         <Row justify="center">
           <Col>
             {showFilter ? (
               <Button
                 onClick={handelSeeCategories}
-                className="categories-slector-btns"
+                className={darkMode ? "categories-darktheme-slector-btns":"categories-slector-btns"}
                 shape="round"
                 danger
               >
@@ -52,7 +63,7 @@ export default function CategoriesPage() {
               <Button
                 onClick={handelSeeCategories}
                 shape="round"
-                className="btn-top-filter"
+                className={darkMode?"btn-top-filter-darktheme":"btn-top-filter"}
               >
                 See Category Wise Profiles
               </Button>
@@ -63,13 +74,13 @@ export default function CategoriesPage() {
         <Row justify="center" style={{ marginTop: "10px" }}>
           <Col xs={23} sm={23} md={23} lg={20} xl={16}>
             <div className="categories-selector-text-div">
-              <Text>Showing 5605 Profiles(40 per page)</Text>
+              <Text style={styles.darkThemText}>Showing 5605 Profiles(40 per page)</Text>
             </div>
             <br /> <br />
             <Row justify="center">
               {currebtusers.map((user) => (
                 <Col xs={24} sm={24} md={8} lg={8} xl={8} key={user.id}>
-                  <Card hoverable className="card-userInfo" size="small">
+                  <Card hoverable className={darkMode?"card-userInfo-darkTheme":"card-userInfo"} size="small">
                     <Row justify="space-around">
                       <Col xs={6} sm={6} md={6} lg={6}>
                         <img
@@ -113,6 +124,7 @@ export default function CategoriesPage() {
             total={totalusers}
             current={page}
             onChange={(value) => setPage(value)}
+            style={styles.darkThemText}
           />
         </div>
       </div>

@@ -336,14 +336,7 @@ export default function FooterComponent(props) {
                     </Text>
                   </Link>
                 </li>
-                <li onClick={handelScrollTop}>
-                  <Link aria-current="page" to="/terms-and-conditions/">
-                    <Text>
-                      <FileProtectOutlined />
-                      &nbsp; Terms & Conditions{" "}
-                    </Text>
-                  </Link>
-                </li>
+              
                 <li onClick={handelScrollTop}>
                   <Link aria-current="page" to="/post-document-service/">
                     <Text type="primary">
@@ -392,6 +385,14 @@ export default function FooterComponent(props) {
                       <MailOutlined /> Contact@indianikah.com
                     </Text>
                   </a>
+                </li>
+                <li onClick={handelScrollTop}>
+                  <Link aria-current="page" to="/terms-and-conditions/">
+                    <Text>
+                      <FileProtectOutlined />
+                      &nbsp; Terms & Conditions{" "}
+                    </Text>
+                  </Link>
                 </li>
                 <li
                   style={{

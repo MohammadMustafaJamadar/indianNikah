@@ -7,7 +7,8 @@ import "../../css/searchPage.css";
 import { users } from "../../utils/demoUsers";
 import SearchFliter from "./SearchFliter";
 
-export default function SearchPage() {
+export default function SearchPage(props) {
+  const {darkMode} = props;
   const { Text, Title } = Typography;
   const [usersData, setUsersData] = useState([]);
   const [totalusers, setTotalUsers] = useState("");
@@ -45,7 +46,8 @@ export default function SearchPage() {
   return (
     <div
       style={{
-        marginTop: "80px",
+        marginTop: "60px",
+        backgroundColor:darkMode?"rgb(22, 57, 90)" : "white"
       }}
     >
       <Row justify="center">
@@ -55,6 +57,7 @@ export default function SearchPage() {
               height: "60px",
               textAlign: "center",
               paddingBottom: "25px",
+              marginTop:"20px"
             }}
             message={
               <>
@@ -89,6 +92,7 @@ export default function SearchPage() {
           setExampleInput={setExampleInput}
           showFilter={showFilter}
           setShowFliter={setShowFliter}
+          darkMode={darkMode}
         />
       )}
       <Row justify="center">
@@ -97,8 +101,8 @@ export default function SearchPage() {
             <Button
               type="text"
               onClick={HandleFilter}
-              className="btn-top-filter"
-              block
+              className={darkMode?"btn-top-filter-search-darkTheme":"btn-top-filter-search"}
+              
             >
               <SearchOutlined /> SEARCH
             </Button>
@@ -110,7 +114,7 @@ export default function SearchPage() {
           <Row justify="center">
             {currebtusers.map((user) => (
               <Col xs={24} sm={24} md={8} lg={8} xl={8} key={user.id}>
-                <Card hoverable bordered={true} className="card-userInfo" size="small">
+                <Card hoverable bordered={true} className={darkMode?"card-userInfo-darkTheme":"card-userInfo"} size="small">
                   <Row justify="space-around">
                     <Col xs={6} sm={6} md={6} lg={6}>
                       <img
