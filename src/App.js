@@ -29,7 +29,7 @@ function App() {
             {" "}
           </Route>
           <Route element={<MarraigeGuideliness />} path="guidelines/r/"></Route>
-          <Route element={<SearchPage />} path="/profiles/"></Route>
+          <Route element={<SearchPage darkMode={colors.darkMode} />} path="/profiles/"></Route>
           <Route
             element={<NewProfilePage darkMode={colors.darkMode} />}
             path="/profiles/newly-added-profiles"
@@ -48,8 +48,12 @@ function App() {
             element={<CategoriesPage darkMode={colors.darkMode} />}
             path="/profiles/profile-categories"
           ></Route>
+<<<<<<< HEAD
           <Route element={<QuranAndHadith />} path="/quraan-hadith"></Route>
           <Route element={<JobSupport/>} path="/jobsupport"></Route>
+=======
+          <Route element={<QuranAndHadith darkMode={colors.darkMode} />} path="/quraan-hadith"></Route>
+>>>>>>> f8e9f9f183cec841d47627a880b9bf71ef1854df
         </Routes>
         <ScrollTopButton darkMode={colors.darkMode} colors={colors} />
         <FooterComponent darkMode={colors.darkMode} colors={colors} />

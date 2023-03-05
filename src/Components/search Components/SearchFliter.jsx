@@ -35,6 +35,7 @@ export default function SearchFliter(props) {
     selectState,
     setSelectState,
     setShowFliter,
+    darkMode,
   } = props;
 
   const handleSelectChangeGender = (value) => {
@@ -81,7 +82,7 @@ export default function SearchFliter(props) {
       <Row justify="center">
         <Col sm={23} xs={23} md={23} lg={23}></Col>
         <Col xs={23} sm={23} md={23} lg={22} xl={16}>
-          <Card className="card-userInfo">
+          <Card className="card-userInfo" style={{backgroundColor:darkMode?"#071B2F":"white"}}>
             <Row justify="space-around">
               <Col sm={22} xs={22} md={11} lg={11}>
                 <div className="dropdown">

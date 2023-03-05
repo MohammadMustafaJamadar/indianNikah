@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Button, Typography, Card } from "antd";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   TeamOutlined,
   InfoCircleOutlined,
@@ -93,9 +93,13 @@ export default function GuidelinesForHome(props) {
                 key={ele.id}
               >
                 <Card
-                  className="cards-in-animation card-iframe "
-                 size="small"
-                 style={{height:285}}
+                  className={
+                    darkMode
+                      ? "cards-in-animation card-iframe-darkTheme"
+                      : "cards-in-animation card-iframe "
+                  }
+                  size="small"
+                  style={{ height: 285 }}
                   title={ele.title}
                   hoverable
                   key={ele.id}
@@ -127,7 +131,9 @@ export default function GuidelinesForHome(props) {
                 <Button
                   shape="round"
                   size="large"
-                  className="btn-2-guidliness"
+                  className={
+                    darkMode ? "btn-2-guidliness-darkTheme" : "btn-2-guidliness"
+                  }
                   onClick={navigateUser_GuidlinePage}
                 >
                   <ReadOutlined style={{ marginBottom: "-2px" }} /> &nbsp;

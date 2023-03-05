@@ -116,7 +116,7 @@ const NewProfilesOnHome = (props) => {
             {users.map((user) => (
               <Col xs={24} sm={24} md={12} lg={12} xl={8} key={user.id}>
                 <Card
-                  className="card-iframe"
+                  className={darkMode?"card-iframe-darkTheme":"card-iframe"}
                   hoverable
                   size="small"
                   bordered={true}
@@ -165,7 +165,7 @@ const NewProfilesOnHome = (props) => {
                 type="primary"
                 shape="round"
                 size="medium"
-                className="newprofile-home-visit-btn-2"
+                className={darkMode?"newprofile-home-visit-btn-2-darkTheme":"newprofile-home-visit-btn-2"}
                 onClick={navigateUser_NewProfile}
               >
                 <PlusCircleOutlined />
