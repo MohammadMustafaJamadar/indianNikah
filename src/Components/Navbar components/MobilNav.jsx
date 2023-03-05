@@ -1,6 +1,6 @@
 import React from "react";
 import { Drawer, Typography, Dropdown, Button } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   UserOutlined,
   HeartOutlined,
@@ -13,39 +13,65 @@ import {
   BarsOutlined,
   FileTextOutlined,
   DownOutlined,
+  LoginOutlined,
 } from "@ant-design/icons";
 import "../../css/navbar.css";
 
 const { Text, Title } = Typography;
-const items = [
-  {
-    key: "1",
-    label: (
-      <Link aria-current="page" to="/jobsupport">
-        Job Supprt
-      </Link>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <Link aria-current="page" to="/scholarship">
-        Scholarship
-      </Link>
-    ),
-  },
-  {
-    key: "3",
-    label: (
-      <Link aria-current="page" to="/accomodation">
-        Accomodation
-      </Link>
-    ),
-  },
-];
 
 export default function MobilNav(props) {
-  const { handelNavClose, darkMode, open } = props;
+  const { handelNavClose, darkMode, open,  } = props;
+  const items = [
+    {
+      key: "1",
+      label: (
+        <Link aria-current="page" to="/jobsupport" onClick={handelNavClose}>
+          Job Supprt
+        </Link>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <Link aria-current="page" to="/scholarship" onClick={handelNavClose}>
+          Scholarship
+        </Link>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <Link aria-current="page" to="/accomodation" onClick={handelNavClose}>
+          Accomodation
+        </Link>
+      ),
+    },
+  ];
+
+  const navigateUser = useNavigate();
+
+  const styles = {
+    darkModes: {
+      darkText: { color: darkMode ? "white" : "black" },
+      darkForDrawer: {
+        color: darkMode ? "white" : "black",
+        border: "0px",
+        backgroundColor: darkMode ? "#12264C" : "white",
+      },
+    },
+    cssForUl: {
+      listStyle: "none",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      marginLeft: "-46px",
+    },
+  };
+
+  const navigateUser_Login = () => {
+    navigateUser("accounts/login/");
+  };
+
   return (
     <>
       <div>
@@ -56,38 +82,29 @@ export default function MobilNav(props) {
           onClose={handelNavClose}
           open={open}
           key="left"
-          style={{
-            color: darkMode ? "white" : "black",
-            border: "0px",
-            backgroundColor: darkMode ? "#12264C" : "white",
-          }}
+          style={styles.darkModes.darkForDrawer}
         >
           <Title
             style={{
               fontFamily: "Kaushan Script",
-              color: darkMode ? "white" : "black",
+              color: styles.darkModes.darkText.color,
             }}
             level={3}
           >
             INDIA NIKAH
           </Title>
 
-          <div onClick={handelNavClose}>
+          <div>
             <div className="nav-links">
-              <ul
-                style={{
-                  listStyle: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  marginLeft: "-46px",
-                }}
-              >
-                <li>
-                  <Link type="primary" aria-current="page" to="/">
+              <ul style={styles.cssForUl}>
+                <li onClick={handelNavClose}>
+                  <Link
+                    type="primary"
+                    aria-current="page"
+                    to="/profile/my-profile/"
+                  >
                     <Text
-                      className="footerLinks"
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -95,13 +112,10 @@ export default function MobilNav(props) {
                     </Text>
                   </Link>
                 </li>
-                <li>
-                  <Link aria-current="page" to="/login">
+                <li onClick={handelNavClose}>
+                  <Link aria-current="page" to="/favourites/list/">
                     <Text
-                      style={{
-                        color: darkMode ? "white" : "black",
-                        textDecoration: "none !important",
-                      }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -109,10 +123,10 @@ export default function MobilNav(props) {
                     </Text>
                   </Link>
                 </li>
-                <li>
-                  <Link aria-current="page" to="/signup">
+                <li onClick={handelNavClose}>
+                  <Link aria-current="page" to="/profiles/">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -120,10 +134,10 @@ export default function MobilNav(props) {
                     </Text>
                   </Link>
                 </li>
-                <li>
-                  <Link aria-current="page" to="/signup">
+                <li onClick={handelNavClose}>
+                  <Link aria-current="page" to="/guidelines/r/">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -132,31 +146,30 @@ export default function MobilNav(props) {
                   </Link>
                 </li>
                 <li>
-                  <Dropdown menu={{ items, selectable: true }}>
-                    <Typography.Link
-                      strong
-                      style={{ color: darkMode ? "white" : "black" }}
-                    >
+                  <Dropdown
+                    menu={{ items, selectable: true }}
+                    trigger={["click"]}
+                  >
+                    <Typography.Link strong style={styles.darkModes.darkText}>
                       <IdcardOutlined /> Supports <DownOutlined />
                     </Typography.Link>
                   </Dropdown>
                 </li>
-                <li>
-                  <Link aria-current="page" to="/signup">
+                <li onClick={handelNavClose}>
+                  <Link aria-current="page" to="/feedbacks/post-feedback/">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
-                      <MessageOutlined />
-                      feedbacks
+                      <MessageOutlined /> feedbacks
                     </Text>
                   </Link>
                 </li>
-                <li>
-                  <Link aria-current="page" to="/signup">
+                <li onClick={handelNavClose}>
+                  <Link aria-current="page" to="/about-us/">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -165,22 +178,21 @@ export default function MobilNav(props) {
                   </Link>
                 </li>
 
-                <li>
-                  <Link aria-current="page" to="/signup">
+                <li onClick={handelNavClose}>
+                  <Link aria-current="page" to="/profiles/newly-added-profiles">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
-                      <PlusCircleOutlined />
-                      New Profiles
+                      <PlusCircleOutlined /> New Profiles
                     </Text>
                   </Link>
                 </li>
-                <li>
-                  <Link aria-current="page" to="/signup">
+                <li onClick={handelNavClose}>
+                  <Link aria-current="page" to="/profiles/profile-categories">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -188,10 +200,10 @@ export default function MobilNav(props) {
                     </Text>
                   </Link>
                 </li>
-                <li>
-                  <Link aria-current="page" to="/signup">
+                <li onClick={handelNavClose}>
+                  <Link aria-current="page" to="/post-document-service/">
                     <Text
-                      style={{ color: darkMode ? "white" : "black" }}
+                      style={styles.darkModes.darkText}
                       type="primary"
                       strong
                     >
@@ -205,8 +217,9 @@ export default function MobilNav(props) {
                     size="medium"
                     shape="round"
                     className="login-logout-btn-mobnav-6"
+                    onClick={navigateUser_Login}
                   >
-                    <UserOutlined />
+                    <LoginOutlined />
                     Login
                   </Button>
                 </li>

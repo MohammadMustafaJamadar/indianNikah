@@ -3,14 +3,10 @@ import { Typography, Dropdown } from "antd";
 import { Link } from "react-router-dom";
 import {
   HeartOutlined,
-  SearchOutlined,
-  ReadOutlined,
   IdcardOutlined,
-  MessageOutlined,
   InfoCircleOutlined,
   PlusCircleOutlined,
   BarsOutlined,
-  FileTextOutlined,
   DownOutlined,
 } from "@ant-design/icons";
 import "../../css/navbar.css";
@@ -45,6 +41,12 @@ const items = [
 
 export default function DekstopNavbar(props) {
   const { darkMode } = props;
+  const styles = {
+    darkModes: {
+      darkText: { color: darkMode ? "white" : "black" },
+    },
+  };
+
   return (
     <>
       <ul
@@ -53,103 +55,37 @@ export default function DekstopNavbar(props) {
         }
       >
         <li>
-          <Link aria-current="page" to="/login">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
+          <Link aria-current="page" to="/profiles/newly-added-profiles">
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+              <PlusCircleOutlined /> New Profiles
+            </Text>
+          </Link>
+        </li>
+        <li>
+          <Link aria-current="page" to="/favourites/list/">
+            <Text style={styles.darkModes.darkText} type="primary" strong>
               <HeartOutlined /> Favourites
             </Text>
           </Link>
         </li>
         <li>
-          <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <SearchOutlined /> Search Profiles
-            </Text>
-          </Link>
-        </li>
-        <li>
-          <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <ReadOutlined /> Marriage Guidelines
-            </Text>
-          </Link>
-        </li>
-        <li>
-          <Dropdown menu={{ items, selectable: true }}>
-            <Typography.Link
-              strong
-              style={{ color: darkMode ? "white" : "black" }}
-            >
-              <IdcardOutlined /> Supports <DownOutlined />
-            </Typography.Link>
-          </Dropdown>
-        </li>
-        <li>
-          <Link aria-current="page" to="/signup ">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <MessageOutlined />
-              &nbsp; feedbacks
-            </Text>
-          </Link>
-        </li>
-        <li>
-          <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <InfoCircleOutlined /> About Us
-            </Text>
-          </Link>
-        </li>
-
-        <li>
-          <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <PlusCircleOutlined />
-              &nbsp; New Profiles
-            </Text>
-          </Link>
-        </li>
-        <li>
-          <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
+          <Link aria-current="page" to="/profiles/profile-categories">
+            <Text style={styles.darkModes.darkText} type="primary" strong>
               <BarsOutlined /> Categories
             </Text>
           </Link>
         </li>
         <li>
-          <Link aria-current="page" to="/signup">
-            <Text
-              style={{ color: darkMode ? "white" : "black" }}
-              type="primary"
-              strong
-            >
-              <FileTextOutlined /> Document Service
+          <Dropdown menu={{ items, selectable: true }} trigger={["click"]}>
+            <Typography.Link strong style={styles.darkModes.darkText}>
+              <IdcardOutlined /> Supports <DownOutlined />
+            </Typography.Link>
+          </Dropdown>
+        </li>
+        <li>
+          <Link aria-current="page" to="/about-us/">
+            <Text style={styles.darkModes.darkText} type="primary" strong>
+              <InfoCircleOutlined /> About Us
             </Text>
           </Link>
         </li>

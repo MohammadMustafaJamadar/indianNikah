@@ -1,51 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Button, Typography, Card } from "antd";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   TeamOutlined,
   InfoCircleOutlined,
   ReadOutlined,
-  EllipsisOutlined,
 } from "@ant-design/icons";
 import { iframContent } from "../../utils/iframContent";
+import getRandomElements from "../../utils/randomDataicker";
 
 const { Title, Text } = Typography;
-const { Meta } = Card;
 
 export default function GuidelinesForHome(props) {
   const { darkMode } = props;
   const [iframLinks, setIframLinks] = useState([]);
+  const navigateUser = useNavigate();
+
+  const styles = {
+    darkModes: {
+      darkBackGround: { backgroundColor: darkMode ? "#16395A" : "white" },
+    },
+  };
+
+  const navigateUser_GuidlinePage = () => {
+    navigateUser("/guidelines/r/");
+  };
 
   useEffect(() => {
     let isCancelled = false;
     if (!isCancelled) {
-      const getRandomElements = (array, elements) => {
-        const result = [];
-
-        for (let i = 0; i < elements; i++) {
-          const randomIndex = Math.floor(Math.random() * array.length);
-          const randomObject = array[randomIndex];
-          if (!result.some((obj) => obj.id === randomObject.id)) {
-            result.push(randomObject);
-          }
-        }
-        return result;
-      };
       const result = getRandomElements(iframContent, 4);
       setIframLinks(result);
-      console.log(result);
     }
 
     return () => {
       isCancelled = true;
-      console.log("work terminated");
     };
   }, []);
 
   return (
     <>
-      <Row style={{ backgroundColor: darkMode ? "#16395A" : "white" }}>
-        <Col xs={24} sm={24} md={24} lg={24}>
+      <Row style={styles.darkModes.darkBackGround}>
+        <Col xs={22} sm={22} md={24} lg={24}>
           {" "}
           <div
             style={{
@@ -55,7 +51,7 @@ export default function GuidelinesForHome(props) {
             <Title
               level={3}
               style={{
-                fontFamily: "kaushan script",
+                fontFamily: ' "Roboto", sans-serif',
                 color: darkMode ? "white" : "black",
               }}
             >
@@ -83,63 +79,47 @@ export default function GuidelinesForHome(props) {
           </div>
         </Col>
       </Row>
-      <Row
-        justify="center"
-        style={{ backgroundColor: darkMode ? "#16395A" : "white" }}
-      >
-        <Col xs={24} sm={24} md={20} lg={20}>
-          <Row justify="center" style={{ marginTop: "20px", }}>
+      <Row justify="center" style={styles.darkModes.darkBackGround}>
+        <Col xs={22} sm={22} md={23} lg={23} xl={23} xxl={16}>
+          <Row justify="center" style={{ marginTop: "20px" }}>
             {iframLinks.map((ele) => (
-          
               <Col
-                xs={24}
-                sm={24}
-                md={9}
-                lg={9}
-                style={{ marginBottom: "10px", marginRight:"15px" }}
+                xs={23}
+                sm={23}
+                md={11}
+                lg={11}
+                xl={9}
+                style={{ marginBottom: "10px", marginRight: "15px" }}
+                key={ele.id}
               >
-              
                 <Card
-                  className="cards-in-animation "
-                  cover={
-                    <center>
-                      <iframe
-                        width="97%%"
-                        height="100%"
-                        src={ele.link}
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        loading="lazy"
-                      ></iframe>
-                    </center>
+                  className={
+                    darkMode
+                      ? "cards-in-animation card-iframe-darkTheme"
+                      : "cards-in-animation card-iframe "
                   }
-                  actions={[
-                    <Link aria-current="page" to="/guidelines/r/">
-                      View more{" "}
-                      <EllipsisOutlined className="react-dots-icons" />
-                    </Link>,
-                  ]}
+                  size="small"
+                  style={{ height: 285 }}
                   title={ele.title}
                   hoverable
                   key={ele.id}
-          
                 >
-                  <Meta
-                    title={ele.metaTitle}
-                    className="meta-discriptions-titles"
-                    description={ele.metaDiscription}
-                    key={ele.id}
-                  ></Meta>
+                  <iframe
+                    width="100%%"
+                    height="210"
+                    src={ele.link}
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    loading="lazy"
+                  ></iframe>
                 </Card>
-      
               </Col>
-          
             ))}
           </Row>
           <Row>
             <Col
-              xs={24}
-              sm={24}
+              xs={23}
+              sm={23}
               md={24}
               lg={24}
               style={{
@@ -148,7 +128,14 @@ export default function GuidelinesForHome(props) {
               }}
             >
               <div>
-                <Button shape="round" size="large" className="btn-2-guidliness">
+                <Button
+                  shape="round"
+                  size="large"
+                  className={
+                    darkMode ? "btn-2-guidliness-darkTheme" : "btn-2-guidliness"
+                  }
+                  onClick={navigateUser_GuidlinePage}
+                >
                   <ReadOutlined style={{ marginBottom: "-2px" }} /> &nbsp;
                   MARRIAGE GUIDELINES
                 </Button>

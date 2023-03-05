@@ -1,0 +1,9 @@
+.float-btn-div .ant-float-btn-body {
+  background-color: #df3768;
+}
+
+
+.float-btn:hover {
+  background-color: #263238;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}

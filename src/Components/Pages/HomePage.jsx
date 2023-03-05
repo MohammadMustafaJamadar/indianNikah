@@ -1,9 +1,12 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Col, Row, Button, Typography, Card } from "antd";
 import { SearchOutlined, ReadOutlined } from "@ant-design/icons";
 import "../../css/style.css";
-import img6 from "../../photos/img6.jpg";
+import img20 from "../../photos/img20.jpg";
+import imagesArray from "../../utils/images";
 import { useNavigate } from "react-router-dom";
+import Marquee from "react-fast-marquee";
+import getRandomElements from "../../utils/randomDataicker";
 
 const CarouselForHome = lazy(() =>
   import("../Home Components/CarouselForHome")
@@ -18,15 +21,58 @@ const NewProfilesOnHome = lazy(() =>
 const { Title, Text } = Typography;
 
 export default function HomePage(props) {
-  const { darkMode } = props;
+  const { colors } = props;
+  const [image, setImage] = useState(img20);
 
-  console.log(darkMode);
+  const styles = {
+    backGroundStyleForBtn: {
+      backgroundColor: colors.green
+        ? "#48BA78"
+        : colors.blue
+        ? "#4D8FF6"
+        : colors.purple
+        ? "#9F7AEB"
+        : colors.darkMode
+        ? "#df3768"
+        : "#df3768",
+    },
+    darkBackgroundColor: {
+      backgroundColor: colors.darkMode ? "#001F3D" : "white",
+    },
+    darkText: {
+      aboutSection: {
+        color: colors.darkMode ? "white" : "#4f4f4f",
+      },
+      allText: {
+        color: colors.darkMode ? "white" : "black",
+      },
+      aboutDiscriptionSection: {
+        color: colors.darkMode ? "white" : "#84817a",
+      },
+    },
+  };
+
+  useEffect(() => {
+    let isCancelled = false;
+    let intervalId;
+    const result = getRandomElements(imagesArray, 1);
+
+    if (!isCancelled) {
+      intervalId = setInterval(() => {
+        setImage(result);
+      }, 10000);
+    }
+    return () => {
+      isCancelled = true;
+      clearInterval(intervalId);
+    };
+  }, [image]);
 
   const navigateUser = useNavigate();
 
   const navigate_Search = (event) => {
     event.preventDefault();
-    navigateUser("profile/");
+    navigateUser("/profiles/");
   };
 
   const navigate_Guideliness = (event) => {
@@ -36,12 +82,30 @@ export default function HomePage(props) {
 
   return (
     <>
-      <div className="homepage" style={{ backgroundImage: `url(${img6})` }}>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
-        <div className="cube"></div>
+      <div className="homepage" style={{ backgroundImage: `url(${image})` }}>
+        <div
+          style={{
+            color: "white",
+            backgroundColor: "#263238",
+            fontSize: "20px",
+            height: "50px",
+          }}
+        >
+          <Marquee direction="left" speed={50} gradient={false}>
+            <div
+              style={{
+                fontFamily: '"Roboto", sans-serif',
+                marginTop: "10px",
+              }}
+            >
+              "Marry the single people from among you and the righteous slaves
+              and slave-girls. If you are poor, Allah (SwT) will make you rich
+              through His favour; and Allah (SwT) is Bountiful, All-Knowing."
+              (24:32).
+            </div>
+          </Marquee>
+        </div>
+
         <Row
           style={{
             backgroundColor: "rgba(0,0,0,.3)",
@@ -53,20 +117,9 @@ export default function HomePage(props) {
         >
           <Col xs={24} sm={24} md={16} lg={16}>
             <center>
-              <div
-                style={{
-                  borderRadius: "0px 100px 0px 100px",
-                  backgroundColor: "#b1b1ae33",
-                  width: "50%",
-                }}
-              >
-                <div>
-                  <Title
-                    level={3}
-                    style={{}}
-                    className="animate__animated animate__backInDown"
-                    id="heading-title"
-                  >
+              <div>
+                <div className="tracking-in-expand">
+                  <Title level={3} id="heading-title">
                     Free Indian Muslim Matrimony (Non-Profit)
                     <hr style={{ width: "20%" }} />
                   </Title>
@@ -84,6 +137,7 @@ export default function HomePage(props) {
                     htmlType={"submit"}
                     shape="round"
                     size="medium"
+                    style={styles.backGroundStyleForBtn}
                     className="btn-1-search"
                   >
                     <SearchOutlined />
@@ -105,101 +159,104 @@ export default function HomePage(props) {
           </Col>
         </Row>
       </div>
-      <Row
-        justify="center"
-        style={{ backgroundColor: darkMode ? "#001F3D" : "white" }}
-      >
+      <Row justify="center" style={styles.darkBackgroundColor}>
         <br />
         <br /> <br />
         <Col
-          xs={24}
-          sm={24}
+          xs={22}
+          sm={22}
           md={24}
           lg={24}
           style={{ textAlign: "center", marginTop: "10px" }}
         >
-          <div>
+          <div style={{ marginBottom: "40px" }}>
             <Title
+              level={3}
               className="about-text-section"
-              style={{
-                color: darkMode ? "white" : "black",
-              }}
+              style={styles.darkText.aboutSection}
             >
-              About Indian Nikah{" "}
+              About IndiaNikah{" "}
             </Title>
           </div>
-          <Row justify="center" className="discription-about-row">
-            <Col xs={24} sm={24} md={8} lg={8}>
-              <Text
-                className="about-discription-1"
-                style={{
-                  color: darkMode ? "white" : "#84817a",
-                }}
-              >
-                India Nikah is India's 100% free matrimony/shaadi/rishta/rishtey
-                website for Indian Muslims covering all Indian states
-                (Maharashtra, Karnataka etc) (All Maslak, biradari, education
-                backgrounds (doctor engineer etc ) and madarasa pass outs
-                (Alim/hafiz/mufti)). This site also offers second marraige
-                proposals. Also for Indians staying abroad (NRIs). We also try
-                to help regarding jobs, rental accommodation and regarding Share
-                Market investment awareness. This is an effort to make your
-                efforts easy. This site also offers guidelines (Go to guidelines
-                section) on pre and post marriage related topics in the form of
-                YouTube videos of experts from all maktab fikr(Sects). Uploading
-                profile pics are not mandatory. You can directly Open WhatsApp
-                of the profile you are interested in and start communication.
-                Please login and stay active on our site to keep your profile on
-                top in search results.
-              </Text>
-              <br />
-              <Text className="about-discription-2">
-                Note - Paid marriage bureaus/agents/brokers are not allowed to
-                use this site. We do not do profile background verification We
-                do not have any paid personalised or special service. No office
-                location, everything is online.
-              </Text>
-            </Col>
-            <Col xs={24} sm={24} md={1} lg={1}>
-              {" "}
-            </Col>
-            <Col xs={24} sm={24} md={8} lg={8}>
-              <Card
-                className="cards-in-animation "
-                hoverable 
-              >
-                <iframe
-                  width="100%"
-                  height="315px"
-                  src="https://www.youtube.com/embed/zw_FZ_pH-bk"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  loading="lazy"
-                ></iframe>
-              </Card>
-              <br />
-              <br />
+        </Col>
+        <Row justify="center" className="discription-about-row">
+          <Col xs={22} sm={22} md={22} lg={12} xl={8}>
+            <Text
+              className="about-discription-1"
+              style={styles.darkText.aboutDiscriptionSection}
+            >
+              India Nikah is India's 100% free matrimony/shaadi/rishta/rishtey
+              website for Indian Muslims covering all Indian states
+              (Maharashtra, Karnataka etc) (All Maslak, biradari, education
+              backgrounds (doctor engineer etc ) and madarasa pass outs
+              (Alim/hafiz/mufti)). This site also offers second marraige
+              proposals. Also for Indians staying abroad (NRIs). We also try to
+              help regarding jobs, rental accommodation and regarding Share
+              Market investment awareness. This is an effort to make your
+              efforts easy. This site also offers guidelines (Go to guidelines
+              section) on pre and post marriage related topics in the form of
+              YouTube videos of experts from all maktab fikr(Sects). Uploading
+              profile pics are not mandatory. You can directly Open WhatsApp of
+              the profile you are interested in and start communication. Please
+              login and stay active on our site to keep your profile on top in
+              search results.
+            </Text>
+            <br />
+            <Text className="about-discription-2">
+              Note - Paid marriage bureaus/agents/brokers are not allowed to use
+              this site. We do not do profile background verification We do not
+              have any paid personalised or special service. No office location,
+              everything is online.
+            </Text>
+          </Col>
+          <Col xs={24} sm={24} md={1} lg={1}>
+            {" "}
+          </Col>
+          <Col xs={22} sm={22} md={22} lg={11} xl={8}>
+            <Card
+              className="cards-in-animation card-iframe "
+              hoverable
+              bordered={true}
+              size="small"
+              style={{ height: 285, alignItems: "center" }}
+            >
+              <iframe
+                width="100%"
+                height="260"
+                src="https://www.youtube.com/embed/a8U6yKS3ydg"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                loading="lazy"
+              ></iframe>
+            </Card>
+            <br />
+            <br />
+            <div
+              className="div-download-discription"
+              style={{ textAlign: "center" }}
+            >
               <Text
                 style={{
                   fontFamily: "roboto,sans-serif",
+                  fontWeight: "700",
                   fontSize: "16px",
                   lineHeight: "1.2",
-                  color: darkMode ? "white" : "#84817a",
+                  color: styles.darkText.allText.color,
                 }}
               >
                 How it works | Mobile App | Features | Marriage guidelines |
                 Website in Hindi Urdu | Jobs (Watch in full screen)
               </Text>
-              <br />
-              <br />
-            </Col>
-          </Row>
-        </Col>
+            </div>
+            <br />
+            <br />
+          </Col>
+        </Row>
       </Row>
       <Suspense>
-        <GuidelinesForHome darkMode={darkMode} />
-        <NewProfilesOnHome />
-        <CarouselForHome darkMode={darkMode} />
+        <GuidelinesForHome darkMode={colors.darkMode} colors={colors} />
+        <NewProfilesOnHome darkMode={colors.darkMode} colors={colors} />
+        <CarouselForHome darkMode={colors.darkMode} colors={colors} />
       </Suspense>
     </>
   );
