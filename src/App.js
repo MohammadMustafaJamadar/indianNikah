@@ -11,6 +11,7 @@ import ScrollTopButton from "./Components/Pages/ScrollTopButton";
 import SearchPage from "./Components/search Components/SearchPage";
 import CategoriesPage from "./Components/Categories Component/CategoriesPage";
 import QuranAndHadith from "./Components/Pages/QuranAndHadith";
+import JobSupport from "./Components/Pages/JobSupport";
 
 function App() {
   const [colors, setColors] = useState({
@@ -48,6 +49,7 @@ function App() {
             path="/profiles/profile-categories"
           ></Route>
           <Route element={<QuranAndHadith />} path="/quraan-hadith"></Route>
+          <Route element={<JobSupport/>} path="/jobsupport"></Route>
         </Routes>
         <ScrollTopButton darkMode={colors.darkMode} colors={colors} />
         <FooterComponent darkMode={colors.darkMode} colors={colors} />
