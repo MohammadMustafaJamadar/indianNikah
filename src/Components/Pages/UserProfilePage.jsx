@@ -71,27 +71,25 @@ export default function UserProfilePage(props) {
     setModalOpen(true);
   };
   const handleCancel = () => {
-    console.log("Clicked cancel button");
     setModalOpen(false);
   };
   const handleContinue = () => {
-    const number =userdata.ContactInfo.WhatsappNo
-    const url = `https://wa.me/91${number}?text=Asslamu+alaikum`
+    const number = userdata.ContactInfo.WhatsappNo;
+    const url = `https://wa.me/91${number}?text=Asslamu+alaikum`;
     setModalOpen(false);
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) {
       newWindow.opener = null;
     }
   };
   const handleCheckBox = (e) => {
-    console.log("checked", e.target.checked);
     setCheckBox(e.target.checked);
   };
   return (
     <div style={styles.backGroundColor}>
       <div>
         <Row justify="center">
-          <Col xs={24} sm={24} md={20} lg={20}>
+          <Col xs={24} sm={24} md={22} lg={22} xl={14}>
             <Card className="user-profile-card">
               <Button
                 size="large"
@@ -139,8 +137,8 @@ export default function UserProfilePage(props) {
           </Title>
         </div>
       </div>
-      <Row justify="center">
-        <Col xs={24} sm={24} md={20} lg={20}>
+      <Row justify="center" style={{ marginBottom: "20px" }}>
+        <Col xs={24} sm={24} md={20} lg={20} xl={14}>
           <div className="preview-user">
             <div className="user-details">
               <Text
@@ -171,7 +169,11 @@ export default function UserProfilePage(props) {
                 size="large"
                 shape="rond"
                 type="primary"
-                style={{ backgroundColor: "#263338", height: "100%" }}
+                style={{
+                  backgroundColor: "#263338",
+                  height: "100%",
+                  marginTop: "20px",
+                }}
               >
                 <DownloadOutlined /> Download Bio Data
                 <br />
@@ -181,12 +183,16 @@ export default function UserProfilePage(props) {
           </div>
         </Col>
       </Row>
-      <div
-        className="user-profile-table"
-        style={{ color: darkMode ? "white" : "black" }}
-      >
+      <div style={{ color: darkMode ? "white" : "black" }}>
         <Row justify="center">
-          <Col xs={20} sm={20} md={20} lg={20}>
+          <Col
+            xs={20}
+            sm={20}
+            md={20}
+            lg={20}
+            xl={14}
+            className="user-profile-table"
+          >
             <Row className="user-profile-personal_info">
               <Col
                 xs={24}
@@ -195,10 +201,10 @@ export default function UserProfilePage(props) {
                 lg={24}
                 className="user-profile-tb-title"
                 style={{
+            
                   backgroundColor: darkMode ? "#071B2F" : "rgb(223, 55, 104)",
                 }}
               >
-                {" "}
                 <UserOutlined /> Personal Information
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>

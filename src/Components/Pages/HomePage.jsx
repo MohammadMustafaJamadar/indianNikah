@@ -62,7 +62,6 @@ export default function HomePage(props) {
         setImage(result);
       }, 10000);
     }
-    console.log(image.length);
     return () => {
       isCancelled = true;
       clearInterval(intervalId);
