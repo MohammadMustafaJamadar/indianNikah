@@ -11,16 +11,6 @@ import ScrollTopButton from "./Components/Pages/ScrollTopButton";
 import SearchPage from "./Components/search Components/SearchPage";
 import CategoriesPage from "./Components/Categories Component/CategoriesPage";
 import QuranAndHadith from "./Components/Pages/QuranAndHadith";
-import axios from "axios";
-
-const fetchUserData = async () => {
-  const url = `https://www.indianikah.com/profiles/api/list/`;
-  try {
-    return await axios.get(url);
-  } catch (error) {
-    if (error) throw error;
-  }
-};
 
 function App() {
   const [colors, setColors] = useState({
@@ -70,10 +60,7 @@ function App() {
             element={<CategoriesPage darkMode={colors.darkMode} />}
             path="/profiles/profile-categories"
           ></Route>
-          <Route
-            element={<QuranAndHadith darkMode={colors.darkMode} />}
-            path="/quraan-hadith"
-          ></Route>
+          <Route element={<QuranAndHadith darkMode={colors.darkMode} />} path="/quraan-hadith"></Route>
         </Routes>
         <ScrollTopButton darkMode={colors.darkMode} colors={colors} />
         <FooterComponent darkMode={colors.darkMode} colors={colors} />

@@ -356,9 +356,10 @@ export default function UserProfilePage(props) {
                   <WhatsAppOutlined />
                 </Button>
                 <Modal
+                
                   okButtonProps={{ disabled: !checkbox }}
                   onOk={handleContinue}
-                  okText={<>Continue</>}
+                  okText={<span>Continue</span>}
                   title={
                     <>
                       <InfoCircleFilled /> instructions
@@ -445,7 +446,7 @@ export default function UserProfilePage(props) {
                         onChange={handleCheckBox}
                         checked={checkbox}
                       >
-                        accept terms and conditions
+                        I agree to follow all above,मैं ऊपर की सभी बातों पर अमल करूंगा
                       </Checkbox>
                     </Col>
                   </Row>
