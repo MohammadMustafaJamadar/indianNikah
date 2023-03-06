@@ -15,48 +15,28 @@ import {
 import { Link } from "react-router-dom";
 import { Alert } from "antd";
 import { useNavigate } from "react-router-dom";
+import { userData } from "../../utils/demoUsers";
 
-const userdata = {
-  PersonsalInfo: {
-    name: "Mohammed mustafa",
-    gender: "male",
-    age: 22,
-    height: "5`3",
-    ocucupation: "Assitant Teacher",
-    Education: "Graduate",
-    Degree: "D.Ei.Ed",
-    MaritalStatus: "Unmarried",
-    PhysicalStatus: "Normal",
-    hobbies: "Cricket,Coding",
-    weight: 72,
-    Native: "India (Nanded, Maharashtra)",
-    currentLocation: "India (Nanded, Maharashtra)",
-  },
-  FamilyInfo: {
-    Father: "mulka Husain Jamadar (Teacher)",
-    mother: "Maseem Begum (Teacher)",
-    siblings: "1 Brother(1 Married) 1 Sister(1 Married)",
-    biradari: "No Biradari",
-    maslak: "Deobandi(Tablighi)",
-  },
-
-  ContactInfo: {
-    Conact: 8983768055,
-    WhatsappNo: 8983768055,
-    ContactOf: "self",
-  },
-  OtherInfo: { Expectations: "Nothing", ExtraInfo: "Nothing" },
-};
 const { Text, Title } = Typography;
 export default function UserProfilePage(props) {
   const { darkMode, colors } = props;
-  const [user] = useState(userdata);
   const [modalOpen, setModalOpen] = useState(false);
   const [checkbox, setCheckBox] = useState();
   const styles = {
     backGroundColor: {
       backgroundColor: darkMode ? "#16395A" : "white",
       marginTop: "60px",
+    },
+    backGroundColorThemes: {
+      background: darkMode
+        ? "#071B2F"
+        : colors.green
+        ? "linear-gradient(107deg, rgb(13, 198, 180) 8.1%, rgb(33, 198, 138) 79.5%)"
+        : colors.blue
+        ? "linear-gradient(to bottom right, #0487A0, #6A70DD)"
+        : colors.purple
+        ? "linear-gradient(to bottom right, #B27BE0, #8B51FF)"
+        : "linear-gradient(332deg, rgba(223,55,61,1) 21%, rgba(223,55,104,1) 83%)",
     },
   };
 
@@ -74,8 +54,7 @@ export default function UserProfilePage(props) {
     setModalOpen(false);
   };
   const handleContinue = () => {
-    const number = userdata.ContactInfo.WhatsappNo;
-    const url = `https://wa.me/91${number}?text=Asslamu+alaikum`;
+    const url = `https://wa.me/${userData.whatsapp_country_code}${userData.whatsapp_number}?text=Asslamu+alaikum`;
     setModalOpen(false);
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) {
@@ -114,7 +93,9 @@ export default function UserProfilePage(props) {
                         biradari/maslak then it is perfectly fine in islam to
                         marriage outside your biradari/maslak with other Muslim.
                         Watch{" "}
-                        <Link to="guidelines/r/">Marriage Guidelines</Link>{" "}
+                        <Link to="guidelines/r/">
+                          <u>Marriage Guidelines</u>
+                        </Link>{" "}
                         section for more information.
                       </h4>
                     }
@@ -126,15 +107,29 @@ export default function UserProfilePage(props) {
           </Col>
         </Row>
         <div className="user-profile-photo-not-avl">
-          <Title
-            level={4}
-            style={{
-              marginTop: "10px",
-              color: darkMode ? "white" : "black",
-            }}
-          >
-            Photo Not Available!
-          </Title>
+          {userData.photo_1 || userData.photo_2 || userData.photo_3 ? (
+            <>
+              {userData.photo_1 ? (
+                <img src={userData.photo_1} alt="Not 1 available....!" />
+              ) : null}
+              {userData.photo_2 ? (
+                <img src={userData.photo_2} alt="Not 2 available....!" />
+              ) : null}
+              {userData.photo_3 ? (
+                <img src={userData.photo_3} alt="Not 3 available....!" />
+              ) : null}
+            </>
+          ) : (
+            <Title
+              level={4}
+              style={{
+                marginTop: "10px",
+                color: darkMode ? "white" : "black",
+              }}
+            >
+              Photo Not Available!
+            </Title>
+          )}
         </div>
       </div>
       <Row justify="center" style={{ marginBottom: "20px" }}>
@@ -148,7 +143,7 @@ export default function UserProfilePage(props) {
                   color: darkMode ? "white" : "black",
                 }}
               >
-                Mohammad Mustafa | Profile Code: 076873
+                {userData.full_name} | Profile Code: {userData.profile_code}
               </Text>
               <br />
               <Text
@@ -200,10 +195,7 @@ export default function UserProfilePage(props) {
                 md={24}
                 lg={24}
                 className="user-profile-tb-title"
-                style={{
-            
-                  backgroundColor: darkMode ? "#071B2F" : "rgb(223, 55, 104)",
-                }}
+                style={styles.backGroundColorThemes}
               >
                 <UserOutlined /> Personal Information
               </Col>
@@ -211,61 +203,61 @@ export default function UserProfilePage(props) {
                 Name
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.PersonsalInfo.name}
+                {userData.full_name}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Gender
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.PersonsalInfo.age}
+                {userData.age} Years
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Height
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.PersonsalInfo.height}
+                {userData.height}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Occupation
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.PersonsalInfo.ocucupation}
+                {userData.occupation}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Education
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.PersonsalInfo.Education}
+                {userData.degree ? userData.degree : userData.education}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Physical Status
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.PersonsalInfo.PhysicalStatus}
+                {userData.physical_status}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Hobbies
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.PersonsalInfo.hobbies}
+                {userData.hobbies}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Weight
               </Col>
               <Col xs={17} sm={17} md={17} lg={17} xl={17}>
-                {user.PersonsalInfo.height}
+                {userData.weight}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Native
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.PersonsalInfo.Native}
+                {`${userData.country} (${userData.city_native}, ${userData.state})`}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7} xl={7}>
                 Current Location
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.PersonsalInfo.currentLocation}
+                {`${userData.country_current} (${userData.city_current}, ${userData.state_current})`}
               </Col>
               <Col
                 xs={24}
@@ -273,9 +265,7 @@ export default function UserProfilePage(props) {
                 md={24}
                 lg={24}
                 className="user-profile-tb-title"
-                style={{
-                  backgroundColor: darkMode ? "#071B2F" : "rgb(223, 55, 104)",
-                }}
+                style={styles.backGroundColorThemes}
               >
                 {" "}
                 <HomeOutlined /> Family Information
@@ -284,31 +274,31 @@ export default function UserProfilePage(props) {
                 Father
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.FamilyInfo.Father}
+                {userData.fathers_name}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Mother
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.FamilyInfo.mother}
+                {userData.mothers_name}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Siblings
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.FamilyInfo.siblings}
+                {`${userData.no_of_brothers} Brother (${userData.no_of_married_brothers} Married), ${userData.no_of_sisters} Sisters (${userData.no_of_married_sisters} Married) `}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Biradari
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.FamilyInfo.biradari}
+                {userData.biradari ? userData.biradari : "No Biradari"}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Maslak
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.FamilyInfo.maslak}
+                {userData.maslak}
               </Col>
               <Col
                 xs={24}
@@ -316,9 +306,7 @@ export default function UserProfilePage(props) {
                 sm={24}
                 lg={24}
                 className="user-profile-tb-title"
-                style={{
-                  backgroundColor: darkMode ? "#071B2F" : "rgb(223, 55, 104)",
-                }}
+                style={styles.backGroundColorThemes}
               >
                 <Row justify="space-around" className="conact-info-title">
                   <Col xs={24} sm={24} md={24} lg={24}>
@@ -333,7 +321,7 @@ export default function UserProfilePage(props) {
                     className="conact-info-note"
                   >
                     Note : Contact details are only availble during 9AM morning
-                    to 9PM evening (IST, Indian time)
+                    to 9PM evening (IST,Indian time)
                   </Col>
                 </Row>
               </Col>
@@ -341,7 +329,7 @@ export default function UserProfilePage(props) {
                 Conact
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.ContactInfo.Conact}
+                {userData.contact_number}
               </Col>
               <Col xs={7} sm={7} md={7} lg={7}>
                 Whatsapp Number
@@ -356,7 +344,6 @@ export default function UserProfilePage(props) {
                   <WhatsAppOutlined />
                 </Button>
                 <Modal
-                
                   okButtonProps={{ disabled: !checkbox }}
                   onOk={handleContinue}
                   okText={<span>Continue</span>}
@@ -446,7 +433,8 @@ export default function UserProfilePage(props) {
                         onChange={handleCheckBox}
                         checked={checkbox}
                       >
-                        I agree to follow all above,मैं ऊपर की सभी बातों पर अमल करूंगा
+                        I agree to follow all above,मैं ऊपर की सभी बातों पर अमल
+                        करूंगा
                       </Checkbox>
                     </Col>
                   </Row>
@@ -457,7 +445,7 @@ export default function UserProfilePage(props) {
                 Conact Of
               </Col>
               <Col xs={17} sm={17} md={17} lg={17}>
-                {user.ContactInfo.ContactOf}
+                {userData.contact_of}
               </Col>
               <Col
                 xs={24}
@@ -465,9 +453,7 @@ export default function UserProfilePage(props) {
                 md={24}
                 lg={24}
                 className="user-profile-tb-title"
-                style={{
-                  backgroundColor: darkMode ? "#071B2F" : "rgb(223, 55, 104)",
-                }}
+                style={styles.backGroundColorThemes}
               >
                 {" "}
                 <InfoCircleOutlined /> Other Information
@@ -476,13 +462,13 @@ export default function UserProfilePage(props) {
                 Expectations
               </Col>
               <Col xs={15} sm={15} md={17} lg={17}>
-                {user.OtherInfo.Expectations}
+                {userData.expectations}
               </Col>
               <Col xs={9} sm={9} md={7} lg={7}>
                 Extra Information
               </Col>
               <Col xs={15} sm={15} md={17} lg={17}>
-                {user.OtherInfo.ExtraInfo}
+                {userData.extra_information}
               </Col>
             </Row>
           </Col>
