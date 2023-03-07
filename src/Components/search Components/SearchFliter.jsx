@@ -36,14 +36,15 @@ export default function SearchFliter(props) {
     setSelectState,
     setShowFliter,
     darkMode,
+    setSearchData,
   } = props;
 
   const handleSelectChangeGender = (value) => {
     setgenderSelect(value);
-    console.log(typeof value);
   };
   const handleSelectChangeEducation = (value) => {
     setEducationSelect(value);
+   
   };
   const handleSelectChangeBiradari = (value) => {
     setbiradariSelect(value);
@@ -68,21 +69,30 @@ export default function SearchFliter(props) {
     setShowFliter(false);
   };
   const handleClear = () => {
-    setgenderSelect(null);
-    setEducationSelect(null);
-    setbiradariSelect(null);
-    setAgeGroup(null);
-    setMaritalStatus(null);
-    setMaslak(null);
-    setSelectState(null);
-    setExampleInput(null);
+    setgenderSelect();
+    setEducationSelect();
+    setbiradariSelect();
+    setAgeGroup();
+    setMaritalStatus();
+    setMaslak();
+    setSelectState();
+    setExampleInput();
   };
+
+  const handleSearch =()=>{
+    const searchData ={genderSelect,educationSelect,biradariSelect,ageGroup,maritalStatus,maslak,selectState,exampleInput}
+    setSearchData(searchData)
+    
+  }
   return (
     <div style={{ marginTop: "60px" }}>
       <Row justify="center">
         <Col sm={23} xs={23} md={23} lg={23}></Col>
         <Col xs={23} sm={23} md={23} lg={22} xl={16}>
-          <Card className="card-userInfo" style={{backgroundColor:darkMode?"#071B2F":"white"}}>
+          <Card
+            className="card-userInfo"
+            style={{ backgroundColor: darkMode ? "#071B2F" : "white" }}
+          >
             <Row justify="space-around">
               <Col sm={22} xs={22} md={11} lg={11}>
                 <div className="dropdown">
@@ -98,6 +108,8 @@ export default function SearchFliter(props) {
                 </div>
                 <div className="dropdown">
                   <Select
+                    mode="multiple"
+                    allowClear
                     placeholder="Education"
                     value={educationSelect}
                     style={{
@@ -109,6 +121,8 @@ export default function SearchFliter(props) {
                 </div>
                 <div className="dropdown">
                   <Select
+                    mode="multiple"
+                    allowClear
                     placeholder="Biradari"
                     value={biradariSelect}
                     style={{
@@ -122,6 +136,8 @@ export default function SearchFliter(props) {
               <Col sm={22} xs={22} md={11} lg={11}>
                 <div className="dropdown">
                   <Select
+                    mode="multiple"
+                    allowClear
                     value={ageGroup}
                     placeholder="Age Group"
                     style={{
@@ -133,6 +149,8 @@ export default function SearchFliter(props) {
                 </div>
                 <div className="dropdown">
                   <Select
+                    mode="multiple"
+                    allowClear
                     placeholder="Marital Status"
                     value={maritalStatus}
                     style={{
@@ -144,6 +162,8 @@ export default function SearchFliter(props) {
                 </div>
                 <div className="dropdown">
                   <Select
+                    mode="multiple"
+                    allowClear
                     placeholder="Maslak"
                     value={maslak}
                     style={{
@@ -157,6 +177,8 @@ export default function SearchFliter(props) {
               <Col sm={23} xs={23} md={23} lg={23}>
                 <div className="dropdown">
                   <Select
+                    mode="multiple"
+                    allowClear
                     placeholder="States"
                     value={selectState}
                     style={{
@@ -202,6 +224,7 @@ export default function SearchFliter(props) {
                 <Button
                   className="btn-searchfilter-search"
                   icon={<SearchOutlined />}
+                  onClick={handleSearch}
                 >
                   Search
                 </Button>

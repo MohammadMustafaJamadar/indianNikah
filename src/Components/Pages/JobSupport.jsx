@@ -36,7 +36,7 @@ function JobSupport() {
       subCategory: value,
     }));
   };
-
+  
   const changeGender = (value) => {
     setJobSupportFormData((prevFormData) => ({
       ...prevFormData,
