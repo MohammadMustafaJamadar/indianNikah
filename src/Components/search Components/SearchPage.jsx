@@ -1,20 +1,11 @@
-import { Card, Col, Pagination, Row, Form, Checkbox, Radio } from "antd";
-// import { InfoCircleOutlined, SearchOutlined } from "@ant-design/icons";
-
+import { Card, Col, Pagination, Row, Input } from "antd";
 import Typography from "antd/es/typography";
 import { useEffect, useState } from "react";
+
 import "../../css/searchPage.css";
 import { users } from "../../utils/demoUsers";
-import {
-  selectGenderList,
-  ageGroupSelectList,
-  forGraduate,
-  forMaritalStatus,
-  biradariSlectBar,
-  maslakSlectBar,
-  states,
-} from "../../utils/searchFliter";
-// import SearchFliter from "./SearchFliter";
+import SearchFliterDec from "./SearchFliterDec";
+import SearchFilterMobile from "./SearchFilterMobile";
 
 export default function SearchPage(props) {
   const { darkMode } = props;
@@ -23,7 +14,6 @@ export default function SearchPage(props) {
   const [totalusers, setTotalUsers] = useState("");
   const [page, setPage] = useState(1);
   const [usersPerPage] = useState(40);
-  // const [showFilter, setShowFliter] = useState(false);
 
   const [fliterData, setFilterData] = useState({
     gender: "",
@@ -34,18 +24,6 @@ export default function SearchPage(props) {
     matarnalstatus: [],
     state: [],
   });
-
-  // all state variables of searchFilter
-  // const [genderSelect, setgenderSelect] = useState();
-  // const [educationSelect, setEducationSelect] = useState();
-  // const [biradariSelect, setbiradariSelect] = useState();
-  // const [ageGroup, setAgeGroup] = useState();
-  // const [maritalStatus, setMaritalStatus] = useState();
-  // const [maslak, setMaslak] = useState();
-  // const [selectState, setSelectState] = useState();
-  // const [exampleInput, setExampleInput] = useState();
-
-  // const [searchData,setSearchData]=useState({})
 
   useEffect(() => {
     setUsersData(users);
@@ -105,187 +83,38 @@ export default function SearchPage(props) {
   const indexOfFirstPage = indexOfLastPage - usersPerPage;
   const currebtusers = usersData.slice(indexOfFirstPage, indexOfLastPage);
 
-  console.log(fliterData);
   return (
     <div
       style={{
         marginTop: "60px",
-        backgroundColor: darkMode ? "rgb(22, 57, 90)" : "white",
+        backgroundColor: darkMode ? "rgb(22, 57, 90)" : "   #f2f2f2",
       }}
     >
-      <Row justify="space-around">
-        <Col lg={5} xl={5}>
-          <div style={{ width: "100%" }} className="fliter-of-search">
-            <Form layout="vertical">
-              <Row justify="start" style={{ marginLeft: "10px" }}>
-                <Col lg={24} xl={24} xxl={24}>
-                  <Form.Item layout="vertical" label="Gender" key={1}>
-                    <Radio.Group
-                      key={99}
-                      name="gender"
-                      onChange={filterChanger}
-                      value={fliterData.gender}
-                      options={selectGenderList}
-                    />
-                  </Form.Item>
-                </Col>
-                <Col lg={24} xl={24} xxl={24}>
-                  <Form.Item label="Age Group" key={994}>
-                    <Checkbox.Group
-                      value={fliterData.agegroup}
-                      onChange={changeAgeGroup}
-                      style={{
-                        width: "100%",
-                      }}
-                    >
-                      <Row>
-                        {ageGroupSelectList.map((g, index) => {
-                          return (
-                            <>
-                              <Col lg={12} xl={12}>
-                                <Checkbox Col={4} key={index} value={g.value}>
-                                  {g.label}
-                                </Checkbox>
-                              </Col>
-                            </>
-                          );
-                        })}
-                      </Row>
-                    </Checkbox.Group>
-                  </Form.Item>
-                </Col>
-                <Col lg={24} xl={24} xxl={24}>
-                  <Form.Item label="Education" key={3}>
-                    <Checkbox.Group
-                      value={fliterData.education}
-                      name="education"
-                      onChange={changeEducation}
-                      style={{
-                        width: "100%",
-                      }}
-                    >
-                      <Row>
-                        {forGraduate.map((g, index) => {
-                          return (
-                            <>
-                              <Col lg={12} xl={12}>
-                                <Checkbox Col={4} value={g.value}>
-                                  {g.label}
-                                </Checkbox>
-                              </Col>
-                            </>
-                          );
-                        })}
-                      </Row>
-                    </Checkbox.Group>
-                  </Form.Item>
-                </Col>
-                <Col lg={24} xl={24} xxl={24}>
-                  <Form.Item key={4} label="Marital Status">
-                    <Checkbox.Group
-                      value={fliterData.matarnalstatus}
-                      name="matarnalstatus"
-                      onChange={changeMatarnalstatus}
-                      style={{
-                        width: "100%",
-                      }}
-                    >
-                      <Row>
-                        {forMaritalStatus.map((g, index) => {
-                          return (
-                            <>
-                              <Col lg={12} xl={12}>
-                                <Checkbox Col={4} value={g.value}>
-                                  {g.label}
-                                </Checkbox>
-                              </Col>
-                            </>
-                          );
-                        })}
-                      </Row>
-                    </Checkbox.Group>
-                  </Form.Item>
-                </Col>
-                <Col lg={24} xl={24} xxl={24}>
-                  <Form.Item key={5} label="Biradari">
-                    <Checkbox.Group
-                      value={fliterData.biradari}
-                      name="biradari"
-                      onChange={changeBiradari}
-                      style={{
-                        width: "100%",
-                      }}
-                    >
-                      <Row>
-                        {biradariSlectBar.map((g, index) => {
-                          return (
-                            <>
-                              <Col lg={12} xl={12}>
-                                <Checkbox Col={4} value={g.value}>
-                                  {g.label}
-                                </Checkbox>
-                              </Col>
-                            </>
-                          );
-                        })}
-                      </Row>
-                    </Checkbox.Group>
-                  </Form.Item>
-                </Col>
-                <Col lg={24} xl={24} xxl={24}>
-                  <Form.Item key={6} label="Maslak">
-                    <Checkbox.Group
-                      value={fliterData.maslak}
-                      name="biradari"
-                      onChange={changeMaslak}
-                      style={{
-                        width: "100%",
-                      }}
-                    >
-                      <Row>
-                        {maslakSlectBar.map((g, index) => {
-                          return (
-                            <>
-                              <Col lg={12} xl={12}>
-                                <Checkbox Col={4} value={g.value}>
-                                  {g.label}
-                                </Checkbox>
-                              </Col>
-                            </>
-                          );
-                        })}
-                      </Row>
-                    </Checkbox.Group>
-                  </Form.Item>
-                </Col>
-                <Col lg={24} xl={24} xxl={24}>
-                  <Form.Item key={7} label="State">
-                    <Checkbox.Group
-                      value={fliterData.state}
-                      name="state"
-                      onChange={changeState}
-                      style={{
-                        width: "100%",
-                      }}
-                    >
-                      <Row>
-                        {states.map((g, index) => {
-                          return (
-                            <>
-                              <Col lg={12} xl={12}>
-                                <Checkbox Col={4} value={g.value}>
-                                  {g.label}
-                                </Checkbox>
-                              </Col>
-                            </>
-                          );
-                        })}
-                      </Row>
-                    </Checkbox.Group>
-                  </Form.Item>
-                </Col>
-              </Row>
-            </Form>
+      <Row
+        justify="space-around"
+      >
+        <Col xs={23} sm={23} md={23} lg={5} xl={5}>
+          <SearchFliterDec
+            fliterData={fliterData}
+            filterChanger={filterChanger}
+            changeEducation={changeEducation}
+            changeBiradari={changeBiradari}
+            changeMaslak={changeMaslak}
+            changeAgeGroup={changeAgeGroup}
+            changeMatarnalstatus={changeMatarnalstatus}
+            changeState={changeState}
+          />
+          <div className="fliter-of-search-mobile">
+            <SearchFilterMobile
+              fliterData={fliterData}
+              filterChanger={filterChanger}
+              changeEducation={changeEducation}
+              changeBiradari={changeBiradari}
+              changeMaslak={changeMaslak}
+              changeAgeGroup={changeAgeGroup}
+              changeMatarnalstatus={changeMatarnalstatus}
+              changeState={changeState}
+            />
           </div>
         </Col>
         <Col xs={23} sm={23} md={23} lg={19} xl={19}>

@@ -29,16 +29,16 @@ function App() {
     purple: false,
     darkMode: false,
   });
-  // useEffect(() => {
-  //   fetchUserData()
-  //     .then(async (res) => {
-  //      const userInfo =  await res.data
-  //      console.log(userInfo);
-  //     })
-  //     .catch((err) => {
-  //       if (err) throw err;
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetchUserData()
+      .then(async (res) => {
+       const userInfo =  await res.data
+       console.log(userInfo);
+      })
+      .catch((err) => {
+        if (err) throw err;
+      });
+  }, []);
   return (
     <>
       <Router>

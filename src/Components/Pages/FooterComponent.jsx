@@ -49,7 +49,6 @@ export default function FooterComponent(props) {
   const handelScrollTop = (path) => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     navigateUser(path);
-    console.log(path);
   };
 
   const styles = {
