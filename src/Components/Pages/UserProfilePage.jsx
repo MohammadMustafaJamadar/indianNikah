@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../css/userProfilePage.css";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Button, Card, Checkbox, Col, Modal, Row, Typography } from "antd";
 import {
   DownloadOutlined,
@@ -22,6 +23,7 @@ export default function UserProfilePage(props) {
   const { darkMode, colors } = props;
   const [modalOpen, setModalOpen] = useState(false);
   const [checkbox, setCheckBox] = useState();
+  const [disabledCheckBox,setDisabledCheckBox]=useState(true)
   const styles = {
     backGroundColor: {
       backgroundColor: darkMode ? "#16395A" : "white",
@@ -64,6 +66,12 @@ export default function UserProfilePage(props) {
   const handleCheckBox = (e) => {
     setCheckBox(e.target.checked);
   };
+
+  const changeReChaptcha = (value)=>{
+    if(value){
+setDisabledCheckBox(false)
+    }
+  }
   return (
     <div style={styles.backGroundColor}>
       <div>
@@ -432,10 +440,21 @@ export default function UserProfilePage(props) {
                         defaultChecked={false}
                         onChange={handleCheckBox}
                         checked={checkbox}
+                        disabled={disabledCheckBox}
                       >
                         I agree to follow all above,मैं ऊपर की सभी बातों पर अमल
                         करूंगा
                       </Checkbox>
+                    </Col>
+                  </Row>
+                  <Row justify="start">
+                    <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
+                      {" "}
+                      <ReCAPTCHA
+                        size="compact"
+                        sitekey="6Le2I_YkAAAAAO5hWVC5MJVrmTHfrKqpgOD-r5n9"
+                        onChange={changeReChaptcha}
+                      />
                     </Col>
                   </Row>
                 </Modal>

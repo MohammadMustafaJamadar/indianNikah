@@ -1,0 +1,21 @@
+.scholarships-Support-Send-btn{
+    background-color:#df3768;
+    color: white;
+    font-family: Oswald;
+    min-width: 90px;
+    border-radius: 0.25rem;
+    border-width: 1px !important;
+   
+ 
+}
+
+.scholarships-Support-Send-btn:hover{
+    background-color: #3b40b5 !important;
+    color: white !important;
+    box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+}
+
+.scholarships-support-card{
+    margin-top: 20px;
+    box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+}

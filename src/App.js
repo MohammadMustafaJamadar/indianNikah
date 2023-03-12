@@ -12,15 +12,18 @@ import SearchPage from "./Components/search Components/SearchPage";
 import CategoriesPage from "./Components/Categories Component/CategoriesPage";
 import QuranAndHadith from "./Components/Pages/QuranAndHadith";
 import axios from "axios";
+import JobSupport from "./Components/Pages/JobSupport";
+import ScholarshipsSupport from "./Components/Pages/ScholarshipsSupport";
+import ScholarshipsDetails from "./Components/Pages/ScholarshipsDetails";
 
-const fetchUserData = async() => {
-  const url = `https://www.indianikah.com/profiles/api/list/`
+const fetchUserData = async () => {
+  const url = `https://www.indianikah.com/profiles/api/list/`;
   try {
-    return await axios.get(url)
+    return await axios.get(url);
   } catch (error) {
-    if(error) throw error;
+    if (error) throw error;
   }
-}
+};
 
 function App() {
   const [colors, setColors] = useState({
@@ -32,8 +35,8 @@ function App() {
   useEffect(() => {
     fetchUserData()
       .then(async (res) => {
-       const userInfo =  await res.data
-       console.log(userInfo);
+        const userInfo = await res.data;
+        console.log(userInfo);
       })
       .catch((err) => {
         if (err) throw err;
@@ -70,7 +73,22 @@ function App() {
             element={<CategoriesPage darkMode={colors.darkMode} />}
             path="/profiles/profile-categories"
           ></Route>
-          <Route element={<QuranAndHadith darkMode={colors.darkMode} />} path="/quraan-hadith"></Route>
+          <Route
+            element={<QuranAndHadith darkMode={colors.darkMode} />}
+            path="/quraan-hadith"
+          ></Route>
+          <Route
+            element={<JobSupport darkMode={colors.darkMode} />}
+            path="jobsupport"
+          ></Route>
+          <Route
+            element={<ScholarshipsSupport darkMode={colors.darkMode} />}
+            path="scholarship"
+          ></Route>
+          <Route
+            path="scholarship/details"
+            element={<ScholarshipsDetails />}
+          ></Route>
         </Routes>
         <ScrollTopButton darkMode={colors.darkMode} colors={colors} />
         <FooterComponent darkMode={colors.darkMode} colors={colors} />

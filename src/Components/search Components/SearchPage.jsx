@@ -1,4 +1,4 @@
-import { Card, Col, Pagination, Row, Input } from "antd";
+import { Card, Col, Pagination, Row } from "antd";
 import Typography from "antd/es/typography";
 import { useEffect, useState } from "react";
 
