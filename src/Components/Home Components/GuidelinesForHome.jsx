@@ -7,7 +7,7 @@ import {
   ReadOutlined,
 } from "@ant-design/icons";
 import { iframContent } from "../../utils/iframContent";
-import getRandomElements from "../../utils/randomDataicker";
+import getRandomElements from "../../utils/randomDataPicker";
 
 const { Title, Text } = Typography;
 

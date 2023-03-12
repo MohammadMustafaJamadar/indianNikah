@@ -6,7 +6,7 @@ import img20 from "../../photos/img20.jpg";
 import imagesArray from "../../utils/images";
 import { useNavigate } from "react-router-dom";
 import Marquee from "react-fast-marquee";
-import getRandomElements from "../../utils/randomDataicker";
+import getRandomElements from "../../utils/randomDataPicker";
 
 const CarouselForHome = lazy(() =>
   import("../Home Components/CarouselForHome")

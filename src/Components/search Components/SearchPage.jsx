@@ -1,7 +1,6 @@
-import { Card, Col, Pagination, Row, Input } from "antd";
+import { Card, Col, Pagination, Row } from "antd";
 import Typography from "antd/es/typography";
 import { useEffect, useState } from "react";
-
 import "../../css/searchPage.css";
 import { users } from "../../utils/demoUsers";
 import SearchFliterDec from "./SearchFliterDec";
@@ -12,7 +11,7 @@ export default function SearchPage(props) {
   const { Text } = Typography;
   const [usersData, setUsersData] = useState([]);
   const [totalusers, setTotalUsers] = useState("");
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [usersPerPage] = useState(40);
 
   const [fliterData, setFilterData] = useState({
@@ -83,6 +82,7 @@ export default function SearchPage(props) {
   const indexOfFirstPage = indexOfLastPage - usersPerPage;
   const currebtusers = usersData.slice(indexOfFirstPage, indexOfLastPage);
 
+
   return (
     <div
       style={{
@@ -90,9 +90,7 @@ export default function SearchPage(props) {
         backgroundColor: darkMode ? "rgb(22, 57, 90)" : "   #f2f2f2",
       }}
     >
-      <Row
-        justify="space-around"
-      >
+      <Row justify="space-around">
         <Col xs={23} sm={23} md={23} lg={5} xl={5}>
           <SearchFliterDec
             fliterData={fliterData}
@@ -117,10 +115,10 @@ export default function SearchPage(props) {
             />
           </div>
         </Col>
-        <Col xs={23} sm={23} md={23} lg={19} xl={19}>
+        <Col xs={23} sm={23} md={23} lg={18} xl={18}>
           <Row justify="center">
-            {currebtusers.map((user) => (
-              <Col xs={24} sm={24} md={8} lg={8} xl={8} key={user.id}>
+            {currebtusers.map((user,index) => (
+              <Col xs={24} sm={24} md={8} lg={8} xl={8} key={index}>
                 <Card
                   hoverable
                   bordered={true}
@@ -132,7 +130,7 @@ export default function SearchPage(props) {
                   <Row justify="space-around">
                     <Col xs={6} sm={6} md={6} lg={6}>
                       <img
-                        src={user.img}
+                        src={user.thumbnail}
                         style={{
                           marginTop: "8px",
                           height: "auto",
@@ -143,13 +141,23 @@ export default function SearchPage(props) {
                       />
                     </Col>
                     <Col xs={16} sm={16} md={16} lg={16}>
-                      <Text className="font-for-user-cards">{user.name}</Text>
+                      <Text className="font-for-user-cards">
+                        {user.full_name}
+                      </Text>
                       <br />
-                      <Text className="font-for-user-cards">{user.work}</Text>
+                      <Text className="font-for-user-cards">
+                        {user.occupation}
+                      </Text>
                       <br />
                       <Text className="font-for-user-cards">{user.maslak}</Text>
                       <br />
-                      <Text className="font-for-user-cards">{user.age}</Text>
+                      <Text className="font-for-user-cards">
+                        {user.age}(
+                        {user.city_native === user.city_current
+                          ? user.city_native
+                          : `${user.city_native} _ ${user.city_current}`}
+                        )
+                      </Text>
                     </Col>
                     <Col xs={2} sm={2} md={2} lg={2}>
                       <p>NRI</p>

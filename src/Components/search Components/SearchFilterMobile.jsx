@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import { Col, Row, Input, Drawer,Form, Radio, Menu, Checkbox, Button } from "antd";
+import {
+  Col,
+  Row,
+  Input,
+  Drawer,
+  Form,
+  Radio,
+  Menu,
+  Checkbox,
+  Button,
+  Slider,
+} from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import {
-  ageGroupSelectList,
   biradariSlectBar,
   forGraduate,
   forMaritalStatus,
@@ -10,6 +20,30 @@ import {
   selectGenderList,
   states,
 } from "../../utils/searchFliter";
+
+const ageGroupSelectList = {
+  12: {
+    label: <p>18-21</p>,
+  },
+  28: {
+    label: <p>22-25</p>,
+  },
+  42: {
+    label: <p>26-29 </p>,
+  },
+  56: {
+    label: <p>30-33 </p>,
+  },
+  70: {
+    label: <p>34-40</p>,
+  },
+  85: {
+    label: <p>40+</p>,
+  },
+  100: {
+    label: <p>30+ Unmarried</p>,
+  },
+};
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -43,17 +77,22 @@ const SearchFilterMobile = (props) => {
   return (
     <>
       <div className="fliter-of-search-input-mobile">
-        <Input onClick={showDrawer} placeholder="Search" prefix={<SearchOutlined />} />
+        <Input
+          onClick={showDrawer}
+          placeholder="Search"
+          prefix={<SearchOutlined />}
+        />
       </div>
       <Drawer
         placement={"bottom"}
         width={500}
+        height={500}
         onClose={onClose}
         open={open}
       >
-         <Form layout="vertical">
+        <Form layout="vertical">
           <Row justify="start" style={{ marginLeft: "10px" }}>
-            <Col xs={24} sm={24} md={24}>
+            <Col xs={23} sm={23} md={23}>
               <Form.Item layout="vertical" label="Gender">
                 <Radio.Group
                   name="gender"
@@ -63,32 +102,16 @@ const SearchFilterMobile = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col  xs={24} sm={24} md={24}>
-              <Form.Item label="Age Group" key={994}>
-                <Checkbox.Group
-                  value={fliterData.agegroup}
-                  onChange={changeAgeGroup}
-                  style={{
-                    width: "100%",
-                  }}
-                >
-                  <Row>
-                    {ageGroupSelectList.map((g, index) => {
-                      return (
-                        <>
-                          <Col lg={12} xl={12} key={index}>
-                            <Checkbox Col={4}  value={g.value}>
-                              {g.label}
-                            </Checkbox>
-                          </Col>
-                        </>
-                      );
-                    })}
-                  </Row>
-                </Checkbox.Group>
+            <Col xs={24} sm={24} md={24}>
+              <Form.Item label="Age Group">
+                <Row>
+                  <Col xs={23} sm={23} md={23}>
+                    <Slider marks={ageGroupSelectList} step={null} />
+                  </Col>
+                </Row>
               </Form.Item>
             </Col>
-            <Col  xs={24} sm={24} md={24}>
+            <Col xs={24} sm={24} md={24}>
               <Form.Item>
                 <Menu
                   mode="inline"
@@ -104,13 +127,19 @@ const SearchFilterMobile = (props) => {
                             style={{
                               width: "100%",
                             }}
+                            key={2}
                           >
                             <Row>
                               {forGraduate.map((g, index) => {
                                 return (
                                   <>
-                                    <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                    <Col
+                                      xs={12}
+                                      sm={12}
+                                      md={12}
+                                      key={index.toString()}
+                                    >
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -130,9 +159,10 @@ const SearchFilterMobile = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col  xs={24} sm={24} md={24}>
+            <Col xs={24} sm={24} md={24}>
               <Form.Item>
                 <Menu
+                  style={{ width: "auto" }}
                   mode="inline"
                   items={[
                     getItem("Marital Status", null, null, [
@@ -145,13 +175,14 @@ const SearchFilterMobile = (props) => {
                             style={{
                               width: "100%",
                             }}
+                            key={3}
                           >
                             <Row>
                               {forMaritalStatus.map((g, index) => {
                                 return (
                                   <>
-                                    <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                    <Col xs={12} sm={12} md={12} key={index}>
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -171,8 +202,8 @@ const SearchFilterMobile = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col  xs={24} sm={24} md={24}>
-              <Form.Item >
+            <Col xs={24} sm={24} md={24}>
+              <Form.Item>
                 <Menu
                   mode="inline"
                   items={[
@@ -186,13 +217,19 @@ const SearchFilterMobile = (props) => {
                             style={{
                               width: "100%",
                             }}
+                            key={4}
                           >
                             <Row>
                               {biradariSlectBar.map((g, index) => {
                                 return (
                                   <>
-                                    <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                    <Col
+                                      xs={12}
+                                      sm={12}
+                                      md={12}
+                                      key={index.toString()}
+                                    >
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -212,7 +249,7 @@ const SearchFilterMobile = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col  xs={24} sm={24} md={24}>
+            <Col xs={24} sm={24} md={24}>
               <Form.Item>
                 <Menu
                   mode="inline"
@@ -227,13 +264,14 @@ const SearchFilterMobile = (props) => {
                             style={{
                               width: "100%",
                             }}
+                            key={5}
                           >
                             <Row>
                               {maslakSlectBar.map((g, index) => {
                                 return (
                                   <>
-                                    <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                    <Col xs={12} sm={12} md={12} key={index}>
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -253,8 +291,8 @@ const SearchFilterMobile = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col  xs={24} sm={24} md={24}>
-              <Form.Item >
+            <Col xs={24} sm={24} md={24}>
+              <Form.Item>
                 <Menu
                   mode="inline"
                   items={[
@@ -268,13 +306,19 @@ const SearchFilterMobile = (props) => {
                             style={{
                               width: "100%",
                             }}
+                            key={6}
                           >
                             <Row>
                               {states.map((g, index) => {
                                 return (
                                   <>
-                                    <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                    <Col
+                                      xs={12}
+                                      sm={12}
+                                      md={12}
+                                      key={index.toString()}
+                                    >
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -294,9 +338,11 @@ const SearchFilterMobile = (props) => {
                 />
               </Form.Item>
             </Col>
-            <Col  xs={24} sm={24} md={24}>
+            <Col xs={23} sm={23} md={23}>
               <div className="search-filter-mobile-btn-div">
-              <Button className="search-filter-mobile-btn" >Apply filter</Button>
+                <Button className="search-filter-mobile-btn">
+                  Apply filter
+                </Button>
               </div>
             </Col>
           </Row>
