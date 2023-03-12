@@ -1,8 +1,7 @@
-import { Col, Row, Form, Checkbox, Radio, Menu, Button } from "antd";
-// import { useEffect, useState } from "react";
+import { Col, Row, Form, Checkbox, Radio, Menu, Slider } from "antd";
+
 import "../../css/searchPage.css";
 import {
-  ageGroupSelectList,
   biradariSlectBar,
   forGraduate,
   forMaritalStatus,
@@ -10,6 +9,30 @@ import {
   selectGenderList,
   states,
 } from "../../utils/searchFliter";
+
+const ageGroupSelectList = {
+  12: {
+    label: <p>18-21</p>,
+  },
+  28: {
+    label: <p>22-25</p>,
+  },
+  42: {
+    label: <p>26-29 </p>,
+  },
+  56: {
+    label: <p>30-33 </p>,
+  },
+  70: {
+    label: <p>34-40</p>,
+  },
+  85: {
+    label: <p>40+</p>,
+  },
+  100: {
+    label: <p>30+ Unmarried</p>,
+  },
+};
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -22,8 +45,6 @@ function getItem(label, key, icon, children, type) {
 }
 
 export default function SearchFliter(props) {
-  // const [scroll, setScroll] = useState();
-  // const [clasNameSearch, setClassNameSearch] = useState("fliter-of-search-dek");
   const {
     fliterData,
     filterChanger,
@@ -34,21 +55,6 @@ export default function SearchFliter(props) {
     changeMatarnalstatus,
     changeState,
   } = props;
-  // const hadelScroll = () => {
-  //   const scrollPosition = window.scrollY;
-  //   setScroll(scrollPosition);
-  // };
-  // useEffect(() => {
-  //   hadelScroll();
-  //   const scrollPosEvent = window.addEventListener("scroll", hadelScroll);
-  //   console.log(scrollPosEvent);
-  //   if(scroll > 1710){
-  //     setClassNameSearch("fliter-of-search-dek-relativePos")
-  //   }else{
-  //     setClassNameSearch("fliter-of-search-dek")
-  //   }
-  // }, [scroll,clasNameSearch]);
-
 
   return (
     <>
@@ -58,7 +64,6 @@ export default function SearchFliter(props) {
             <Col lg={24} xl={24} xxl={24}>
               <Form.Item layout="vertical" label="Gender">
                 <Radio.Group
-                  key={99}
                   name="gender"
                   onChange={filterChanger}
                   value={fliterData.gender}
@@ -67,28 +72,12 @@ export default function SearchFliter(props) {
               </Form.Item>
             </Col>
             <Col lg={24} xl={24} xxl={24}>
-              <Form.Item label="Age Group" key={994}>
-                <Checkbox.Group
-                  value={fliterData.agegroup}
-                  onChange={changeAgeGroup}
-                  style={{
-                    width: "100%",
-                  }}
-                >
-                  <Row>
-                    {ageGroupSelectList.map((g, index) => {
-                      return (
-                        <>
-                          <Col lg={12} xl={12} key={index}>
-                            <Checkbox Col={4} value={g.value}>
-                              {g.label}
-                            </Checkbox>
-                          </Col>
-                        </>
-                      );
-                    })}
-                  </Row>
-                </Checkbox.Group>
+              <Form.Item label="Age Group">
+                <Row>
+                  <Col lg={22} xl={22} xxl={22}>
+                    <Slider marks={ageGroupSelectList} step={null} />
+                  </Col>
+                </Row>
               </Form.Item>
             </Col>
             <Col lg={24} xl={24} xxl={24}>
@@ -113,7 +102,7 @@ export default function SearchFliter(props) {
                                 return (
                                   <>
                                     <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -154,7 +143,7 @@ export default function SearchFliter(props) {
                                 return (
                                   <>
                                     <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -195,7 +184,7 @@ export default function SearchFliter(props) {
                                 return (
                                   <>
                                     <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -236,7 +225,7 @@ export default function SearchFliter(props) {
                                 return (
                                   <>
                                     <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -277,7 +266,7 @@ export default function SearchFliter(props) {
                                 return (
                                   <>
                                     <Col lg={12} xl={12} key={index}>
-                                      <Checkbox Col={4} value={g.value}>
+                                      <Checkbox value={g.value}>
                                         {g.label}
                                       </Checkbox>
                                     </Col>
@@ -296,11 +285,6 @@ export default function SearchFliter(props) {
                   ]}
                 />
               </Form.Item>
-            </Col>
-            <Col xs={24} sm={24} md={24}>
-              <div className="search-filter-dec-btn-div">
-                <Button className="search-filter-dec-btn">Apply filter</Button>
-              </div>
             </Col>
           </Row>
         </Form>
