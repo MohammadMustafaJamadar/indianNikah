@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../css/userProfilePage.css";
-import ReCAPTCHA from "react-google-recaptcha";
-import { Button, Card, Checkbox, Col, Modal, Row, Typography } from "antd";
+import {
+  Button,
+  Card,
+  Checkbox,
+  Col,
+  Input,
+  message,
+  Modal,
+  Row,
+  Typography,
+} from "antd";
 import {
   DownloadOutlined,
   InfoCircleFilled,
@@ -12,6 +21,8 @@ import {
   InfoCircleOutlined,
   DeleteOutlined,
   WhatsAppOutlined,
+  RedoOutlined,
+  CheckCircleTwoTone,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { Alert } from "antd";
@@ -23,7 +34,11 @@ export default function UserProfilePage(props) {
   const { darkMode, colors } = props;
   const [modalOpen, setModalOpen] = useState(false);
   const [checkbox, setCheckBox] = useState();
-  const [disabledCheckBox,setDisabledCheckBox]=useState(true)
+  const [disabledcontinue, setDisabledcontinue] = useState(true);
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+  const [captchaTotal, setCaptchaTotal] = useState();
+  const [errMessege, setErrMessege] = useState("");
   const styles = {
     backGroundColor: {
       backgroundColor: darkMode ? "#16395A" : "white",
@@ -41,6 +56,10 @@ export default function UserProfilePage(props) {
         : "linear-gradient(332deg, rgba(223,55,61,1) 21%, rgba(223,55,104,1) 83%)",
     },
   };
+
+  useEffect(() => {
+    getTwoRandomNumbers();
+  }, []);
 
   const navigateUser = useNavigate();
   const handleEdit = () => {
@@ -67,11 +86,32 @@ export default function UserProfilePage(props) {
     setCheckBox(e.target.checked);
   };
 
-  const changeReChaptcha = (value)=>{
-    if(value){
-setDisabledCheckBox(false)
+  const getTwoRandomNumbers = () => {
+    const num1 = Math.floor(Math.random() * 100);
+    const num2 = Math.floor(Math.random() * 100);
+    setNum1(num1);
+    setNum2(num2);
+  };
+
+  const changeCaptcha = (e) => {
+    let result = +e.target.value;
+
+    setCaptchaTotal(result);
+  };
+
+  const handleCaptcha = (e) => {
+    console.log(captchaTotal);
+    e.preventDefault();
+    const total = num1 + num2;
+    if (captchaTotal === total) {
+      setDisabledcontinue(false);
+      setErrMessege("");
+    } else {
+      getTwoRandomNumbers();
+      setErrMessege("Invalid CAPTCHA Please try again.");
+      setCaptchaTotal(null)
     }
-  }
+  };
   return (
     <div style={styles.backGroundColor}>
       <div>
@@ -352,7 +392,7 @@ setDisabledCheckBox(false)
                   <WhatsAppOutlined />
                 </Button>
                 <Modal
-                  okButtonProps={{ disabled: !checkbox }}
+                  okButtonProps={{ disabled: disabledcontinue }}
                   onOk={handleContinue}
                   okText={<span>Continue</span>}
                   title={
@@ -440,7 +480,6 @@ setDisabledCheckBox(false)
                         defaultChecked={false}
                         onChange={handleCheckBox}
                         checked={checkbox}
-                        disabled={disabledCheckBox}
                       >
                         I agree to follow all above,मैं ऊपर की सभी बातों पर अमल
                         करूंगा
@@ -448,13 +487,35 @@ setDisabledCheckBox(false)
                     </Col>
                   </Row>
                   <Row justify="start">
-                    <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24}>
-                      {" "}
-                      <ReCAPTCHA
-                        size="compact"
-                        sitekey="6Le2I_YkAAAAAO5hWVC5MJVrmTHfrKqpgOD-r5n9"
-                        onChange={changeReChaptcha}
-                      />
+                    <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24} style={{margin:'10px  0'}}>
+                      <span style={{ border: "1px solid", padding: "3px" }}>
+                        {num1} + {num2} = ?
+                      </span>{" "}
+                      <Input
+                        type="text"
+                        value={captchaTotal}
+                        onChange={changeCaptcha}
+                        style={{ width: "70px" }}
+                      />{" "}
+                      {disabledcontinue ? (
+                        <RedoOutlined
+                          onClick={getTwoRandomNumbers}
+                          style={{ fontSize: "18px" }}
+                        />
+                      ) : (
+                        <CheckCircleTwoTone style={{ fontSize: "20px" }} />
+                      )}{" "}
+                      <Button
+                        disabled={!checkbox}
+                        style={{ marginLeft: "10px" }}
+                        type="primary"
+                        danger
+                        onClick={handleCaptcha}
+                      >
+                        Submit
+                      </Button>
+                      <br />
+                      <span style={{ color: "red" }}>{errMessege}</span>
                     </Col>
                   </Row>
                 </Modal>
