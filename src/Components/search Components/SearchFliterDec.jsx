@@ -11,27 +11,12 @@ import {
 } from "../../utils/searchFliter";
 
 const ageGroupSelectList = {
-  12: {
-    label: <p>18-21</p>,
-  },
-  28: {
-    label: <p>22-25</p>,
-  },
-  42: {
-    label: <p>26-29 </p>,
-  },
-  56: {
-    label: <p>30-33 </p>,
-  },
-  70: {
-    label: <p>34-40</p>,
-  },
-  85: {
-    label: <p>40+</p>,
-  },
-  100: {
-    label: <p>30+ Unmarried</p>,
-  },
+  16:"18-21",
+  32:"22-25",
+  48:  "26-29",
+  64: "30-33",
+  80: "34-40",
+  100: "40+",
 };
 
 function getItem(label, key, icon, children, type) {
@@ -55,7 +40,10 @@ export default function SearchFliter(props) {
     changeMatarnalstatus,
     changeState,
   } = props;
-
+  const ageGroupChanger = (value) => {
+    const newValue = ageGroupSelectList[value]
+    changeAgeGroup(newValue)
+  };
   return (
     <>
       <div className="fliter-of-search-dek">
@@ -75,7 +63,11 @@ export default function SearchFliter(props) {
               <Form.Item label="Age Group">
                 <Row>
                   <Col lg={22} xl={22} xxl={22}>
-                    <Slider marks={ageGroupSelectList} step={null} />
+                    <Slider
+                      marks={ageGroupSelectList}
+                      step={null}
+                      onChange={ageGroupChanger}
+                    />
                   </Col>
                 </Row>
               </Form.Item>

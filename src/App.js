@@ -11,19 +11,19 @@ import ScrollTopButton from "./Components/Pages/ScrollTopButton";
 import SearchPage from "./Components/search Components/SearchPage";
 import CategoriesPage from "./Components/Categories Component/CategoriesPage";
 import QuranAndHadith from "./Components/Pages/QuranAndHadith";
-// import axios from "axios";
+import axios from "axios";
 import JobSupport from "./Components/Pages/JobSupport";
 import ScholarshipsSupport from "./Components/Pages/ScholarshipsSupport";
 import ScholarshipsDetails from "./Components/Pages/ScholarshipsDetails";
 
-// const fetchUserData = async () => {
-//   const url = `https://www.indianikah.com/profiles/api/list/`;
-//   try {
-//     return await axios.get(url);
-//   } catch (error) {
-//     if (error) throw error;
-//   }
-// };
+const fetchUserData = async () => {
+  const url = `https://www.indianikah.com/profiles/api/list/`;
+  try {
+    return await axios.get(url);
+  } catch (error) {
+    if (error) throw error;
+  }
+};
 
 function App() {
   const [colors, setColors] = useState({
@@ -32,16 +32,18 @@ function App() {
     purple: false,
     darkMode: false,
   });
-  // useEffect(() => {
-  //   fetchUserData()
-  //     .then(async (res) => {
-  //       const userInfo = await res.data;
-  //       console.log(userInfo);
-  //     })
-  //     .catch((err) => {
-  //       if (err) throw err;
-  //     });
-  // }, []);
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    fetchUserData()
+      .then(async (res) => {
+        const userInfo = await res.data.results;
+        setUserData(userInfo)
+      })
+      .catch((err) => {
+        if (err) throw err;
+      });
+  }, []);
   return (
     <>
       <Router>
@@ -52,7 +54,7 @@ function App() {
           </Route>
           <Route element={<MarraigeGuideliness />} path="guidelines/r/"></Route>
           <Route
-            element={<SearchPage darkMode={colors.darkMode} />}
+            element={<SearchPage darkMode={colors.darkMode} userData={userData} />}
             path="/profiles/"
           ></Route>
           <Route

@@ -1,10 +1,10 @@
 const selectGenderList = [
   {
-    value: "Male",
+    value: "ML",
     label: "Male",
   },
   {
-    value: "Female",
+    value: "FM",
     label: "Female",
   },
 ];

@@ -1,6 +1,26 @@
 .font-for-user-cards {
-  font-family: Roboto, sans-serif;
-  font-weight: 300;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 80%;
+}
+.user-image {
+  margin-top: 8px;
+  height: 80px;
+  width:  80px;
+}
+
+@media screen and (max-width: 400px) {
+  .users-card-detail-div {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .user-image {
+    margin-top: 8px;
+    height: 80px;
+    width:  70px;
+  }
 }
 
 .pagination {
@@ -105,8 +125,6 @@
   background-color: white;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
   width: auto;
-
-  
 }
 
 .fliter-of-search-input-mobile {
@@ -126,7 +144,7 @@
   color: white !important;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .fliter-of-search-dek {
     display: none;
   }
