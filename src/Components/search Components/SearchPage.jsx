@@ -6,14 +6,19 @@ import SearchFliterDec from "./SearchFliterDec";
 import SearchFilterMobile from "./SearchFilterMobile";
 import manimg from "../../images/man.jpg";
 import womanimg from "../../images/woman.jpg";
+import {
+  fetchUserData,
+  NextUsersData,
+  PrevUsersData,
+} from "../../utils/searchPageApis";
 
 export default function SearchPage(props) {
-  const { darkMode, userData } = props;
+  const { darkMode } = props;
   const { Text } = Typography;
   const [usersData, setUsersData] = useState([]);
   const [totalusers, setTotalUsers] = useState("");
   const [page, setPage] = useState(0);
-  const [usersPerPage] = useState(40);
+  const [usersPerPage] = useState(20);
   const [fliterData, setFilterData] = useState({
     gender: "all",
     agegroup: "",
@@ -24,17 +29,34 @@ export default function SearchPage(props) {
     state: [],
   });
   const [filteredUserData, setFilteredUserData] = useState([]);
+  const [prevPageNumber, setPrevPageNumber] = useState(0);
 
   useEffect(() => {
-    let isCancelled = false;
-    if (!isCancelled) {
-      setUsersData(userData);
-      setTotalUsers(userData.length);
+    fetchUserData().then((res) => {
+      console.log("data in askljsldk", res);
+      setTotalUsers(res.data.count);
+      setUsersData(res.data.results);
+    });
+  }, []);
+  const changePage = (value) => {
+    setPrevPageNumber(page);
+    if (value > prevPageNumber) {
+      setPage(value);
+      NextUsersData(value)
+        .then((res) => {
+          console.log("res",res)
+          setUsersData(res.data.results);
+        })
+        .catch(console.log);
+    } else {
+      setPage(value);
+      PrevUsersData(value)
+        .then((res) => {
+          setUsersData(res.data.results);
+        })
+        .catch(console.log);
     }
-    return () => {
-      isCancelled = true;
-    };
-  }, [userData, totalusers]);
+  };
 
   useEffect(() => {
     if (
@@ -213,10 +235,10 @@ export default function SearchPage(props) {
       </Row>
       <div className="pagination">
         <Pagination
-          pageSize={usersPerPage}
+          showSizeChanger={false}
           total={totalusers}
           current={page}
-          onChange={(value) => setPage(value)}
+          onChange={changePage}
         />
       </div>
     </div>
