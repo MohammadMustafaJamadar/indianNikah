@@ -40,18 +40,18 @@ export default function SearchPage(props) {
   }, []);
   const changePage = (value) => {
     setPrevPageNumber(page);
+    setPage(value);
     if (value > prevPageNumber) {
-      setPage(value);
       NextUsersData(value)
         .then((res) => {
-          console.log("res",res)
+          console.log("res", res);
           setUsersData(res.data.results);
         })
         .catch(console.log);
-    } else {
-      setPage(value);
+    } else if (value < prevPageNumber) {
       PrevUsersData(value)
         .then((res) => {
+          // console.log()
           setUsersData(res.data.results);
         })
         .catch(console.log);
@@ -235,6 +235,7 @@ export default function SearchPage(props) {
       </Row>
       <div className="pagination">
         <Pagination
+        defaultCurrent={1}
           showSizeChanger={false}
           total={totalusers}
           current={page}

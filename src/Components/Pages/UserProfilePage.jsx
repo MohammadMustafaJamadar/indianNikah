@@ -31,6 +31,7 @@ import { userData } from "../../utils/demoUsers";
 
 const { Text, Title } = Typography;
 export default function UserProfilePage(props) {
+
   const { darkMode, colors } = props;
   const [modalOpen, setModalOpen] = useState(false);
   const [checkbox, setCheckBox] = useState();
@@ -109,7 +110,7 @@ export default function UserProfilePage(props) {
     } else {
       getTwoRandomNumbers();
       setErrMessege("Invalid CAPTCHA Please try again.");
-      setCaptchaTotal(null)
+      setCaptchaTotal(null);
     }
   };
   return (
@@ -487,7 +488,15 @@ export default function UserProfilePage(props) {
                     </Col>
                   </Row>
                   <Row justify="start">
-                    <Col xs={24} sm={24} md={24} lg={24} xl={24} xxl={24} style={{margin:'10px  0'}}>
+                    <Col
+                      xs={24}
+                      sm={24}
+                      md={24}
+                      lg={24}
+                      xl={24}
+                      xxl={24}
+                      style={{ margin: "10px  0" }}
+                    >
                       <span style={{ border: "1px solid", padding: "3px" }}>
                         {num1} + {num2} = ?
                       </span>{" "}
