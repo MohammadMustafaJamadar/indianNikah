@@ -1,6 +1,6 @@
 import React from "react";
 import { Drawer, Typography, Dropdown, Button } from "antd";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   UserOutlined,
   HeartOutlined,
@@ -14,13 +14,15 @@ import {
   FileTextOutlined,
   DownOutlined,
   LoginOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 import "../../css/navbar.css";
 
 const { Text, Title } = Typography;
 
 export default function MobilNav(props) {
-  const { handelNavClose, darkMode, open,  } = props;
+  const { handelNavClose, darkMode, open, navigateUser_Login, isUserLoggedIn } =
+    props;
   const items = [
     {
       key: "1",
@@ -48,8 +50,6 @@ export default function MobilNav(props) {
     },
   ];
 
-  const navigateUser = useNavigate();
-
   const styles = {
     darkModes: {
       darkText: { color: darkMode ? "white" : "black" },
@@ -66,10 +66,6 @@ export default function MobilNav(props) {
       alignItems: "flex-start",
       marginLeft: "-46px",
     },
-  };
-
-  const navigateUser_Login = () => {
-    navigateUser("accounts/login/");
   };
 
   return (
@@ -219,8 +215,17 @@ export default function MobilNav(props) {
                     className="login-logout-btn-mobnav-6"
                     onClick={navigateUser_Login}
                   >
-                    <LoginOutlined />
-                    Login
+                    {isUserLoggedIn ? (
+                      <>
+                        Logout {"  "}
+                        <LogoutOutlined />
+                      </>
+                    ) : (
+                      <>
+                        <LoginOutlined />
+                        Login 
+                      </>
+                    )}
                   </Button>
                 </li>
               </ul>

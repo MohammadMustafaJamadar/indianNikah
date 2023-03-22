@@ -11,9 +11,10 @@ import {
   NextUsersData,
   PrevUsersData,
 } from "../../utils/searchPageApis";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchPage(props) {
-  const { darkMode } = props;
+  const { darkMode, setUser, isUserLoggedIn, setDocumentTitle } = props;
   const { Text } = Typography;
   const [usersData, setUsersData] = useState([]);
   const [totalusers, setTotalUsers] = useState("");
@@ -30,10 +31,10 @@ export default function SearchPage(props) {
   });
   const [filteredUserData, setFilteredUserData] = useState([]);
   const [prevPageNumber, setPrevPageNumber] = useState(0);
+  const navigate_User = useNavigate();
 
   useEffect(() => {
     fetchUserData().then((res) => {
-      console.log("data in askljsldk", res);
       setTotalUsers(res.data.count);
       setUsersData(res.data.results);
     });
@@ -44,14 +45,12 @@ export default function SearchPage(props) {
     if (value > prevPageNumber) {
       NextUsersData(value)
         .then((res) => {
-          console.log("res", res);
           setUsersData(res.data.results);
         })
         .catch(console.log);
     } else if (value < prevPageNumber) {
       PrevUsersData(value)
         .then((res) => {
-          // console.log()
           setUsersData(res.data.results);
         })
         .catch(console.log);
@@ -139,7 +138,6 @@ export default function SearchPage(props) {
     indexOfFirstPage,
     indexOfLastPage
   );
-  console.log(usersData);
 
   return (
     <div
@@ -175,8 +173,15 @@ export default function SearchPage(props) {
         </Col>
         <Col xs={23} sm={23} md={23} lg={18} xl={18}>
           <Row justify="center">
-            {currebtusers.map((user, index) => (
-              <Col xs={24} sm={24} md={10} lg={10} xl={8} key={index}>
+            {currebtusers.map((user) => (
+              <Col
+                xs={24}
+                sm={24}
+                md={12}
+                lg={10}
+                xl={8}
+                key={user.profile_code}
+              >
                 <Card
                   hoverable
                   bordered={true}
@@ -184,6 +189,16 @@ export default function SearchPage(props) {
                     darkMode ? "card-userInfo-darkTheme" : "card-userInfo"
                   }
                   size="small"
+                  onClick={() => {
+                    if (isUserLoggedIn) {
+                      setUser(user);
+                      navigate_User(`/profiles/${user.slug}`);
+                      setDocumentTitle(`${user.full_name}-India Nikah`);
+                    } else {
+                      navigate_User("/accounts/login/");
+                      setDocumentTitle("Auth");
+                    }
+                  }}
                 >
                   <Row justify="space-around">
                     <Col xs={6} sm={6} md={6} lg={6} xl={6}>
@@ -235,7 +250,7 @@ export default function SearchPage(props) {
       </Row>
       <div className="pagination">
         <Pagination
-        defaultCurrent={1}
+          defaultCurrent={1}
           showSizeChanger={false}
           total={totalusers}
           current={page}

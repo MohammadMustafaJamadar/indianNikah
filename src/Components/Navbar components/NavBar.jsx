@@ -2,7 +2,12 @@ import React, { lazy, Suspense } from "react";
 import { Button, Dropdown } from "antd";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { MenuOutlined, UserOutlined, LoginOutlined } from "@ant-design/icons";
+import {
+  MenuOutlined,
+  UserOutlined,
+  LoginOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
 import logo from "../../images/indiaNikahLogo.png";
 import moon from "../../images/moon.png";
 import sun from "../../images/sun.png";
@@ -11,7 +16,7 @@ const DekstopNavbar = lazy(() => import("./DekstopNavbar"));
 const MobilNav = lazy(() => import("./MobilNav"));
 
 export default function NavBar(props) {
-  const { setColors, colors } = props;
+  const { setColors, colors, setIsUserLoggedIn, isUserLoggedIn } = props;
   const [open, setOpen] = useState(false);
   const navigateUser = useNavigate();
 
@@ -58,7 +63,7 @@ export default function NavBar(props) {
         <Button
           shape="circle"
           onClick={setGreenTheme}
-          style={{ backgroundColor: "#48BA78" }}
+          style={{ backgroundColor: colors.green ? "#df3768" : "#48BA78" }}
         />
       ),
       key: 1,
@@ -68,7 +73,7 @@ export default function NavBar(props) {
         <Button
           shape="circle"
           onClick={setBlueTheme}
-          style={{ backgroundColor: "#4D8FF6" }}
+          style={{ backgroundColor: colors.blue ? "#df3768" : "#4D8FF6" }}
         />
       ),
       key: 2,
@@ -78,7 +83,7 @@ export default function NavBar(props) {
         <Button
           shape="circle"
           onClick={setPurpleTheme}
-          style={{ backgroundColor: "#9F7AEB" }}
+          style={{ backgroundColor: colors.purple ? "#df3768" : "#9F7AEB" }}
         />
       ),
       key: 3,
@@ -125,11 +130,15 @@ export default function NavBar(props) {
   };
 
   const navigateUser_myProfile = () => {
-    navigateUser("/profile/my-profile/");
+    navigateUser("/profiles/my-profile/");
   };
 
   const navigateUser_Login = () => {
-    navigateUser("accounts/login/");
+    if (!isUserLoggedIn) {
+      setIsUserLoggedIn(true);
+    } else {
+      setIsUserLoggedIn(false);
+    }
   };
 
   return (
@@ -169,8 +178,17 @@ export default function NavBar(props) {
             className="login-logout-btn-6"
             onClick={navigateUser_Login}
           >
-            <LoginOutlined />
-            Login
+            {isUserLoggedIn ? (
+              <>
+                Logout {" "}
+                <LogoutOutlined />
+              </>
+            ) : (
+              <>
+                <LoginOutlined />
+                Login
+              </>
+            )}
           </Button>
         </div>
         <div>
@@ -191,6 +209,8 @@ export default function NavBar(props) {
               darkMode={colors.darkMode}
               open={open}
               openNav={openNav}
+              navigateUser_Login={navigateUser_Login}
+              isUserLoggedIn={isUserLoggedIn}
             />
           </Suspense>
         </div>

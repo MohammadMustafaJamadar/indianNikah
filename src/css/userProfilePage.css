@@ -145,3 +145,7 @@ div:where(.css-dev-only-do-not-override-j0nf2s).ant-typography-h4 > textarea,
 .ant-modal-footer .ant-btn-default:hover:not([disabled]) {
   color: white;
 }
+
+.perticular-user-img{
+  height: 150px !important;
+}

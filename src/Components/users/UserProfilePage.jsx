@@ -6,7 +6,6 @@ import {
   Checkbox,
   Col,
   Input,
-  message,
   Modal,
   Row,
   Typography,
@@ -31,8 +30,7 @@ import { userData } from "../../utils/demoUsers";
 
 const { Text, Title } = Typography;
 export default function UserProfilePage(props) {
-
-  const { darkMode, colors } = props;
+  const { darkMode, colors, isUserLoggedIn } = props;
   const [modalOpen, setModalOpen] = useState(false);
   const [checkbox, setCheckBox] = useState();
   const [disabledcontinue, setDisabledcontinue] = useState(true);
@@ -113,6 +111,13 @@ export default function UserProfilePage(props) {
       setCaptchaTotal(null);
     }
   };
+  useEffect(() => {
+    if (!isUserLoggedIn) {
+      navigateUser("../../accounts/login/");
+    }else{
+      navigateUser('/profiles/my-profile')
+    }
+  }, [isUserLoggedIn, navigateUser]);
   return (
     <div style={styles.backGroundColor}>
       <div>
@@ -159,13 +164,25 @@ export default function UserProfilePage(props) {
           {userData.photo_1 || userData.photo_2 || userData.photo_3 ? (
             <>
               {userData.photo_1 ? (
-                <img src={userData.photo_1} alt="Not 1 available....!" />
+                <img
+                  className="perticular-user-img"
+                  src={userData.photo_1}
+                  alt="Not 1 available....!"
+                />
               ) : null}
               {userData.photo_2 ? (
-                <img src={userData.photo_2} alt="Not 2 available....!" />
+                <img
+                  className="perticular-user-img"
+                  src={userData.photo_2}
+                  alt="Not 2 available....!"
+                />
               ) : null}
               {userData.photo_3 ? (
-                <img src={userData.photo_3} alt="Not 3 available....!" />
+                <img
+                  className="perticular-user-img"
+                  src={userData.photo_3}
+                  alt="Not 3 available....!"
+                />
               ) : null}
             </>
           ) : (
